@@ -91,7 +91,7 @@ class Client:
 
             yield message_string
 
-    async def login(self):
+    async def login(self) -> None:
         """Login."""
         await self.read("Password: ")
         full_command = f"{self.password}\n"

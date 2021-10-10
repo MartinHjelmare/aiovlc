@@ -41,8 +41,8 @@ def client(password: str, host: str, port: int) -> None:
 
     async def client_factory() -> Client:
         """Return a client."""
-        client = Client(password, host=host, port=port)
-        return client
+        vlc_client = Client(password, host=host, port=port)
+        return vlc_client
 
     run_client(client_factory)
 
@@ -60,20 +60,20 @@ def run_client(client_factory: ClientFactory) -> None:
 
 async def start_client(client_factory: ClientFactory) -> None:
     """Start the client."""
-    client = await client_factory()
+    vlc_client = await client_factory()
 
-    async with client:
+    async with vlc_client:
         while True:
             try:
-                await handle_client(client)
+                await handle_client(vlc_client)
             except AIOVLCError as err:
                 LOGGER.error("Error '%s'", err)
                 break
 
 
-async def handle_client(client: Client) -> None:
+async def handle_client(vlc_client: Client) -> None:
     """Handle the client calls."""
-    await client.login()
+    await vlc_client.login()
 
-    async for msg in client.listen():  # pragma: no cover
+    async for msg in vlc_client.listen():  # pragma: no cover
         LOGGER.debug("Received: %s", msg)
