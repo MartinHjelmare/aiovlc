@@ -2,11 +2,13 @@
 from __future__ import annotations
 
 import asyncio
+import re
 from types import TracebackType
 from typing import AsyncGenerator
 
 from .const import LOGGER
 from .exceptions import AuthError, CommandError, ConnectError, ConnectReadError
+from .model.command import Command, CommandOutput
 
 IAC = bytes([255])  # "Interpret As Command"
 TERMINATOR = "\n"
@@ -109,3 +111,20 @@ class Client:
             return
         # Read until prompt
         await self.read("> ")
+
+    async def send_command(self, command: Command) -> CommandOutput | None:
+        """Send a command and return the output."""
+        full_command = command.build_command()
+        LOGGER.debug("Sending command: %s", full_command)
+        await self.write(full_command)
+        command_output = (await self.read("> ")).split("\r\n")
+        LOGGER.debug("Command output: %s", command_output)
+        if command_output:
+            if re.match(
+                r"Unknown command `.*'\. Type `help' for help\.", command_output[0]
+            ):
+                raise CommandError("Unknown Command")
+            if command_error := re.match(r"Error in.*", command_output[0]):
+                raise CommandError(command_error.group())
+
+        return command.parse_output(command_output)
