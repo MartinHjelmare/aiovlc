@@ -4,11 +4,9 @@ from __future__ import annotations
 import asyncio
 import re
 from types import TracebackType
-from typing import AsyncGenerator
 
 from .const import LOGGER
 from .exceptions import AuthError, CommandError, ConnectError, ConnectReadError
-from .model.command import Command, CommandOutput
 
 IAC = bytes([255])  # "Interpret As Command"
 TERMINATOR = "\n"
@@ -86,18 +84,11 @@ class Client:
         except OSError as err:
             raise ConnectError(f"Failed to write: {err}") from err
 
-    async def listen(self) -> AsyncGenerator[str, None]:
-        """Listen and yield a message."""
-        while True:
-            message_string = await self.read()
-
-            yield message_string
-
     async def login(self) -> None:
         """Login."""
         await self.read("Password: ")
-        full_command = f"{self.password}\n"
-        await self.write(full_command)
+        command_string = f"{self.password}\n"
+        await self.write(command_string)
         for _ in range(2):
             command_output = (await self.read("\n")).strip("\r\n")
             if command_output:  # discard empty line once.
@@ -112,12 +103,11 @@ class Client:
         # Read until prompt
         await self.read("> ")
 
-    async def send_command(self, command: Command) -> CommandOutput | None:
+    async def send_command(self, command_string: str) -> list[str]:
         """Send a command and return the output."""
-        full_command = command.build_command()
-        LOGGER.debug("Sending command: %s", full_command)
-        await self.write(full_command)
-        command_output = (await self.read("> ")).split("\r\n")
+        LOGGER.debug("Sending command: %s", command_string.strip())
+        await self.write(command_string)
+        command_output = (await self.read("> ")).split("\r\n")[:-1]
         LOGGER.debug("Command output: %s", command_output)
         if command_output:
             if re.match(
@@ -127,4 +117,4 @@ class Client:
             if command_error := re.match(r"Error in.*", command_output[0]):
                 raise CommandError(command_error.group())
 
-        return command.parse_output(command_output)
+        return command_output
