@@ -104,9 +104,7 @@ class Client:
         if "wrong password" in parsed_output:
             raise AuthError("Failed to login to VLC.")
         if "welcome" not in parsed_output:
-            raise CommandError(
-                "Unexpected password response: {}".format(command_output)
-            )
+            raise CommandError(f"Unexpected password response: {command_output}")
         if "> " in command_output:
             return
         # Read until prompt
