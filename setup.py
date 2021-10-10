@@ -10,7 +10,9 @@ README_FILE = PROJECT_DIR / "README.md"
 LONG_DESCRIPTION = README_FILE.read_text(encoding="utf-8")
 VERSION = (PROJECT_DIR / "aiovlc" / "VERSION").read_text().strip()
 
-REQUIRES = []
+REQUIRES = [
+    "click",
+]
 
 setup(
     name="aiovlc",
@@ -27,6 +29,7 @@ setup(
     long_description_content_type="text/markdown",
     python_requires=">=3.8",
     install_requires=REQUIRES,
+    entry_points={"console_scripts": ["aiovlc = aiovlc.cli:cli"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
