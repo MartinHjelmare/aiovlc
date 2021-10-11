@@ -30,3 +30,7 @@ class AuthError(AIOVLCError):
 
 class CommandError(AIOVLCError):
     """Represent a command error."""
+
+
+class CommandParseError(CommandError):
+    """Represent an error when parsing the command output."""
