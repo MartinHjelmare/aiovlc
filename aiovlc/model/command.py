@@ -92,8 +92,7 @@ class GetLength(Command[GetLengthOutput]):
         try:
             if not (length_string := output[0]):
                 return GetLengthOutput(length=0)
-            else:
-                length = int(length_string)
+            length = int(length_string)
         except (IndexError, ValueError) as err:
             raise CommandParseError("Could not get length.") from err
         return GetLengthOutput(length=length)
@@ -117,8 +116,7 @@ class GetTime(Command[GetTimeOutput]):
         try:
             if not (time_string := output[0]):
                 return GetTimeOutput(time=0)
-            else:
-                time = int(time_string)
+            time = int(time_string)
         except (IndexError, ValueError) as err:
             raise CommandParseError("Could not get time.") from err
         return GetTimeOutput(time=time)
