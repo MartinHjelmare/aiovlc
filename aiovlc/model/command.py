@@ -1,25 +1,28 @@
 """Provide commands for aiovlc."""
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import TYPE_CHECKING, cast
+from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Generic, TypeVar, cast
 
 from ..exceptions import CommandParseError
 
 if TYPE_CHECKING:
     from ..client import Client
 
+T = TypeVar("T")
 
-class Command:
+
+@dataclass
+class Command(Generic[T]):
     """Represent a VLC command."""
 
-    prefix: str
+    prefix: str = field(init=False)
 
-    async def send(self, client: Client) -> CommandOutput | None:
+    async def send(self, client: Client) -> T | None:
         """Send the command."""
         return await self._send(client)
 
-    async def _send(self, client: Client) -> CommandOutput | None:
+    async def _send(self, client: Client) -> T | None:
         """Send the command."""
         output = await client.send_command(self.build_command())
         return self.parse_output(output)
@@ -28,7 +31,7 @@ class Command:
         """Return the full command string."""
         return f"{self.prefix}\n"
 
-    def parse_output(self, output: list[str]) -> CommandOutput | None:
+    def parse_output(self, output: list[str]) -> T | None:
         """Parse command output."""
         # pylint: disable=no-self-use, unused-argument
         return None
@@ -37,6 +40,18 @@ class Command:
 @dataclass
 class CommandOutput:
     """Represent a command output."""
+
+
+@dataclass
+class AddCommand(Command[None]):
+    """Represent the add command."""
+
+    prefix = "add"
+    playlist_item: str
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        return f"{self.prefix} {self.playlist_item}\n"
 
 
 class StatusCommand(Command):
