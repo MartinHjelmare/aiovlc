@@ -75,6 +75,31 @@ class Enqueue(Command[None]):
 
 
 @dataclass
+class GetLengthOutput(CommandOutput):
+    """Represent the get length command output."""
+
+    length: int
+
+
+@dataclass
+class GetLength(Command[GetLengthOutput]):
+    """Represent the get length command."""
+
+    prefix = "get_length"
+
+    def parse_output(self, output: list[str]) -> GetLengthOutput:
+        """Parse command output."""
+        try:
+            if not (length_string := output[0]):
+                return GetLengthOutput(length=0)
+            else:
+                length = int(length_string)
+        except (IndexError, ValueError) as err:
+            raise CommandParseError("Could not get length.") from err
+        return GetLengthOutput(length=length)
+
+
+@dataclass
 class GetTimeOutput(CommandOutput):
     """Represent the get time command output."""
 
