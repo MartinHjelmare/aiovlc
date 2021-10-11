@@ -75,6 +75,31 @@ class Enqueue(Command[None]):
 
 
 @dataclass
+class GetTimeOutput(CommandOutput):
+    """Represent the get time command output."""
+
+    time: int
+
+
+@dataclass
+class GetTime(Command[GetTimeOutput]):
+    """Represent the get time command."""
+
+    prefix = "get_time"
+
+    def parse_output(self, output: list[str]) -> GetTimeOutput:
+        """Parse command output."""
+        try:
+            if not (time_string := output[0]):
+                return GetTimeOutput(time=0)
+            else:
+                time = int(time_string)
+        except (IndexError, ValueError) as err:
+            raise CommandParseError("Could not get time.") from err
+        return GetTimeOutput(time=time)
+
+
+@dataclass
 class Next(Command[None]):
     """Represent the next command."""
 
@@ -167,7 +192,7 @@ class Stop(Command[None]):
 
 @dataclass
 class VolumeOutput(CommandOutput):
-    """Represent the status command output."""
+    """Represent the volume command output."""
 
     audio_volume: int
 
