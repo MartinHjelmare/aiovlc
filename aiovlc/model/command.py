@@ -163,3 +163,40 @@ class Stop(Command[None]):
     """Represent the stop command."""
 
     prefix = "stop"
+
+
+@dataclass
+class VolumeOutput(CommandOutput):
+    """Represent the status command output."""
+
+    audio_volume: int
+
+
+@dataclass
+class Volume(Command[VolumeOutput]):
+    """Represent the volume command."""
+
+    prefix = "volume"
+
+    def parse_output(self, output: list[str]) -> VolumeOutput:
+        """Parse command output."""
+        try:
+            audio_volume = int(output[0])
+        except (IndexError, ValueError) as err:
+            raise CommandParseError("Could not get volume.") from err
+        return VolumeOutput(audio_volume=audio_volume)
+
+
+@dataclass
+class SetVolume(Command[None]):
+    """Represent the set volume command."""
+
+    prefix = "volume"
+    volume: int
+    VALID_VOLUME = range(500)
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        if self.volume not in self.VALID_VOLUME:
+            raise CommandParameterError(f"Parameter volume not in {self.VALID_VOLUME}")
+        return f"{self.prefix} {self.volume}\n"
