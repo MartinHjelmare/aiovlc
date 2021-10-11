@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Generic, TypeVar
+from typing import TYPE_CHECKING, Generic, Literal, TypeVar
 
-from ..exceptions import CommandParseError
+from ..exceptions import CommandParameterError, CommandParseError
 
 if TYPE_CHECKING:
     from ..client import Client
@@ -100,6 +100,22 @@ class Prev(Command[None]):
     """Represent the prev command."""
 
     prefix = "prev"
+
+
+@dataclass
+class Random(Command[None]):
+    """Represent the random command."""
+
+    prefix = "random"
+    mode: Literal["on", "off"] | None = None
+    VALID_MODES = (None, "on", "off")
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        if self.mode not in self.VALID_MODES:
+            raise CommandParameterError(f"Parameter mode not in {self.VALID_MODES}")
+        mode = "" if self.mode is None else f" {self.mode}"
+        return f"{self.prefix}{mode}\n"
 
 
 @dataclass
