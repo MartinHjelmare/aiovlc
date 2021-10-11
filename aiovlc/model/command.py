@@ -82,6 +82,13 @@ class Play(Command[None]):
 
 
 @dataclass
+class Prev(Command[None]):
+    """Represent the prev command."""
+
+    prefix = "prev"
+
+
+@dataclass
 class StatusOutput(CommandOutput):
     """Represent the status command output."""
 
