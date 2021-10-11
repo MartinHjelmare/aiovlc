@@ -100,3 +100,10 @@ class Status(Command[StatusOutput]):
         else:
             raise CommandParseError("Could not get status.")
         return StatusOutput(audio_volume=audio_volume, state=state, input_loc=input_loc)
+
+
+@dataclass
+class Stop(Command[None]):
+    """Represent the stop command."""
+
+    prefix = "stop"
