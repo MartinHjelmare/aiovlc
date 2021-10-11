@@ -75,6 +75,13 @@ class Next(Command[None]):
 
 
 @dataclass
+class Pause(Command[None]):
+    """Represent the pause command."""
+
+    prefix = "pause"
+
+
+@dataclass
 class Play(Command[None]):
     """Represent the play command."""
 
