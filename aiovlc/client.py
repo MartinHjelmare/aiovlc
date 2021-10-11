@@ -48,8 +48,9 @@ class Client:
         self.host = host
         self.password = password
         self.port = port
-        self.reader: asyncio.StreamReader | None = None
-        self.writer: asyncio.StreamWriter | None = None
+        self._command_lock = asyncio.Lock()
+        self._reader: asyncio.StreamReader | None = None
+        self._writer: asyncio.StreamWriter | None = None
 
     async def __aenter__(self) -> Client:
         """Connect the client with context manager."""
@@ -65,7 +66,7 @@ class Client:
     async def connect(self) -> None:
         """Connect the client."""
         try:
-            self.reader, self.writer = await asyncio.open_connection(
+            self._reader, self._writer = await asyncio.open_connection(
                 host=self.host, port=self.port
             )
         except OSError as err:
@@ -73,19 +74,19 @@ class Client:
 
     async def disconnect(self) -> None:
         """Disconnect the client."""
-        assert self.writer is not None
+        assert self._writer is not None
         try:
-            self.writer.close()
-            await self.writer.wait_closed()
+            self._writer.close()
+            await self._writer.wait_closed()
         except OSError:
             pass
 
     async def read(self, read_until: str = TERMINATOR) -> str:
         """Return a decoded message."""
-        assert self.reader is not None
+        assert self._reader is not None
 
         try:
-            read = await self.reader.readuntil(read_until.encode("utf-8"))
+            read = await self._reader.readuntil(read_until.encode("utf-8"))
         except asyncio.LimitOverrunError as err:
             raise ConnectReadError(err) from err
         except asyncio.IncompleteReadError as err:
@@ -102,11 +103,11 @@ class Client:
 
     async def write(self, command: str) -> None:
         """Write a command to the connection."""
-        assert self.writer is not None
+        assert self._writer is not None
 
         try:
-            self.writer.write(command.encode("utf-8"))
-            await self.writer.drain()
+            self._writer.write(command.encode("utf-8"))
+            await self._writer.drain()
         except OSError as err:
             raise ConnectError(f"Failed to write: {err}") from err
 
@@ -131,10 +132,11 @@ class Client:
 
     async def send_command(self, command_string: str) -> list[str]:
         """Send a command and return the output."""
-        LOGGER.debug("Sending command: %s", command_string.strip())
-        await self.write(command_string)
-        command_output = (await self.read("> ")).split("\r\n")[:-1]
-        LOGGER.debug("Command output: %s", command_output)
+        async with self._command_lock:
+            LOGGER.debug("Sending command: %s", command_string.strip())
+            await self.write(command_string)
+            command_output = (await self.read("> ")).split("\r\n")[:-1]
+            LOGGER.debug("Command output: %s", command_output)
         if command_output:
             if re.match(
                 r"Unknown command `.*'\. Type `help' for help\.", command_output[0]
