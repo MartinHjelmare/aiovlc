@@ -129,6 +129,7 @@ class InfoOutput(CommandOutput):
     data: dict[str | int, dict[str, str | int | float]] = field(default_factory=dict)
 
 
+@dataclass
 class Info(Command[InfoOutput]):
     """Represent the info command."""
 
@@ -233,6 +234,7 @@ class StatusOutput(CommandOutput):
     input_loc: str | None = None
 
 
+@dataclass
 class Status(Command[StatusOutput]):
     """Represent the status command."""
 
