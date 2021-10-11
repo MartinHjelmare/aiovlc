@@ -96,6 +96,18 @@ class Prev(Command[None]):
 
 
 @dataclass
+class Seek(Command[None]):
+    """Represent the seek command."""
+
+    prefix = "seek"
+    seconds: int
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        return f"{self.prefix} {self.seconds}\n"
+
+
+@dataclass
 class StatusOutput(CommandOutput):
     """Represent the status command output."""
 
