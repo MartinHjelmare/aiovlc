@@ -56,6 +56,18 @@ class AddCommand(Command[None]):
 
 
 @dataclass
+class EnqueueCommand(Command[None]):
+    """Represent the enqueue command."""
+
+    prefix = "enqueue"
+    playlist_item: str
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        return f"{self.prefix} {self.playlist_item}\n"
+
+
+@dataclass
 class StatusOutput(CommandOutput):
     """Represent the status command output."""
 
