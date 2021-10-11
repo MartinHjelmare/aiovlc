@@ -68,6 +68,13 @@ class Enqueue(Command[None]):
 
 
 @dataclass
+class Next(Command[None]):
+    """Represent the next command."""
+
+    prefix = "next"
+
+
+@dataclass
 class Play(Command[None]):
     """Represent the play command."""
 
