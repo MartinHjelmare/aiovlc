@@ -20,3 +20,4 @@ max-returns=8
 
 good-names=
   aiovlc,
+  T,

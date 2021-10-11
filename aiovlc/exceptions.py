@@ -32,5 +32,9 @@ class CommandError(AIOVLCError):
     """Represent a command error."""
 
 
+class CommandParameterError(CommandError):
+    """Represent an error with a parameter when calling the command."""
+
+
 class CommandParseError(CommandError):
     """Represent an error when parsing the command output."""
