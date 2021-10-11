@@ -56,6 +56,13 @@ class Add(Command[None]):
 
 
 @dataclass
+class Clear(Command[None]):
+    """Represent the clear command."""
+
+    prefix = "clear"
+
+
+@dataclass
 class Enqueue(Command[None]):
     """Represent the enqueue command."""
 
