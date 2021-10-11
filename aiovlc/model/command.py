@@ -68,6 +68,13 @@ class Enqueue(Command[None]):
 
 
 @dataclass
+class Play(Command[None]):
+    """Represent the play command."""
+
+    prefix = "play"
+
+
+@dataclass
 class StatusOutput(CommandOutput):
     """Represent the status command output."""
 
