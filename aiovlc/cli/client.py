@@ -7,7 +7,7 @@ import click
 
 from ..client import Client
 from ..exceptions import AIOVLCError
-from ..model.command import StatusCommand
+from ..model.command import Info, Status
 
 LOGGER = logging.getLogger("aiovlc")
 
@@ -76,7 +76,10 @@ async def start_client(client_factory: ClientFactory) -> None:
 async def handle_client(vlc_client: Client) -> None:
     """Handle the client calls."""
     while True:
-        command = StatusCommand()
+        command = Status()
         output = await command.send(vlc_client)
         LOGGER.debug("Received: %s", output)
+        info_command = Info()
+        info_output = await info_command.send(vlc_client)
+        LOGGER.debug("Received: %s", info_output)
         await asyncio.sleep(10)
