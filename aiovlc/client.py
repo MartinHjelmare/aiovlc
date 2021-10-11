@@ -7,10 +7,11 @@ from types import TracebackType
 from typing import Literal
 
 from .const import LOGGER
-from .exceptions import AuthError, CommandError, ConnectError, ConnectReadError
+from .exceptions import CommandError, ConnectError, ConnectReadError
 from .model.command import (
     Add,
     Clear,
+    Command,
     Enqueue,
     GetLength,
     GetLengthOutput,
@@ -19,6 +20,7 @@ from .model.command import (
     Info,
     InfoOutput,
     Next,
+    Password,
     Pause,
     Play,
     Prev,
@@ -114,29 +116,25 @@ class Client:
     async def login(self) -> None:
         """Login."""
         await self.read("Password: ")
-        command_string = f"{self.password}\n"
-        await self.write(command_string)
-        for _ in range(2):
-            command_output = (await self.read("\n")).strip("\r\n")
-            if command_output:  # discard empty line once.
-                break
-        parsed_output = command_output.lower()
-        if "wrong password" in parsed_output:
-            raise AuthError("Failed to login to VLC.")
-        if "welcome" not in parsed_output:
-            raise CommandError(f"Unexpected password response: {command_output}")
-        if "> " in command_output:
+        password_output = await Password(self.password).send(self)
+        if "> " in password_output.response:
             return
         # Read until prompt
         await self.read("> ")
 
-    async def send_command(self, command_string: str) -> list[str]:
+    async def send_command(self, command: Command) -> list[str]:
         """Send a command and return the output."""
+        command_string = command.build_command()
+
         async with self._command_lock:
-            LOGGER.debug("Sending command: %s", command_string.strip())
+            if command.log_command:
+                LOGGER.debug("Sending command: %s", command_string.strip())
             await self.write(command_string)
-            command_output = (await self.read("> ")).split("\r\n")[:-1]
-            LOGGER.debug("Command output: %s", command_output)
+            raw_output = await self.read(command.read_terminator)
+
+        command_output = raw_output.split("\r\n")[:-1]
+        LOGGER.debug("Command output: %s", command_output)
+
         if command_output:
             if re.match(
                 r"Unknown command `.*'\. Type `help' for help\.", command_output[0]

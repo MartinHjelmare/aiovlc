@@ -4,19 +4,27 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Generic, Literal, TypeVar
 
-from ..exceptions import CommandParameterError, CommandParseError
+from ..exceptions import (
+    AuthError,
+    CommandError,
+    CommandParameterError,
+    CommandParseError,
+)
 
 if TYPE_CHECKING:
     from ..client import Client
 
 T = TypeVar("T")
+DEFAULT_COMMAND_READ_TERMINATOR = "> "
 
 
 @dataclass
 class Command(Generic[T]):
     """Represent a VLC command."""
 
+    log_command: bool = field(init=False, default=True)
     prefix: str = field(init=False)
+    read_terminator: str = field(init=False, default=DEFAULT_COMMAND_READ_TERMINATOR)
 
     async def send(self, client: Client) -> T:
         """Send the command."""
@@ -24,7 +32,7 @@ class Command(Generic[T]):
 
     async def _send(self, client: Client) -> T:
         """Send the command."""
-        output = await client.send_command(self.build_command())
+        output = await client.send_command(self)
         return self.parse_output(output)
 
     def build_command(self) -> str:
@@ -167,6 +175,44 @@ class Info(Command[InfoOutput]):
             else:
                 raise CommandParseError("Unexpected line in info output")
         return InfoOutput(data=data)
+
+
+@dataclass
+class PasswordOutput(CommandOutput):
+    """Represent the password command output."""
+
+    response: str
+
+
+@dataclass
+class Password(Command[PasswordOutput]):
+    """Represent the password command."""
+
+    log_command = False
+    prefix = ""
+    password: str
+    read_terminator = "\n"
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        return f"{self.prefix}{self.password}\n"
+
+    def parse_output(self, output: list[str]) -> PasswordOutput:
+        """Parse command output."""
+        response: str = ""
+        for line in output:
+            if not line:
+                continue
+            response = line
+            parsed_output = response.lower()
+            if "wrong password" in parsed_output:
+                raise AuthError("Failed to login to VLC.")
+            if "welcome" not in parsed_output:
+                raise CommandError(f"Unexpected password response: {response}")
+
+        if not response:
+            raise CommandError("Empty password response")
+        return PasswordOutput(response)
 
 
 @dataclass
