@@ -39,6 +39,8 @@ TERMINATOR = "\n"
 class Client:
     """Represent a client for aiovlc."""
 
+    # pylint: disable=too-many-public-methods
+
     def __init__(
         self, password: str, host: str = "localhost", port: int = 4212
     ) -> None:
