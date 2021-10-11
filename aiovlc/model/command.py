@@ -125,6 +125,52 @@ class GetTime(Command[GetTimeOutput]):
 
 
 @dataclass
+class InfoOutput(CommandOutput):
+    """Represent the info command output."""
+
+    data: dict[str | int, dict[str, str | int | float]] = field(default_factory=dict)
+
+
+class Info(Command[InfoOutput]):
+    """Represent the info command."""
+
+    prefix = "info"
+
+    def parse_output(self, output: list[str]) -> InfoOutput:
+        """Parse command output."""
+        data: dict[str | int, dict[str, str | int | float]] = {}
+        for line in output:
+            section: int | str = "unknown"
+            if line[0] == "+":
+                # Example: "+----[ Stream 5 ]" or "+----[ Meta data ]"
+                if "end of stream info" in line:
+                    continue
+                section = line.split("[")[1].replace("]", "").strip().split(" ")[1]
+                try:
+                    section = int(section)
+                except ValueError:
+                    pass
+                data[section] = {}
+            elif line[0] == "|":
+                # Example: "| Description: Closed captions 4"
+                if len(line[2:]) == 0:
+                    continue
+                value: int | float | str = "unknown"
+                key, value = line[2:].split(":", 1)
+                try:
+                    value = int(value)
+                except ValueError:
+                    try:
+                        value = float(value)
+                    except ValueError:
+                        value = value.strip()  # type: ignore[union-attr]
+                data[section][key.strip()] = value
+            else:
+                raise CommandParseError("Unexpected line in info output")
+        return InfoOutput(data=data)
+
+
+@dataclass
 class Next(Command[None]):
     """Represent the next command."""
 
