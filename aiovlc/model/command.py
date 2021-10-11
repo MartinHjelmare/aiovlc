@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Generic, TypeVar, cast
+from typing import TYPE_CHECKING, Generic, TypeVar
 
 from ..exceptions import CommandParseError
 
@@ -18,11 +18,11 @@ class Command(Generic[T]):
 
     prefix: str = field(init=False)
 
-    async def send(self, client: Client) -> T | None:
+    async def send(self, client: Client) -> T:
         """Send the command."""
         return await self._send(client)
 
-    async def _send(self, client: Client) -> T | None:
+    async def _send(self, client: Client) -> T:
         """Send the command."""
         output = await client.send_command(self.build_command())
         return self.parse_output(output)
@@ -31,10 +31,11 @@ class Command(Generic[T]):
         """Return the full command string."""
         return f"{self.prefix}\n"
 
-    def parse_output(self, output: list[str]) -> T | None:
+    def parse_output(self, output: list[str]) -> T:
         """Parse command output."""
         # pylint: disable=no-self-use, unused-argument
-        return None
+        # Disable mypy to have cleaner code in child classes.
+        return None  # type: ignore[return-value]
 
 
 @dataclass
@@ -54,14 +55,19 @@ class AddCommand(Command[None]):
         return f"{self.prefix} {self.playlist_item}\n"
 
 
-class StatusCommand(Command):
+@dataclass
+class StatusOutput(CommandOutput):
+    """Represent the status command output."""
+
+    audio_volume: int
+    state: str
+    input_loc: str | None = None
+
+
+class StatusCommand(Command[StatusOutput]):
     """Represent the status command."""
 
     prefix = "status"
-
-    async def send(self, client: Client) -> StatusOutput:
-        """Send the command."""
-        return cast(StatusOutput, await self._send(client))
 
     def parse_output(self, output: list[str]) -> StatusOutput:
         """Parse command output."""
@@ -75,12 +81,3 @@ class StatusCommand(Command):
         else:
             raise CommandParseError("Could not get status.")
         return StatusOutput(audio_volume=audio_volume, state=state, input_loc=input_loc)
-
-
-@dataclass
-class StatusOutput(CommandOutput):
-    """Represent the status command output."""
-
-    audio_volume: int
-    state: str
-    input_loc: str | None = None
