@@ -138,8 +138,8 @@ class Info(Command[InfoOutput]):
     def parse_output(self, output: list[str]) -> InfoOutput:
         """Parse command output."""
         data: dict[str | int, dict[str, str | int | float]] = {}
+        section: int | str = "unknown"
         for line in output:
-            section: int | str = "unknown"
             if line[0] == "+":
                 # Example: "+----[ Stream 5 ]" or "+----[ Meta data ]"
                 if "end of stream info" in line:
@@ -293,6 +293,12 @@ class SetVolume(Command[None]):
 
     def build_command(self) -> str:
         """Return the full command string."""
-        if self.volume not in self.VALID_VOLUME:
+        try:
+            volume = int(self.volume)
+        except ValueError as err:
+            raise CommandParameterError(
+                f"Invalid volume parameter: {self.volume}"
+            ) from err
+        if volume not in self.VALID_VOLUME:
             raise CommandParameterError(f"Parameter volume not in {self.VALID_VOLUME}")
-        return f"{self.prefix} {self.volume}\n"
+        return f"{self.prefix} {volume}\n"
