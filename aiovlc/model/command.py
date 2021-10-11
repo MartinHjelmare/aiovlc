@@ -44,7 +44,7 @@ class CommandOutput:
 
 
 @dataclass
-class AddCommand(Command[None]):
+class Add(Command[None]):
     """Represent the add command."""
 
     prefix = "add"
@@ -56,7 +56,7 @@ class AddCommand(Command[None]):
 
 
 @dataclass
-class EnqueueCommand(Command[None]):
+class Enqueue(Command[None]):
     """Represent the enqueue command."""
 
     prefix = "enqueue"
@@ -76,7 +76,7 @@ class StatusOutput(CommandOutput):
     input_loc: str | None = None
 
 
-class StatusCommand(Command[StatusOutput]):
+class Status(Command[StatusOutput]):
     """Represent the status command."""
 
     prefix = "status"
