@@ -2,16 +2,14 @@
 from __future__ import annotations
 
 import asyncio
-import re
 from types import TracebackType
 from typing import Literal
 
 from .const import LOGGER
-from .exceptions import CommandError, ConnectError, ConnectReadError
+from .exceptions import ConnectError, ConnectReadError
 from .model.command import (
     Add,
     Clear,
-    Command,
     Enqueue,
     GetLength,
     GetLengthOutput,
@@ -50,7 +48,7 @@ class Client:
         self.host = host
         self.password = password
         self.port = port
-        self._command_lock = asyncio.Lock()
+        self.command_lock = asyncio.Lock()
         self._reader: asyncio.StreamReader | None = None
         self._writer: asyncio.StreamWriter | None = None
 
@@ -121,29 +119,6 @@ class Client:
             return
         # Read until prompt
         await self.read("> ")
-
-    async def send_command(self, command: Command) -> list[str]:
-        """Send a command and return the output."""
-        command_string = command.build_command()
-
-        async with self._command_lock:
-            if command.log_command:
-                LOGGER.debug("Sending command: %s", command_string.strip())
-            await self.write(command_string)
-            raw_output = await self.read(command.read_terminator)
-
-        command_output = raw_output.split("\r\n")[:-1]
-        LOGGER.debug("Command output: %s", command_output)
-
-        if command_output:
-            if re.match(
-                r"Unknown command `.*'\. Type `help' for help\.", command_output[0]
-            ):
-                raise CommandError("Unknown Command")
-            if command_error := re.match(r"Error in.*", command_output[0]):
-                raise CommandError(command_error.group())
-
-        return command_output
 
     async def add(self, playlist_item: str) -> None:
         """Send the add command."""
