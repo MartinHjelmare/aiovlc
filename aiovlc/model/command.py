@@ -1,9 +1,11 @@
 """Provide commands for aiovlc."""
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Generic, Literal, TypeVar
 
+from ..const import LOGGER
 from ..exceptions import (
     AuthError,
     CommandError,
@@ -28,12 +30,30 @@ class Command(Generic[T]):
 
     async def send(self, client: Client) -> T:
         """Send the command."""
-        return await self._send(client)
+        return await self._send_command(client)
 
-    async def _send(self, client: Client) -> T:
+    async def _send_command(self, client: Client) -> T:
         """Send the command."""
-        output = await client.send_command(self)
-        return self.parse_output(output)
+        command_string = self.build_command()
+
+        async with client.command_lock:
+            if self.log_command:
+                LOGGER.debug("Sending command: %s", command_string.strip())
+            await client.write(command_string)
+            raw_output = await client.read(self.read_terminator)
+
+        command_output = raw_output.split("\r\n")[:-1]
+        LOGGER.debug("Command output: %s", command_output)
+
+        if command_output:
+            if re.match(
+                r"Unknown command `.*'\. Type `help' for help\.", command_output[0]
+            ):
+                raise CommandError("Unknown Command")
+            if command_error := re.match(r"Error in.*", command_output[0]):
+                raise CommandError(command_error.group())
+
+        return self.parse_output(command_output)
 
     def build_command(self) -> str:
         """Return the full command string."""
