@@ -1,5 +1,8 @@
 """Provide common fixtures."""
+from __future__ import annotations
+
 import asyncio
+from typing import Generator
 from unittest.mock import AsyncMock, patch
 
 import pytest
@@ -10,7 +13,7 @@ from aiovlc.client import Client
 
 
 @pytest.fixture(name="transport")
-def transport_fixture():
+def transport_fixture() -> Generator[tuple[AsyncMock, AsyncMock], None, None]:
     """Mock the transport."""
     mock_reader = AsyncMock(spec=asyncio.StreamReader)
     mock_writer = AsyncMock(spec=asyncio.StreamWriter)
@@ -20,20 +23,20 @@ def transport_fixture():
 
 
 @pytest.fixture(name="client")
-async def client_fixture(transport):
+async def client_fixture(transport: tuple[AsyncMock, AsyncMock]) -> Client:
     """Mock a client."""
     return Client("test-password")
 
 
 @pytest.fixture(name="client_connected")
-async def client_connected_fixture(client):
+async def client_connected_fixture(client: Client) -> Client:
     """Mock a connected client."""
     await client.connect()
     return client
 
 
 @pytest.fixture(name="status_command_response")
-def status_command_response_fixture(transport):
+def status_command_response_fixture(transport: tuple[AsyncMock, AsyncMock]) -> None:
     """Mock a status command response."""
     mock_reader, _ = transport
     mock_reader.readuntil.return_value = (

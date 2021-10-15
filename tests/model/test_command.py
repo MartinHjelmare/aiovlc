@@ -1,5 +1,7 @@
 """Test the commands."""
-from unittest.mock import call
+from __future__ import annotations
+
+from unittest.mock import AsyncMock, call
 
 import pytest
 
@@ -13,7 +15,9 @@ pytestmark = pytest.mark.asyncio
 
 
 async def test_status_command(
-    transport, client_connected: Client, status_command_response
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    status_command_response: None,
 ) -> None:
     """Test the status command."""
     mock_reader, mock_writer = transport
