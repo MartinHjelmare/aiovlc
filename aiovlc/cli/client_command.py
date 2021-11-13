@@ -1,4 +1,4 @@
-"""Provide a TCP client."""
+"""Provide a client."""
 import asyncio
 import logging
 from typing import Awaitable, Callable
