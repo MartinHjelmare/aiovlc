@@ -63,14 +63,12 @@ async def start_client(client_factory: ClientFactory) -> None:
     """Start the client."""
     vlc_client = await client_factory()
 
-    async with vlc_client:
-        while True:
-            try:
-                await vlc_client.login()
-                await handle_client(vlc_client)
-            except AIOVLCError as err:
-                LOGGER.error("Error '%s'", err)
-                break
+    try:
+        async with vlc_client:
+            await vlc_client.login()
+            await handle_client(vlc_client)
+    except AIOVLCError as err:
+        LOGGER.error("Error '%s'", err)
 
 
 async def handle_client(vlc_client: Client) -> None:
