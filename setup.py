@@ -21,6 +21,7 @@ setup(
     author="Martin Hjelmare",
     author_email="marhje52@gmail.com",
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
+    package_data={"aiovlc": ["py.typed"]},
     include_package_data=True,
     zip_safe=False,
     license="Apache-2.0",
