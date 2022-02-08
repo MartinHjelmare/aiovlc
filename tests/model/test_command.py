@@ -3,15 +3,10 @@ from __future__ import annotations
 
 from unittest.mock import AsyncMock, call
 
-import pytest
-
 from aiovlc.client import Client
 from aiovlc.model.command import Status
 
 # pylint: disable=unused-argument
-
-# All test coroutines will be treated as marked.
-pytestmark = pytest.mark.asyncio
 
 
 async def test_status_command(
