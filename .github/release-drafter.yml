@@ -49,6 +49,7 @@ categories:
   - title: ":rotating_light: Testing"
     label: "testing"
   - title: ":construction_worker: Continuous Integration"
+    collapse-after: 1
     labels:
       - "ci"
       - "github_actions"
