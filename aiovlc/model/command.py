@@ -61,7 +61,7 @@ class Command(Generic[T]):
 
     def parse_output(self, output: list[str]) -> T:
         """Parse command output."""
-        # pylint: disable=no-self-use, unused-argument
+        # pylint: disable=unused-argument
         # Disable mypy to have cleaner code in child classes.
         return None  # type: ignore[return-value]
 
