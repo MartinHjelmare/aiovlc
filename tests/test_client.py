@@ -43,7 +43,7 @@ async def test_client_connect_failure(transport: AsyncMock, client: Client) -> N
     assert str(err.value) == "Failed to connect: Boom"
 
 
-async def test_disconnect_failure(transport: AsyncMock, client: Client) -> None:
+async def test_client_disconnect_failure(transport: AsyncMock, client: Client) -> None:
     """Test the client transport disconnect failure."""
     mock_writer: AsyncMock = transport.return_value[1]
     mock_writer.wait_closed.side_effect = OSError("Boom")
@@ -54,6 +54,33 @@ async def test_disconnect_failure(transport: AsyncMock, client: Client) -> None:
 
     assert transport.call_count == 1
     assert transport.call_args == call(host="localhost", port=4212)
+
+    assert mock_writer.close.call_count == 1
+    assert mock_writer.wait_closed.call_count == 1
+
+
+async def test_client_read_write(transport: AsyncMock, client: Client) -> None:
+    """Test the client transport read and write."""
+    mock_reader: AsyncMock = transport.return_value[0]
+    mock_writer: AsyncMock = transport.return_value[1]
+    bytes_messages = [b"\xff\xfb\x01\xff\xfc\x01\r\n", b"> "]
+    mock_reader.readuntil.side_effect = bytes_messages
+
+    await client.connect()
+
+    assert transport.call_count == 1
+    assert transport.call_args == call(host="localhost", port=4212)
+
+    read = await client.read()
+    assert read == "> "
+
+    message = "stop\n"
+
+    await client.write("stop\n")
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(message.encode())
+
+    await client.disconnect()
 
     assert mock_writer.close.call_count == 1
     assert mock_writer.wait_closed.call_count == 1
