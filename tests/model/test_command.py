@@ -8,9 +8,70 @@ import pytest
 
 from aiovlc.client import Client
 from aiovlc.exceptions import AuthError, CommandError
-from aiovlc.model.command import Password, Status
+from aiovlc.model.command import Info, Password, Status
 
 # pylint: disable=unused-argument
+
+
+async def test_info_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the info command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = (
+        b"+----[ Meta data ]\r\n"
+        b"|\r\n"
+        b"| filename: test_song.mp3\r\n"
+        b"|\r\n"
+        b"+----[ Stream 0 ]\r\n"
+        b"|\r\n"
+        b"| Channels: Stereo\r\n"
+        b"| Codec: MPEG Audio layer 1/2 (mpga)\r\n"
+        b"| Bits per sample: 32\r\n"
+        b"| Type: Audio\r\n"
+        b"| Sample rate: 44100 Hz\r\n"
+        b"|\r\n"
+        b"+----[ end of stream info ]\r\n"
+        b"> "
+    )
+
+    command = Info()
+    output = await command.send(client_connected)
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"info\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output
+    assert output.data == {
+        0: {
+            "Bits per sample": 32,
+            "Channels": "Stereo",
+            "Codec": "MPEG Audio layer 1/2 (mpga)",
+            "Sample rate": "44100 Hz",
+            "Type": "Audio",
+        },
+        "data": {"filename": "test_song.mp3"},
+    }
+
+
+async def test_info_command_error(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the info command error."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"unexpected\r\n" b"> "
+
+    command = Info()
+    with pytest.raises(CommandError) as err:
+        await command.send(client_connected)
+
+    assert str(err.value) == "Unexpected line in info output: unexpected"
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"info\n")
+    assert mock_reader.readuntil.call_count == 1
 
 
 @pytest.mark.parametrize(
@@ -61,7 +122,7 @@ async def test_password_command_error(
     error: Type[Exception],
     error_message: str,
 ) -> None:
-    """Test the password command."""
+    """Test the password command errors."""
     password = "test-password"
     mock_reader, mock_writer = transport
     mock_reader.readuntil.side_effect = [
