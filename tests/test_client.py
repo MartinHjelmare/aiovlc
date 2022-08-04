@@ -41,3 +41,19 @@ async def test_client_connect_failure(transport: AsyncMock, client: Client) -> N
         await client.connect()
 
     assert str(err.value) == "Failed to connect: Boom"
+
+
+async def test_disconnect_failure(transport: AsyncMock, client: Client) -> None:
+    """Test the client transport disconnect failure."""
+    mock_writer: AsyncMock = transport.return_value[1]
+    mock_writer.wait_closed.side_effect = OSError("Boom")
+
+    await client.connect()
+    # Disconnect error should be caught.
+    await client.disconnect()
+
+    assert transport.call_count == 1
+    assert transport.call_args == call(host="localhost", port=4212)
+
+    assert mock_writer.close.call_count == 1
+    assert mock_writer.wait_closed.call_count == 1
