@@ -356,16 +356,21 @@ async def test_set_volume_command(
     ],
 )
 async def test_set_volume_command_error(
+    transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     volume: Any,
     error: Type[Exception],
     error_message: str,
 ) -> None:
     """Test the set volume command errors."""
+    mock_reader, mock_writer = transport
+
     with pytest.raises(error) as err:
         await client_connected.set_volume(volume)
 
     assert str(err.value) == error_message
+    assert mock_reader.readuntil.call_count == 0
+    assert mock_writer.write.call_count == 0
 
 
 async def test_status_command(
