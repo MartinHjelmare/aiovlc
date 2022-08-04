@@ -1,7 +1,7 @@
 """Test the commands."""
 from __future__ import annotations
 
-from typing import Any, Type
+from typing import Any, Literal, Type
 from unittest.mock import AsyncMock, call
 
 import pytest
@@ -326,6 +326,65 @@ async def test_prev_command(
     assert mock_writer.write.call_args == call(b"prev\n")
     assert mock_reader.readuntil.call_count == 1
     assert output is None
+
+
+@pytest.mark.parametrize(
+    "mode, call_argument",
+    [
+        ("on", " on"),
+        ("off", " off"),
+        (None, ""),
+    ],
+)
+async def test_random_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    mode: Literal["on", "off"] | None,
+    call_argument: str,
+) -> None:
+    """Test the random command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.random(mode)
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(f"random{call_argument}\n".encode())
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
+@pytest.mark.parametrize(
+    "mode, error, error_message",
+    [
+        (
+            "bad_mode",
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+        (
+            42,
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+    ],
+)
+async def test_random_command_error(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    mode: Any,
+    error: Type[Exception],
+    error_message: str,
+) -> None:
+    """Test the random command errors."""
+    mock_reader, mock_writer = transport
+
+    with pytest.raises(error) as err:
+        await client_connected.random(mode)
+
+    assert str(err.value) == error_message
+    assert mock_reader.readuntil.call_count == 0
+    assert mock_writer.write.call_count == 0
 
 
 async def test_set_volume_command(
