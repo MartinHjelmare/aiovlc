@@ -19,6 +19,7 @@ from .model.command import (
     InfoOutput,
     Next,
     Password,
+    PasswordOutput,
     Pause,
     Play,
     Prev,
@@ -111,9 +112,9 @@ class Client:
         except OSError as err:
             raise ConnectError(f"Failed to write: {err}") from err
 
-    async def login(self) -> None:
+    async def login(self) -> PasswordOutput:
         """Login."""
-        await Password(self.password).send(self)
+        return await Password(self.password).send(self)
 
     async def add(self, playlist_item: str) -> None:
         """Send the add command."""
