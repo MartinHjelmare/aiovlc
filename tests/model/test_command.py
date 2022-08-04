@@ -12,11 +12,27 @@ from aiovlc.exceptions import AuthError, CommandError, CommandParseError
 # pylint: disable=unused-argument
 
 
+async def test_clear_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the clear command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.clear()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"clear\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
 @pytest.mark.parametrize(
     "read, length",
     [(b"372\r\n> ", 372), (b"\r\n> ", 0)],
 )
-async def test_get_length(
+async def test_get_length_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -46,7 +62,7 @@ async def test_get_length(
         ),
     ],
 )
-async def test_get_length_error(
+async def test_get_length_command_error(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -70,7 +86,7 @@ async def test_get_length_error(
     "read, time_result",
     [(b"8\r\n> ", 8), (b"\r\n> ", 0)],
 )
-async def test_get_time(
+async def test_get_time_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -100,7 +116,7 @@ async def test_get_time(
         ),
     ],
 )
-async def test_get_time_error(
+async def test_get_time_command_error(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
