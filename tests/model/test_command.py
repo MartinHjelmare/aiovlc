@@ -342,3 +342,19 @@ async def test_status_command(
     assert output.audio_volume == 0
     assert output.state == "stopped"
     assert output.input_loc is None
+
+
+async def test_stop_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the stop command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.stop()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"stop\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
