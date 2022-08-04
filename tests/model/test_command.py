@@ -1,13 +1,18 @@
 """Test the commands."""
 from __future__ import annotations
 
-from typing import Type
+from typing import Any, Type
 from unittest.mock import AsyncMock, call
 
 import pytest
 
 from aiovlc.client import Client
-from aiovlc.exceptions import AuthError, CommandError, CommandParseError
+from aiovlc.exceptions import (
+    AuthError,
+    CommandError,
+    CommandParameterError,
+    CommandParseError,
+)
 
 # pylint: disable=unused-argument
 
@@ -321,6 +326,46 @@ async def test_prev_command(
     assert mock_writer.write.call_args == call(b"prev\n")
     assert mock_reader.readuntil.call_count == 1
     assert output is None
+
+
+async def test_set_volume_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the set volume command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.set_volume(300)
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"volume 300\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
+@pytest.mark.parametrize(
+    "volume, error, error_message",
+    [
+        ("bad_volume", CommandParameterError, "Invalid volume parameter: bad_volume"),
+        (
+            9000,
+            CommandParameterError,
+            f"Parameter volume not in {range(500)}",
+        ),
+    ],
+)
+async def test_set_volume_command_error(
+    client_connected: Client,
+    volume: Any,
+    error: Type[Exception],
+    error_message: str,
+) -> None:
+    """Test the set volume command errors."""
+    with pytest.raises(error) as err:
+        await client_connected.set_volume(volume)
+
+    assert str(err.value) == error_message
 
 
 async def test_status_command(
