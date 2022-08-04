@@ -66,6 +66,60 @@ async def test_get_length_error(
     assert mock_reader.readuntil.call_count == 1
 
 
+@pytest.mark.parametrize(
+    "read, time_result",
+    [(b"8\r\n> ", 8), (b"\r\n> ", 0)],
+)
+async def test_get_time(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    read: list[bytes],
+    time_result: int,
+) -> None:
+    """Test the get time command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = read
+
+    output = await client_connected.get_time()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"get_time\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output
+    assert output.time == time_result
+
+
+@pytest.mark.parametrize(
+    "read, error, error_message",
+    [
+        (b"> ", CommandParseError, "Could not get time."),
+        (
+            b"unexpected\r\n> ",
+            CommandParseError,
+            "Could not get time.",
+        ),
+    ],
+)
+async def test_get_time_error(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    read: list[bytes],
+    error: Type[Exception],
+    error_message: str,
+) -> None:
+    """Test the get time command errors."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = read
+
+    with pytest.raises(error) as err:
+        await client_connected.get_time()
+
+    assert str(err.value) == error_message
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"get_time\n")
+    assert mock_reader.readuntil.call_count == 1
+
+
 async def test_info_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
