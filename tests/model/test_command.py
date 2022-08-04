@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from unittest.mock import AsyncMock, call
 
+import pytest
+
 from aiovlc.client import Client
 from aiovlc.model.command import Password, Status
 
@@ -29,9 +31,15 @@ async def test_status_command(
     assert output.input_loc is None
 
 
+@pytest.mark.parametrize(
+    "read, read_call_count",
+    [([b"Welcome, Master\r\n", b"> "], 4), ([b"Welcome, Master> \r\n"], 3)],
+)
 async def test_password_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
+    read: list[bytes],
+    read_call_count: int,
 ) -> None:
     """Test the password command."""
     password = "test-password"
@@ -39,8 +47,7 @@ async def test_password_command(
     mock_reader.readuntil.side_effect = [
         b"VLC media player 3.0.9.2 Vetinari\nPassword: ",
         b"\xff\xfb\x01\xff\xfc\x01\r\n",
-        b"Welcome, Master\r\n",
-        b"> ",
+        *read,
     ]
 
     command = Password(password)
@@ -48,6 +55,6 @@ async def test_password_command(
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(f"{password}\n".encode())
-    assert mock_reader.readuntil.call_count == 4
+    assert mock_reader.readuntil.call_count == read_call_count
     assert output
     assert output.response == "Welcome, Master"
