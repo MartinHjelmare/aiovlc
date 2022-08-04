@@ -33,12 +33,3 @@ async def client_connected_fixture(client: Client) -> Client:
     """Mock a connected client."""
     await client.connect()
     return client
-
-
-@pytest.fixture(name="status_command_response")
-def status_command_response_fixture(transport: tuple[AsyncMock, AsyncMock]) -> None:
-    """Mock a status command response."""
-    mock_reader, _ = transport
-    mock_reader.readuntil.return_value = (
-        b"( audio volume: 0 )\r\n( state stopped )\r\n> "
-    )

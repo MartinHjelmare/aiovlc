@@ -8,7 +8,6 @@ import pytest
 
 from aiovlc.client import Client
 from aiovlc.exceptions import AuthError, CommandError, CommandParseError
-from aiovlc.model.command import GetLength, Info, Password, Status
 
 # pylint: disable=unused-argument
 
@@ -27,8 +26,7 @@ async def test_get_length(
     mock_reader, mock_writer = transport
     mock_reader.readuntil.return_value = read
 
-    command = GetLength()
-    output = await command.send(client_connected)
+    output = await client_connected.get_length()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"get_length\n")
@@ -59,9 +57,8 @@ async def test_get_length_error(
     mock_reader, mock_writer = transport
     mock_reader.readuntil.return_value = read
 
-    command = GetLength()
     with pytest.raises(error) as err:
-        await command.send(client_connected)
+        await client_connected.get_length()
 
     assert str(err.value) == error_message
     assert mock_writer.write.call_count == 1
@@ -92,8 +89,7 @@ async def test_info_command(
         b"> "
     )
 
-    command = Info()
-    output = await command.send(client_connected)
+    output = await client_connected.info()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"info\n")
@@ -119,9 +115,8 @@ async def test_info_command_error(
     mock_reader, mock_writer = transport
     mock_reader.readuntil.return_value = b"unexpected\r\n" b"> "
 
-    command = Info()
     with pytest.raises(CommandError) as err:
-        await command.send(client_connected)
+        await client_connected.info()
 
     assert str(err.value) == "Unexpected line in info output: unexpected"
 
@@ -149,8 +144,7 @@ async def test_password_command(
         *read,
     ]
 
-    command = Password(password)
-    output = await command.send(client_connected)
+    output = await client_connected.login()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(f"{password}\n".encode())
@@ -187,9 +181,8 @@ async def test_password_command_error(
         *read,
     ]
 
-    command = Password(password)
     with pytest.raises(error) as err:
-        await command.send(client_connected)
+        await client_connected.login()
 
     assert str(err.value) == error_message
     assert mock_writer.write.call_count == 1
@@ -199,13 +192,14 @@ async def test_password_command_error(
 async def test_status_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
-    status_command_response: None,
 ) -> None:
     """Test the status command."""
     mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = (
+        b"( audio volume: 0 )\r\n( state stopped )\r\n> "
+    )
 
-    command = Status()
-    output = await command.send(client_connected)
+    output = await client_connected.status()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"status\n")
