@@ -7,7 +7,7 @@ from unittest.mock import AsyncMock, call
 import pytest
 
 from aiovlc.client import Client
-from aiovlc.exceptions import AuthError, CommandError
+from aiovlc.exceptions import AuthError, CommandError, CommandParseError
 from aiovlc.model.command import GetLength, Info, Password, Status
 
 # pylint: disable=unused-argument
@@ -35,6 +35,38 @@ async def test_get_length(
     assert mock_reader.readuntil.call_count == 1
     assert output
     assert output.length == length
+
+
+@pytest.mark.parametrize(
+    "read, error, error_message",
+    [
+        (b"> ", CommandParseError, "Could not get length."),
+        (
+            b"unexpected\r\n> ",
+            CommandParseError,
+            "Could not get length.",
+        ),
+    ],
+)
+async def test_get_length_error(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    read: list[bytes],
+    error: Type[Exception],
+    error_message: str,
+) -> None:
+    """Test the get length command errors."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = read
+
+    command = GetLength()
+    with pytest.raises(error) as err:
+        await command.send(client_connected)
+
+    assert str(err.value) == error_message
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"get_length\n")
+    assert mock_reader.readuntil.call_count == 1
 
 
 async def test_info_command(
