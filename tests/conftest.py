@@ -13,13 +13,13 @@ from aiovlc.client import Client
 
 
 @pytest.fixture(name="transport")
-def transport_fixture() -> Generator[tuple[AsyncMock, AsyncMock], None, None]:
+def transport_fixture() -> Generator[AsyncMock, None, None]:
     """Mock the transport."""
     mock_reader = AsyncMock(spec=asyncio.StreamReader)
     mock_writer = AsyncMock(spec=asyncio.StreamWriter)
     with patch("asyncio.open_connection", autospec=True) as open_connection:
         open_connection.return_value = (mock_reader, mock_writer)
-        yield open_connection.return_value
+        yield open_connection
 
 
 @pytest.fixture(name="client")
