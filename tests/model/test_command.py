@@ -12,11 +12,27 @@ from aiovlc.exceptions import AuthError, CommandError, CommandParseError
 # pylint: disable=unused-argument
 
 
+async def test_clear_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the clear command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.clear()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"clear\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
 @pytest.mark.parametrize(
     "read, length",
     [(b"372\r\n> ", 372), (b"\r\n> ", 0)],
 )
-async def test_get_length(
+async def test_get_length_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -46,7 +62,7 @@ async def test_get_length(
         ),
     ],
 )
-async def test_get_length_error(
+async def test_get_length_command_error(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -70,7 +86,7 @@ async def test_get_length_error(
     "read, time_result",
     [(b"8\r\n> ", 8), (b"\r\n> ", 0)],
 )
-async def test_get_time(
+async def test_get_time_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -100,7 +116,7 @@ async def test_get_time(
         ),
     ],
 )
-async def test_get_time_error(
+async def test_get_time_command_error(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
     read: list[bytes],
@@ -179,6 +195,22 @@ async def test_info_command_error(
     assert mock_reader.readuntil.call_count == 1
 
 
+async def test_next_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the next command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.next()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"next\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
 @pytest.mark.parametrize(
     "read, read_call_count",
     [([b"Welcome, Master\r\n", b"> "], 4), ([b"Welcome, Master> \r\n"], 3)],
@@ -243,6 +275,54 @@ async def test_password_command_error(
     assert mock_writer.write.call_args == call(f"{password}\n".encode())
 
 
+async def test_pause_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the pause command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.pause()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"pause\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
+async def test_play_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the play command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.play()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"play\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
+async def test_prev_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the prev command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.prev()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"prev\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
 async def test_status_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
@@ -262,3 +342,19 @@ async def test_status_command(
     assert output.audio_volume == 0
     assert output.state == "stopped"
     assert output.input_loc is None
+
+
+async def test_stop_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the stop command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.stop()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"stop\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
