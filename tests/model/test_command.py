@@ -55,6 +55,25 @@ async def test_info_command(
     }
 
 
+async def test_info_command_error(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the info command error."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"unexpected\r\n" b"> "
+
+    command = Info()
+    with pytest.raises(CommandError) as err:
+        await command.send(client_connected)
+
+    assert str(err.value) == "Unexpected line in info output: unexpected"
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"info\n")
+    assert mock_reader.readuntil.call_count == 1
+
+
 @pytest.mark.parametrize(
     "read, read_call_count",
     [([b"Welcome, Master\r\n", b"> "], 4), ([b"Welcome, Master> \r\n"], 3)],
@@ -103,7 +122,7 @@ async def test_password_command_error(
     error: Type[Exception],
     error_message: str,
 ) -> None:
-    """Test the password command."""
+    """Test the password command errors."""
     password = "test-password"
     mock_reader, mock_writer = transport
     mock_reader.readuntil.side_effect = [

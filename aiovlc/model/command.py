@@ -193,7 +193,7 @@ class Info(Command[InfoOutput]):
                         value = value.strip()  # type: ignore[union-attr]
                 data[section][key.strip()] = value
             else:
-                raise CommandParseError("Unexpected line in info output")
+                raise CommandParseError(f"Unexpected line in info output: {line}")
         return InfoOutput(data=data)
 
 
