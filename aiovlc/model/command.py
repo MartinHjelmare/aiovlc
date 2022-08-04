@@ -234,6 +234,19 @@ class Password(Command[PasswordOutput]):
             raise CommandError("Empty password response")
         return PasswordOutput(response)
 
+    async def send(self, client: Client) -> PasswordOutput:
+        """Send the command."""
+        await client.read("Password: ")
+        password_output = await super().send(client)
+        if DEFAULT_COMMAND_READ_TERMINATOR in password_output.response:
+            password_output.response = password_output.response.strip(
+                DEFAULT_COMMAND_READ_TERMINATOR
+            )
+            return password_output
+        # Read until prompt
+        await client.read(DEFAULT_COMMAND_READ_TERMINATOR)
+        return password_output
+
 
 @dataclass
 class Next(Command[None]):

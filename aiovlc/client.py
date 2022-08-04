@@ -113,12 +113,7 @@ class Client:
 
     async def login(self) -> None:
         """Login."""
-        await self.read("Password: ")
-        password_output = await Password(self.password).send(self)
-        if "> " in password_output.response:
-            return
-        # Read until prompt
-        await self.read("> ")
+        await Password(self.password).send(self)
 
     async def add(self, playlist_item: str) -> None:
         """Send the add command."""
