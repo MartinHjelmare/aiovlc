@@ -18,11 +18,11 @@ from aiovlc.exceptions import (
 
 
 async def test_clear_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the clear command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.clear()
@@ -38,13 +38,13 @@ async def test_clear_command(
     [(b"372\r\n> ", 372), (b"\r\n> ", 0)],
 )
 async def test_get_length_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
     length: int,
 ) -> None:
     """Test the get length command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = read
 
     output = await client_connected.get_length()
@@ -68,14 +68,14 @@ async def test_get_length_command(
     ],
 )
 async def test_get_length_command_error(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
     error: Type[Exception],
     error_message: str,
 ) -> None:
     """Test the get length command errors."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = read
 
     with pytest.raises(error) as err:
@@ -92,13 +92,13 @@ async def test_get_length_command_error(
     [(b"8\r\n> ", 8), (b"\r\n> ", 0)],
 )
 async def test_get_time_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
     time_result: int,
 ) -> None:
     """Test the get time command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = read
 
     output = await client_connected.get_time()
@@ -122,14 +122,14 @@ async def test_get_time_command(
     ],
 )
 async def test_get_time_command_error(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
     error: Type[Exception],
     error_message: str,
 ) -> None:
     """Test the get time command errors."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = read
 
     with pytest.raises(error) as err:
@@ -142,11 +142,11 @@ async def test_get_time_command_error(
 
 
 async def test_info_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the info command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = (
         b"+----[ Meta data ]\r\n"
         b"|\r\n"
@@ -183,11 +183,11 @@ async def test_info_command(
 
 
 async def test_info_command_error(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the info command error."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"unexpected\r\n" b"> "
 
     with pytest.raises(CommandError) as err:
@@ -201,11 +201,11 @@ async def test_info_command_error(
 
 
 async def test_next_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the next command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.next()
@@ -221,14 +221,14 @@ async def test_next_command(
     [([b"Welcome, Master\r\n", b"> "], 4), ([b"Welcome, Master> \r\n"], 3)],
 )
 async def test_password_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
     read_call_count: int,
 ) -> None:
     """Test the password command."""
     password = "test-password"
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.side_effect = [
         b"VLC media player 3.0.9.2 Vetinari\nPassword: ",
         b"\xff\xfb\x01\xff\xfc\x01\r\n",
@@ -257,7 +257,7 @@ async def test_password_command(
     ],
 )
 async def test_password_command_error(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
     error: Type[Exception],
@@ -265,7 +265,7 @@ async def test_password_command_error(
 ) -> None:
     """Test the password command errors."""
     password = "test-password"
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.side_effect = [
         b"VLC media player 3.0.9.2 Vetinari\nPassword: ",
         b"\xff\xfb\x01\xff\xfc\x01\r\n",
@@ -281,11 +281,11 @@ async def test_password_command_error(
 
 
 async def test_pause_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the pause command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.pause()
@@ -297,11 +297,11 @@ async def test_pause_command(
 
 
 async def test_play_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the play command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.play()
@@ -313,11 +313,11 @@ async def test_play_command(
 
 
 async def test_prev_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the prev command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.prev()
@@ -337,13 +337,13 @@ async def test_prev_command(
     ],
 )
 async def test_random_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     mode: Literal["on", "off"] | None,
     call_argument: str,
 ) -> None:
     """Test the random command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.random(mode)
@@ -370,14 +370,14 @@ async def test_random_command(
     ],
 )
 async def test_random_command_error(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     mode: Any,
     error: Type[Exception],
     error_message: str,
 ) -> None:
     """Test the random command errors."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
 
     with pytest.raises(error) as err:
         await client_connected.random(mode)
@@ -388,11 +388,11 @@ async def test_random_command_error(
 
 
 async def test_set_volume_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the set volume command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.set_volume(300)
@@ -415,14 +415,14 @@ async def test_set_volume_command(
     ],
 )
 async def test_set_volume_command_error(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
     volume: Any,
     error: Type[Exception],
     error_message: str,
 ) -> None:
     """Test the set volume command errors."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
 
     with pytest.raises(error) as err:
         await client_connected.set_volume(volume)
@@ -433,11 +433,11 @@ async def test_set_volume_command_error(
 
 
 async def test_status_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the status command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = (
         b"( audio volume: 0 )\r\n( state stopped )\r\n> "
     )
@@ -454,11 +454,11 @@ async def test_status_command(
 
 
 async def test_stop_command(
-    transport: tuple[AsyncMock, AsyncMock],
+    transport: AsyncMock,
     client_connected: Client,
 ) -> None:
     """Test the stop command."""
-    mock_reader, mock_writer = transport
+    mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
     output = await client_connected.stop()
