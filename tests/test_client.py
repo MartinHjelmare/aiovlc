@@ -64,7 +64,7 @@ async def test_client_read_write(transport: AsyncMock, client: Client) -> None:
     """Test the client transport read and write."""
     mock_reader: AsyncMock = transport.return_value[0]
     mock_writer: AsyncMock = transport.return_value[1]
-    bytes_messages = [b"\xff\xfb\x01\xff\xfc\x01\r\n", b"> "]
+    bytes_messages = [b"\xff\xfb\x01\xff\xfc\x01\r\n", b"test\n"]
     mock_reader.readuntil.side_effect = bytes_messages
 
     await client.connect()
@@ -73,7 +73,7 @@ async def test_client_read_write(transport: AsyncMock, client: Client) -> None:
     assert transport.call_args == call(host="localhost", port=4212)
 
     read = await client.read()
-    assert read == "> "
+    assert read == "test\n"
 
     message = "stop\n"
 
@@ -123,6 +123,33 @@ async def test_client_read_failure(transport: AsyncMock, client: Client) -> None
         await client.read()
 
     assert str(connect_error.value) == "Failed to read: Boom"
+
+    await client.disconnect()
+
+    assert mock_writer.close.call_count == 1
+    assert mock_writer.wait_closed.call_count == 1
+
+
+async def test_client_write_failure(transport: AsyncMock, client: Client) -> None:
+    """Test the client transport write failure."""
+    mock_reader: AsyncMock = transport.return_value[0]
+    mock_writer: AsyncMock = transport.return_value[1]
+    bytes_message = b"test\n"
+    mock_reader.readuntil.return_value = bytes_message
+
+    await client.connect()
+
+    assert transport.call_count == 1
+    assert transport.call_args == call(host="localhost", port=4212)
+
+    read = await client.read()
+
+    mock_writer.write.side_effect = OSError("Boom")
+
+    with pytest.raises(ConnectError) as err:
+        await client.write(read)
+
+    assert str(err.value) == "Failed to write: Boom"
 
     await client.disconnect()
 
