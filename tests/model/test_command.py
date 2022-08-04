@@ -354,6 +354,39 @@ async def test_random_command(
     assert output is None
 
 
+@pytest.mark.parametrize(
+    "mode, error, error_message",
+    [
+        (
+            "bad_mode",
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+        (
+            42,
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+    ],
+)
+async def test_random_command_error(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+    mode: Any,
+    error: Type[Exception],
+    error_message: str,
+) -> None:
+    """Test the random command errors."""
+    mock_reader, mock_writer = transport
+
+    with pytest.raises(error) as err:
+        await client_connected.random(mode)
+
+    assert str(err.value) == error_message
+    assert mock_reader.readuntil.call_count == 0
+    assert mock_writer.write.call_count == 0
+
+
 async def test_set_volume_command(
     transport: tuple[AsyncMock, AsyncMock],
     client_connected: Client,
