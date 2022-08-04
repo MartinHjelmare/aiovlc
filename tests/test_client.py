@@ -3,7 +3,10 @@ from __future__ import annotations
 
 from unittest.mock import AsyncMock, call
 
+import pytest
+
 from aiovlc.client import Client
+from aiovlc.exceptions import ConnectError
 
 
 async def test_client_connect_disconnect(transport: AsyncMock, client: Client) -> None:
@@ -28,3 +31,13 @@ async def test_client_connect_disconnect(transport: AsyncMock, client: Client) -
 
     assert mock_writer.close.call_count == 1
     assert mock_writer.wait_closed.call_count == 1
+
+
+async def test_client_connect_failure(transport: AsyncMock, client: Client) -> None:
+    """Test the client transport connect failure."""
+    transport.side_effect = OSError("Boom")
+
+    with pytest.raises(ConnectError) as err:
+        await client.connect()
+
+    assert str(err.value) == "Failed to connect: Boom"
