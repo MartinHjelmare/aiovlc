@@ -195,6 +195,22 @@ async def test_info_command_error(
     assert mock_reader.readuntil.call_count == 1
 
 
+async def test_next_command(
+    transport: tuple[AsyncMock, AsyncMock],
+    client_connected: Client,
+) -> None:
+    """Test the next command."""
+    mock_reader, mock_writer = transport
+    mock_reader.readuntil.return_value = b"> "
+
+    output = await client_connected.next()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"next\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output is None
+
+
 @pytest.mark.parametrize(
     "read, read_call_count",
     [([b"Welcome, Master\r\n", b"> "], 4), ([b"Welcome, Master> \r\n"], 3)],
