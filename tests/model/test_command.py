@@ -25,12 +25,11 @@ async def test_clear_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.clear()
+    await client_connected.clear()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"clear\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 @pytest.mark.parametrize(
@@ -208,12 +207,11 @@ async def test_next_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.next()
+    await client_connected.next()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"next\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 @pytest.mark.parametrize(
@@ -288,12 +286,11 @@ async def test_pause_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.pause()
+    await client_connected.pause()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"pause\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 async def test_play_command(
@@ -304,12 +301,11 @@ async def test_play_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.play()
+    await client_connected.play()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"play\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 async def test_prev_command(
@@ -320,12 +316,11 @@ async def test_prev_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.prev()
+    await client_connected.prev()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"prev\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 @pytest.mark.parametrize(
@@ -346,12 +341,11 @@ async def test_random_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.random(mode)
+    await client_connected.random(mode)
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(f"random{call_argument}\n".encode())
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 @pytest.mark.parametrize(
@@ -395,12 +389,11 @@ async def test_set_volume_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.set_volume(300)
+    await client_connected.set_volume(300)
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"volume 300\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
 
 
 @pytest.mark.parametrize(
@@ -461,9 +454,8 @@ async def test_stop_command(
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.return_value = b"> "
 
-    output = await client_connected.stop()
+    await client_connected.stop()
 
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"stop\n")
     assert mock_reader.readuntil.call_count == 1
-    assert output is None
