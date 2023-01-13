@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/MartinHjelmare/aiovlc/actions?query=workflow%3ACI">
-    <img src="https://img.shields.io/github/workflow/status/MartinHjelmare/aiovlc/CI/main?label=CI&logo=github&style=flat-square" alt="CI Status" >
+    <img src="https://img.shields.io/github/actions/workflow/status/MartinHjelmare/aiovlc/ci.yml?branch=main&label=CI&logo=github&style=flat-square" alt="CI Status" >
   </a>
   <a href="https://aiovlc.readthedocs.io">
     <img src="https://img.shields.io/readthedocs/aiovlc.svg?logo=read-the-docs&logoColor=fff&style=flat-square" alt="Documentation Status">
@@ -37,19 +37,6 @@ Control VLC over telnet connection using asyncio
 Install this via pip (or your favourite package manager):
 
 `pip install aiovlc`
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- prettier-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- prettier-ignore-end -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ## Credits
 
