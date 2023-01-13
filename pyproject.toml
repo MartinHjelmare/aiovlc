@@ -53,6 +53,11 @@ sphinx-rtd-theme = ">=1.0"
 [tool.poetry.scripts]
 aiovlc = "aiovlc.cli:cli"
 
+[tool.bandit]
+skips = [
+  "B101",
+]
+
 [tool.semantic_release]
 branch = "main"
 build_command = "pip install poetry && poetry build"
