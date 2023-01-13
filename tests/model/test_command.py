@@ -1,7 +1,7 @@
 """Test the commands."""
 from __future__ import annotations
 
-from typing import Any, Literal, Type
+from typing import Any, Literal
 from unittest.mock import AsyncMock, call
 
 import pytest
@@ -71,7 +71,7 @@ async def test_get_length_command_error(
     transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
-    error: Type[Exception],
+    error: type[Exception],
     error_message: str,
 ) -> None:
     """Test the get length command errors."""
@@ -125,7 +125,7 @@ async def test_get_time_command_error(
     transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
-    error: Type[Exception],
+    error: type[Exception],
     error_message: str,
 ) -> None:
     """Test the get time command errors."""
@@ -260,7 +260,7 @@ async def test_password_command_error(
     transport: AsyncMock,
     client_connected: Client,
     read: list[bytes],
-    error: Type[Exception],
+    error: type[Exception],
     error_message: str,
 ) -> None:
     """Test the password command errors."""
@@ -373,7 +373,7 @@ async def test_random_command_error(
     transport: AsyncMock,
     client_connected: Client,
     mode: Any,
-    error: Type[Exception],
+    error: type[Exception],
     error_message: str,
 ) -> None:
     """Test the random command errors."""
@@ -418,7 +418,7 @@ async def test_set_volume_command_error(
     transport: AsyncMock,
     client_connected: Client,
     volume: Any,
-    error: Type[Exception],
+    error: type[Exception],
     error_message: str,
 ) -> None:
     """Test the set volume command errors."""
