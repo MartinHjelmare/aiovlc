@@ -8,7 +8,7 @@
 project = "aiovlc"
 copyright = "2023, Martin Hjelmare"
 author = "Martin Hjelmare"
-release = "0.0.0"
+release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
