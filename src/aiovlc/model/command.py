@@ -1,8 +1,8 @@
 """Provide commands for aiovlc."""
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass, field
+import re
 from typing import TYPE_CHECKING, Generic, Literal, TypeVar
 
 from ..const import LOGGER
