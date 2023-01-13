@@ -58,6 +58,52 @@ skips = [
   "B101",
 ]
 
+[tool.pylint.MAIN]
+fail-on = [
+  "I",
+]
+ignore = []
+init-hook = """\
+    from pathlib import Path; \
+    import sys; \
+
+    from pylint.config import find_default_config_files; \
+
+    sys.path.append( \
+        str(Path(next(find_default_config_files())).parent.joinpath('pylint/plugins'))
+    ) \
+    """
+jobs = 2
+load-plugins = [
+  "pylint.extensions.code_style",
+  "pylint.extensions.typing",
+  "pylint_strict_informational",
+]
+persistent = false
+py-version = "3.8"
+score = false
+
+[tool.pylint.FORMAT]
+expected-line-ending-format = "LF"
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+  "consider-using-alias",
+  "duplicate-code",
+  "format",
+  "locally-disabled",
+]
+enable = [
+  "useless-suppression",
+  "use-symbolic-message-instead",
+]
+
+[tool.pylint.CODE_STYLE]
+max-line-length-suggestions = 88
+
+[tool.pylint.TYPING]
+runtime-typing = false
+
 [tool.semantic_release]
 branch = "main"
 build_command = "pip install poetry && poetry build"

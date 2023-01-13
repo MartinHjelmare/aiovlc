@@ -14,8 +14,6 @@ from aiovlc.exceptions import (
     CommandParseError,
 )
 
-# pylint: disable=unused-argument
-
 
 async def test_clear_command(
     transport: AsyncMock,

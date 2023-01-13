@@ -72,3 +72,9 @@ repos:
         language: system
         types: [python]
         files: ^(src/aiovlc|tests)/.+\.py$
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        files: ^(src/aiovlc|tests)/.+\.py$
