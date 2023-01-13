@@ -65,9 +65,12 @@ branch = true
 exclude_lines = [
   "pragma: no cover",
   "@overload",
+  "def __repr__",
   "if TYPE_CHECKING",
-  "raise NotImplementedError",
   'if __name__ == "__main__":',
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "raise RuntimeError",
 ]
 
 [tool.isort]
