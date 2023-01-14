@@ -1,11 +1,15 @@
 [tool.poetry]
 authors = ["Martin Hjelmare <marhje52@gmail.com>"]
 classifiers = [
-  "Development Status :: 2 - Pre-Alpha",
+  "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
   "Natural Language :: English",
-  "Operating System :: OS Independent",
-  "Topic :: Software Development :: Libraries",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Home Automation",
 ]
 description = "Control VLC over telnet connection using asyncio"
 documentation = "https://aiovlc.readthedocs.io"
