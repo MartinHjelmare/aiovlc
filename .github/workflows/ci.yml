@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "renovate/**"
+  pull_request:
+
+jobs:
+  psr-ci:
+    uses: MartinHjelmare/github-actions-workflows/.github/workflows/psr-ci.yml@main
+    secrets:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
