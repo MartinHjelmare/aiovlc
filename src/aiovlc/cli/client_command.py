@@ -1,7 +1,7 @@
 """Provide a client."""
 import asyncio
+from collections.abc import Awaitable, Callable
 import logging
-from typing import Awaitable, Callable
 
 import click
 
