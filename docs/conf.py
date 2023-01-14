@@ -4,11 +4,13 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+from aiovlc import __version__
 
 project = "aiovlc"
-copyright = "2023, Martin Hjelmare"
+project_copyright = "2023, Martin Hjelmare"
 author = "Martin Hjelmare"
-release = "0.2.1"
+version = __version__
+release = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
