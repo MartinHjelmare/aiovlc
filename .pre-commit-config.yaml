@@ -54,9 +54,14 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.2
+    rev: v2.2.4
     hooks:
       - id: codespell
+        exclude: |
+          (?x)^(
+              LICENSE|
+              poetry.lock
+          )$
   - repo: https://github.com/PyCQA/flake8
     rev: 6.0.0
     hooks:
