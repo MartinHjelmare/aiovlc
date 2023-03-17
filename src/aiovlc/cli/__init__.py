@@ -7,7 +7,7 @@ from aiovlc import __version__
 
 from .client_command import client
 
-SETTINGS = dict(help_option_names=["-h", "--help"])
+SETTINGS = {"help_option_names": ["-h", "--help"]}
 
 
 @click.group(
