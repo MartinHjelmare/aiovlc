@@ -426,17 +426,22 @@ async def test_set_volume_command_error(
 @pytest.mark.parametrize(
     "read, audio_volume, state, input_loc",
     [
-        (b"( audio volume: 0 )\r\n( state stopped )\r\n> ",
-         0, "stopped", None),
-        (b"( audio volume: 0.0 )\r\n( state stopped )\r\n> ",
-         0, "stopped", None),
-        (b"( audio volume: 0,0 )\r\n( state stopped )\r\n> ",
-         0, "stopped", None),
-        (b"( new input: file:///path/to/music.mp3 )\r\n( audio volume: 128.0 )\r\n( state paused )\r\n> ",
-         128, "paused", "file:///path/to/music.mp3"),
-        (b"( new input: file:///home/felix/Musik/Madonna - Jump.ogg )\r\n( audio volume: 256.0 )\r\n( state playing )\r\n> ",
-         256, "playing", "file:///home/felix/Musik/Madonna%20-%20Jump.ogg")
-    ]
+        (b"( audio volume: 0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
+        (b"( audio volume: 0.0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
+        (b"( audio volume: 0,0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
+        (
+            b"( new input: file:///path/to/music.mp3 )\r\n( audio volume: 128.0 )\r\n( state paused )\r\n> ",
+            128,
+            "paused",
+            "file:///path/to/music.mp3",
+        ),
+        (
+            b"( new input: file:///home/felix/Musik/Madonna - Jump.ogg )\r\n( audio volume: 256.0 )\r\n( state playing )\r\n> ",
+            256,
+            "playing",
+            "file:///home/felix/Musik/Madonna%20-%20Jump.ogg",
+        ),
+    ],
 )
 async def test_status_command(
     transport: AsyncMock,
@@ -444,7 +449,7 @@ async def test_status_command(
     read: list[bytes],
     audio_volume: int,
     state: str,
-    input_loc: str | None
+    input_loc: str | None,
 ) -> None:
     """Test the status command."""
     mock_reader, mock_writer = transport.return_value
