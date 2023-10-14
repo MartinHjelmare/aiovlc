@@ -326,7 +326,7 @@ class Status(Command[StatusOutput]):
             input_loc_item = output.pop(0)
             input_loc = "%20".join(input_loc_item.split(" ")[3:-1])
         if len(output) == 2:
-            audio_volume = int(output[0].split(" ")[3])
+            audio_volume = int(float(output[0].split(" ")[3].replace(",", ".")))
             state = output[1].split(" ")[2]
         else:
             raise CommandParseError("Could not get status.")
@@ -356,7 +356,7 @@ class Volume(Command[VolumeOutput]):
     def parse_output(self, output: list[str]) -> VolumeOutput:
         """Parse command output."""
         try:
-            audio_volume = int(output[0])
+            audio_volume = int(float(output[0].replace(",", ".")))
         except (IndexError, ValueError) as err:
             raise CommandParseError("Could not get volume.") from err
         return VolumeOutput(audio_volume=audio_volume)
