@@ -469,10 +469,7 @@ async def test_status_command(
     assert output
     assert output.audio_volume == audio_volume
     assert output.state == state
-    if input_loc is None:
-        assert output.input_loc is None
-    else:
-        assert output.input_loc == input_loc
+    assert output.input_loc == input_loc
 
 
 async def test_stop_command(
