@@ -182,6 +182,7 @@ version_variables = [
 exclude_commit_patterns = [
   "^chore.*",
   "^ci.*",
+  "^Bump.*",
 ]
 
 [build-system]
