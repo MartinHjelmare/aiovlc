@@ -423,15 +423,43 @@ async def test_set_volume_command_error(
     assert mock_writer.write.call_count == 0
 
 
+@pytest.mark.parametrize(
+    "read, audio_volume, state, input_loc",
+    [
+        (b"( audio volume: 0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
+        (b"( audio volume: 0.0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
+        (b"( audio volume: 0,0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
+        (
+            (
+                b"( new input: file:///path/to/music.mp3 )\r\n"
+                b"( audio volume: 128.0 )\r\n( state paused )\r\n> "
+            ),
+            128,
+            "paused",
+            "file:///path/to/music.mp3",
+        ),
+        (
+            (
+                b"( new input: file:///home/felix/Musik/Madonna - Jump.ogg )\r\n"
+                b"( audio volume: 256.0 )\r\n( state playing )\r\n> "
+            ),
+            256,
+            "playing",
+            "file:///home/felix/Musik/Madonna%20-%20Jump.ogg",
+        ),
+    ],
+)
 async def test_status_command(
     transport: AsyncMock,
     client_connected: Client,
+    read: list[bytes],
+    audio_volume: int,
+    state: str,
+    input_loc: str | None,
 ) -> None:
     """Test the status command."""
     mock_reader, mock_writer = transport.return_value
-    mock_reader.readuntil.return_value = (
-        b"( audio volume: 0 )\r\n( state stopped )\r\n> "
-    )
+    mock_reader.readuntil.return_value = read
 
     output = await client_connected.status()
 
@@ -439,9 +467,9 @@ async def test_status_command(
     assert mock_writer.write.call_args == call(b"status\n")
     assert mock_reader.readuntil.call_count == 1
     assert output
-    assert output.audio_volume == 0
-    assert output.state == "stopped"
-    assert output.input_loc is None
+    assert output.audio_volume == audio_volume
+    assert output.state == state
+    assert output.input_loc == input_loc
 
 
 async def test_stop_command(
@@ -457,3 +485,31 @@ async def test_stop_command(
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"stop\n")
     assert mock_reader.readuntil.call_count == 1
+
+
+@pytest.mark.parametrize(
+    "read, audio_volume",
+    [
+        (b"0\r\n> ", 0),
+        (b"0.0\r\n> ", 0),
+        (b"0,0\r\n> ", 0),
+        (b"128.0\r\n> ", 128),
+    ],
+)
+async def test_volume_command(
+    transport: AsyncMock,
+    client_connected: Client,
+    read: list[bytes],
+    audio_volume: int,
+) -> None:
+    """Test the volume command."""
+    mock_reader, mock_writer = transport.return_value
+    mock_reader.readuntil.return_value = read
+
+    output = await client_connected.volume()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"volume\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output
+    assert output.audio_volume == audio_volume
