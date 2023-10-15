@@ -159,6 +159,9 @@ enable = [
 [tool.pylint.CODE_STYLE]
 max-line-length-suggestions = 88
 
+[tool.pylint.DESIGN]
+max-args = 7
+
 [tool.pylint.TYPING]
 runtime-typing = false
 
