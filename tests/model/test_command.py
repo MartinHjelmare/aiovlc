@@ -485,3 +485,31 @@ async def test_stop_command(
     assert mock_writer.write.call_count == 1
     assert mock_writer.write.call_args == call(b"stop\n")
     assert mock_reader.readuntil.call_count == 1
+
+
+@pytest.mark.parametrize(
+    "read, audio_volume",
+    [
+        (b"0\r\n> ", 0),
+        (b"0.0\r\n> ", 0),
+        (b"0,0\r\n> ", 0),
+        (b"128.0\r\n> ", 128),
+    ],
+)
+async def test_volume_command(
+    transport: AsyncMock,
+    client_connected: Client,
+    read: list[bytes],
+    audio_volume: int,
+) -> None:
+    """Test the volume command."""
+    mock_reader, mock_writer = transport.return_value
+    mock_reader.readuntil.return_value = read
+
+    output = await client_connected.volume()
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(b"volume\n")
+    assert mock_reader.readuntil.call_count == 1
+    assert output
+    assert output.audio_volume == audio_volume
