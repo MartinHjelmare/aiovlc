@@ -93,6 +93,7 @@ files = [
     {file = "black-23.10.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:840015166dbdfbc47992871325799fd2dc0dcf9395e401ada6d88fe11498abad"},
     {file = "black-23.10.1-cp38-cp38-win_amd64.whl", hash = "sha256:037e9b4664cafda5f025a1728c50a9e9aedb99a759c89f760bd83730e76ba884"},
     {file = "black-23.10.1-cp39-cp39-macosx_10_16_arm64.whl", hash = "sha256:7cb5936e686e782fddb1c73f8aa6f459e1ad38a6a7b0e54b403f1f05a1507ee9"},
+    {file = "black-23.10.1-cp39-cp39-macosx_10_16_x86_64.whl", hash = "sha256:7670242e90dc129c539e9ca17665e39a146a761e681805c54fbd86015c7c84f7"},
     {file = "black-23.10.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5ed45ac9a613fb52dad3b61c8dea2ec9510bf3108d4db88422bacc7d1ba1243d"},
     {file = "black-23.10.1-cp39-cp39-win_amd64.whl", hash = "sha256:6d23d7822140e3fef190734216cefb262521789367fbdc0b3f22af6744058982"},
     {file = "black-23.10.1-py3-none-any.whl", hash = "sha256:d431e6739f727bb2e0495df64a6c7a5310758e87505f5f8cde9ff6c0f2d7e4fe"},
@@ -1212,13 +1213,13 @@ yaml = ["PyYaml (>=5.2)"]
 
 [[package]]
 name = "python-semantic-release"
-version = "8.1.2"
+version = "8.3.0"
 description = "Automatic Semantic Versioning for Python projects"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "python-semantic-release-8.1.2.tar.gz", hash = "sha256:49d638fa12fec79812805cdc606ca8bbacab86f7b204248baff92ac6ddedf334"},
-    {file = "python_semantic_release-8.1.2-py3-none-any.whl", hash = "sha256:67dec4d053470345f146330609dc63c89ffcf90d6d5e6e02e6a4ed04a7fc5d40"},
+    {file = "python-semantic-release-8.3.0.tar.gz", hash = "sha256:62325bf32738ea1223ad4efaba0809bac4355ea2d4ad214f676232613a6625f4"},
+    {file = "python_semantic_release-8.3.0-py3-none-any.whl", hash = "sha256:7a26551af9f56485571b7e7831c342a327b16931560d58bc5de99b1cf1dc7ef5"},
 ]
 
 [package.dependencies]
