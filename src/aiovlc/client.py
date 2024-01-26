@@ -1,4 +1,5 @@
 """Provide a client for aiovlc."""
+
 from __future__ import annotations
 
 import asyncio
