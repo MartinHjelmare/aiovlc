@@ -1,4 +1,5 @@
 """Provide exceptions for aiovlc."""
+
 from __future__ import annotations
 
 

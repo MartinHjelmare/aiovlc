@@ -1,4 +1,5 @@
 """Provide a CLI for aiovlc."""
+
 import logging
 
 import click
