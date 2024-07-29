@@ -14,7 +14,7 @@ from aiovlc.client import Client
 
 
 @pytest.fixture(name="transport")
-def transport_fixture() -> Generator[AsyncMock, None, None]:
+def transport_fixture() -> Generator[AsyncMock]:
     """Mock the transport."""
     mock_reader = AsyncMock(spec=asyncio.StreamReader)
     mock_writer = AsyncMock(spec=asyncio.StreamWriter)
