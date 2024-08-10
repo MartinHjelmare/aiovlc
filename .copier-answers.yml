@@ -18,5 +18,5 @@ project_short_description: Control VLC over telnet connection using asyncio
 project_slug: aiovlc
 run_poetry_install: false
 setup_github: false
-setup_pre_commit: false
+setup_pre_commit: true
 
