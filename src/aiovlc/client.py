@@ -4,9 +4,7 @@ from __future__ import annotations
 
 import asyncio
 from types import TracebackType
-from typing import Literal
-
-from typing_extensions import Self
+from typing import Literal, Self
 
 from .const import LOGGER
 from .exceptions import ConnectError, ConnectReadError
