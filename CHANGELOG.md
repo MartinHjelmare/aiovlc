@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.0 (2024-08-10)
+
+### Breaking
+
+* Require python 3.11 (#263) ([`c69256b`](https://github.com/MartinHjelmare/aiovlc/commit/c69256b6b0d0b48af7d9249204b7e0d4ad3719c8))
+
 ## v0.3.3 (2024-08-10)
 
 ### Fix
