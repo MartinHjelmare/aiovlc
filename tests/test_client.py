@@ -106,7 +106,8 @@ async def test_client_read_failure(transport: AsyncMock, client: Client) -> None
     assert str(err.value) == "Failed to read: Boom."
 
     mock_reader.readuntil.side_effect = asyncio.IncompleteReadError(
-        partial=b"partial_test", expected=20
+        partial=b"partial_test",
+        expected=20,
     )
 
     with pytest.raises(ConnectReadError) as err:

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import contextlib
 from dataclasses import dataclass, field
 import re
 from typing import TYPE_CHECKING, Generic, Literal, TypeVar
@@ -48,7 +49,8 @@ class Command(Generic[T]):
 
         if command_output:
             if re.match(
-                r"Unknown command `.*'\. Type `help' for help\.", command_output[0]
+                r"Unknown command `.*'\. Type `help' for help\.",
+                command_output[0],
             ):
                 raise CommandError("Unknown Command")
             if command_error := re.match(r"Error in.*", command_output[0]):
@@ -60,9 +62,8 @@ class Command(Generic[T]):
         """Return the full command string."""
         return f"{self.prefix}\n"
 
-    def parse_output(self, output: list[str]) -> T:
+    def parse_output(self, output: list[str]) -> T:  # noqa: ARG002
         """Parse command output."""
-        # pylint: disable=unused-argument
         # Disable mypy to have cleaner code in child classes.
         return None  # type: ignore[return-value]
 
@@ -170,17 +171,15 @@ class Info(Command[InfoOutput]):
         section: int | str = "unknown"
         for line in output:
             if line[0] == "+":
-                # Example: "+----[ Stream 5 ]" or "+----[ Meta data ]"
+                # Example: "+----[ Stream 5 ]" or "+----[ Meta data ]"  # noqa: ERA001
                 if "end of stream info" in line:
                     continue
                 section = line.split("[")[1].replace("]", "").strip().split(" ")[1]
-                try:
+                with contextlib.suppress(ValueError):
                     section = int(section)
-                except ValueError:
-                    pass
                 data[section] = {}
             elif line[0] == "|":
-                # Example: "| Description: Closed captions 4"
+                # Example: "| Description: Closed captions 4"  # noqa: ERA001
                 if len(line[2:]) == 0:
                     continue
                 value: int | float | str = "unknown"
@@ -241,7 +240,7 @@ class Password(Command[PasswordOutput]):
         password_output = await super().send(client)
         if DEFAULT_COMMAND_READ_TERMINATOR in password_output.response:
             password_output.response = password_output.response.strip(
-                DEFAULT_COMMAND_READ_TERMINATOR
+                DEFAULT_COMMAND_READ_TERMINATOR,
             )
             return password_output
         # Read until prompt
@@ -377,7 +376,7 @@ class SetVolume(Command[None]):
             volume = int(self.volume)
         except ValueError as err:
             raise CommandParameterError(
-                f"Invalid volume parameter: {self.volume}"
+                f"Invalid volume parameter: {self.volume}",
             ) from err
         if volume not in self.VALID_VOLUME:
             raise CommandParameterError(f"Parameter volume not in {self.VALID_VOLUME}")

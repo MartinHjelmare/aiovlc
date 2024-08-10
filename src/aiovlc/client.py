@@ -6,6 +6,8 @@ import asyncio
 from types import TracebackType
 from typing import Literal
 
+from typing_extensions import Self
+
 from .const import LOGGER
 from .exceptions import ConnectError, ConnectReadError
 from .model.command import (
@@ -44,7 +46,10 @@ class Client:
     # pylint: disable=too-many-public-methods
 
     def __init__(
-        self, password: str, host: str = "localhost", port: int = 4212
+        self,
+        password: str,
+        host: str = "localhost",
+        port: int = 4212,
     ) -> None:
         """Set up the client client."""
         self.host = host
@@ -54,13 +59,16 @@ class Client:
         self._reader: asyncio.StreamReader | None = None
         self._writer: asyncio.StreamWriter | None = None
 
-    async def __aenter__(self) -> Client:
+    async def __aenter__(self) -> Self:
         """Connect the client with context manager."""
         await self.connect()
         return self
 
     async def __aexit__(
-        self, exc_type: Exception, exc_value: str, traceback: TracebackType
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
     ) -> None:
         """Disconnect the client with context manager."""
         await self.disconnect()
@@ -69,14 +77,16 @@ class Client:
         """Connect the client."""
         try:
             self._reader, self._writer = await asyncio.open_connection(
-                host=self.host, port=self.port
+                host=self.host,
+                port=self.port,
             )
         except OSError as err:
             raise ConnectError(f"Failed to connect: {err}") from err
 
     async def disconnect(self) -> None:
         """Disconnect the client."""
-        assert self._writer is not None
+        if self._writer is None:
+            raise RuntimeError("Client is not connected")
         try:
             self._writer.close()
             await self._writer.wait_closed()
@@ -85,7 +95,8 @@ class Client:
 
     async def read(self, read_until: str = TERMINATOR) -> str:
         """Return a decoded message."""
-        assert self._reader is not None
+        if self._reader is None:
+            raise RuntimeError("Client is not connected")
 
         try:
             read = await self._reader.readuntil(read_until.encode("utf-8"))
@@ -105,7 +116,8 @@ class Client:
 
     async def write(self, command: str) -> None:
         """Write a command to the connection."""
-        assert self._writer is not None
+        if self._writer is None:
+            raise RuntimeError("Client is not connected")
 
         try:
             self._writer.write(command.encode("utf-8"))

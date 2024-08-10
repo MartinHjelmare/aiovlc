@@ -1,23 +1,18 @@
-"""Configuration file for the Sphinx documentation builder."""
-
+# Configuration file for the Sphinx documentation builder.
+#
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-from aiovlc import __version__
-
+# Project information
 project = "aiovlc"
 project_copyright = "2023, Martin Hjelmare"
 author = "Martin Hjelmare"
-version = __version__
-release = __version__
+release = "0.3.2"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-
+# General configuration
 extensions = [
     "myst_parser",
+    "sphinx.ext.autodoc",
 ]
 
 # The suffix of source filenames.
@@ -25,13 +20,15 @@ source_suffix = [
     ".rst",
     ".md",
 ]
+templates_path = [
+    "_templates",
+]
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+]
 
-templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
-
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = "sphinx_rtd_theme"
+# Options for HTML output
+html_theme = "furo"
 html_static_path = ["_static"]
