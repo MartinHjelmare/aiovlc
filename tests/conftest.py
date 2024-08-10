@@ -24,7 +24,7 @@ def transport_fixture() -> Generator[AsyncMock]:
 
 
 @pytest.fixture(name="client")
-async def client_fixture(transport: tuple[AsyncMock, AsyncMock]) -> Client:
+async def client_fixture(transport: tuple[AsyncMock, AsyncMock]) -> Client:  # noqa: ARG001
     """Mock a client."""
     return Client("test-password")
 

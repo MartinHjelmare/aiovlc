@@ -32,7 +32,7 @@ async def test_clear_command(
 
 
 @pytest.mark.parametrize(
-    "read, length",
+    ("read", "length"),
     [(b"372\r\n> ", 372), (b"\r\n> ", 0)],
 )
 async def test_get_length_command(
@@ -55,7 +55,7 @@ async def test_get_length_command(
 
 
 @pytest.mark.parametrize(
-    "read, error, error_message",
+    ("read", "error", "error_message"),
     [
         (b"> ", CommandParseError, "Could not get length."),
         (
@@ -86,7 +86,7 @@ async def test_get_length_command_error(
 
 
 @pytest.mark.parametrize(
-    "read, time_result",
+    ("read", "time_result"),
     [(b"8\r\n> ", 8), (b"\r\n> ", 0)],
 )
 async def test_get_time_command(
@@ -109,7 +109,7 @@ async def test_get_time_command(
 
 
 @pytest.mark.parametrize(
-    "read, error, error_message",
+    ("read", "error", "error_message"),
     [
         (b"> ", CommandParseError, "Could not get time."),
         (
@@ -186,7 +186,7 @@ async def test_info_command_error(
 ) -> None:
     """Test the info command error."""
     mock_reader, mock_writer = transport.return_value
-    mock_reader.readuntil.return_value = b"unexpected\r\n" b"> "
+    mock_reader.readuntil.return_value = b"unexpected\r\n> "
 
     with pytest.raises(CommandError) as err:
         await client_connected.info()
@@ -214,7 +214,7 @@ async def test_next_command(
 
 
 @pytest.mark.parametrize(
-    "read, read_call_count",
+    ("read", "read_call_count"),
     [([b"Welcome, Master\r\n", b"> "], 4), ([b"Welcome, Master> \r\n"], 3)],
 )
 async def test_password_command(
@@ -224,7 +224,7 @@ async def test_password_command(
     read_call_count: int,
 ) -> None:
     """Test the password command."""
-    password = "test-password"
+    password = "test-password"  # noqa: S105
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.side_effect = [
         b"VLC media player 3.0.9.2 Vetinari\nPassword: ",
@@ -242,7 +242,7 @@ async def test_password_command(
 
 
 @pytest.mark.parametrize(
-    "read, error, error_message",
+    ("read", "error", "error_message"),
     [
         ([b"Wrong password\r\n"], AuthError, "Failed to login to VLC."),
         (
@@ -261,7 +261,7 @@ async def test_password_command_error(
     error_message: str,
 ) -> None:
     """Test the password command errors."""
-    password = "test-password"
+    password = "test-password"  # noqa: S105
     mock_reader, mock_writer = transport.return_value
     mock_reader.readuntil.side_effect = [
         b"VLC media player 3.0.9.2 Vetinari\nPassword: ",
@@ -323,7 +323,7 @@ async def test_prev_command(
 
 
 @pytest.mark.parametrize(
-    "mode, call_argument",
+    ("mode", "call_argument"),
     [
         ("on", " on"),
         ("off", " off"),
@@ -348,7 +348,7 @@ async def test_random_command(
 
 
 @pytest.mark.parametrize(
-    "mode, error, error_message",
+    ("mode", "error", "error_message"),
     [
         (
             "bad_mode",
@@ -396,7 +396,7 @@ async def test_set_volume_command(
 
 
 @pytest.mark.parametrize(
-    "volume, error, error_message",
+    ("volume", "error", "error_message"),
     [
         ("bad_volume", CommandParameterError, "Invalid volume parameter: bad_volume"),
         (
@@ -425,7 +425,7 @@ async def test_set_volume_command_error(
 
 
 @pytest.mark.parametrize(
-    "read, audio_volume, state, input_loc",
+    ("read", "audio_volume", "state", "input_loc"),
     [
         (b"( audio volume: 0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
         (b"( audio volume: 0.0 )\r\n( state stopped )\r\n> ", 0, "stopped", None),
@@ -489,7 +489,7 @@ async def test_stop_command(
 
 
 @pytest.mark.parametrize(
-    "read, audio_volume",
+    ("read", "audio_volume"),
     [
         (b"0\r\n> ", 0),
         (b"0.0\r\n> ", 0),
