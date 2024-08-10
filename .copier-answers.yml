@@ -3,7 +3,7 @@ _commit: 6ea1260
 _src_path: https://github.com/browniebroke/pypackage-template
 add_me_as_contributor: false
 cli_name: aiovlc
-copyright_year: '2023'
+copyright_year: '2024'
 documentation: true
 email: marhje52@gmail.com
 full_name: Martin Hjelmare
