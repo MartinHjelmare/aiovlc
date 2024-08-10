@@ -3,7 +3,7 @@ _commit: 6ea1260
 _src_path: https://github.com/browniebroke/pypackage-template
 add_me_as_contributor: false
 cli_name: aiovlc
-copyright_year: '2023'
+copyright_year: '2024'
 documentation: true
 email: marhje52@gmail.com
 full_name: Martin Hjelmare
@@ -18,5 +18,5 @@ project_short_description: Control VLC over telnet connection using asyncio
 project_slug: aiovlc
 run_poetry_install: false
 setup_github: false
-setup_pre_commit: true
+setup_pre_commit: false
 
