@@ -39,7 +39,7 @@ pytest = "^8.0.0"
 pytest-asyncio = "^0.23.0"
 pytest-cov = "^5.0.0"
 python-semantic-release = "^9.0.0"
-ruff = "^0.5.7"
+ruff = "^0.6.0"
 
 [tool.poetry.group.docs]
 optional = true
