@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.1 (2024-08-17)
+
+### Fix
+
+* Update dependency typer to v0.12.4 ([`57bb799`](https://github.com/MartinHjelmare/aiovlc/commit/57bb79953055f667ce4fa9e80cf6ae5cda534d75))
+
 ## v0.4.0 (2024-08-10)
 
 ### Breaking
