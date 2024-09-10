@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.4 (2024-09-10)
+
+### Fix
+
+* Update dependency rich to v13.8.1 ([`d1bb220`](https://github.com/MartinHjelmare/aiovlc/commit/d1bb220400c7253568992ee982aa8a745a9bf417))
+
 ## v0.4.3 (2024-08-26)
 
 ### Fix
