@@ -48,11 +48,13 @@ class Client:
         password: str,
         host: str = "localhost",
         port: int = 4212,
+        timeout: int = 10,
     ) -> None:
         """Set up the client client."""
         self.host = host
         self.password = password
         self.port = port
+        self.timeout = timeout
         self.command_lock = asyncio.Lock()
         self._reader: asyncio.StreamReader | None = None
         self._writer: asyncio.StreamWriter | None = None
@@ -74,9 +76,12 @@ class Client:
     async def connect(self) -> None:
         """Connect the client."""
         try:
-            self._reader, self._writer = await asyncio.open_connection(
-                host=self.host,
-                port=self.port,
+            self._reader, self._writer = await asyncio.wait_for(
+                asyncio.open_connection(
+                    host=self.host,
+                    port=self.port,
+                ),
+                timeout=self.timeout,
             )
         except OSError as err:
             raise ConnectError(f"Failed to connect: {err}") from err
@@ -87,7 +92,7 @@ class Client:
             raise RuntimeError("Client is not connected")
         try:
             self._writer.close()
-            await self._writer.wait_closed()
+            await asyncio.wait_for(self._writer.wait_closed(), timeout=self.timeout)
         except OSError:
             pass
 
@@ -97,7 +102,10 @@ class Client:
             raise RuntimeError("Client is not connected")
 
         try:
-            read = await self._reader.readuntil(read_until.encode("utf-8"))
+            read = await asyncio.wait_for(
+                self._reader.readuntil(read_until.encode("utf-8")),
+                timeout=self.timeout,
+            )
         except asyncio.LimitOverrunError as err:
             raise ConnectReadError(err) from err
         except asyncio.IncompleteReadError as err:
@@ -119,7 +127,7 @@ class Client:
 
         try:
             self._writer.write(command.encode("utf-8"))
-            await self._writer.drain()
+            await asyncio.wait_for(self._writer.drain(), timeout=self.timeout)
         except OSError as err:
             raise ConnectError(f"Failed to write: {err}") from err
 
