@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.0 (2024-09-20)
+
+### Feature
+
+* Add connection and command timeout (#267) ([`3ea3fbb`](https://github.com/MartinHjelmare/aiovlc/commit/3ea3fbbec305eb52a20d58bc15fd2be7a10f9b09))
+
 ## v0.4.4 (2024-09-10)
 
 ### Fix
