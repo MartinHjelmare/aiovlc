@@ -9,7 +9,7 @@ classifiers = [
 ]
 description = "Control VLC over telnet connection using asyncio"
 documentation = "https://aiovlc.readthedocs.io"
-license = "Apache Software License 2.0"
+license = "Apache-2.0"
 name = "aiovlc"
 packages = [
   {include = "aiovlc", from = "src"},
