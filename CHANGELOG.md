@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.1 (2024-09-21)
+
+### Fix
+
+* License notation (#268) ([`3b80d96`](https://github.com/MartinHjelmare/aiovlc/commit/3b80d96598a489d335210bd4deff327c42a17d44))
+
 ## v0.5.0 (2024-09-20)
 
 ### Feature
