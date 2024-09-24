@@ -49,7 +49,7 @@ Ready to contribute? Here's how to set yourself up for local development.
 3. Install the project dependencies with [Poetry](https://python-poetry.org):
 
    ```shell
-   $ poetry install
+   $ poetry install --extras cli
    ```
 
 4. Create a branch for local development:
