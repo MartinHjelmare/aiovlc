@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.6.0 (2024-09-24)
+
+### Feature
+
+* Make cli optional (#270) ([`f05b428`](https://github.com/MartinHjelmare/aiovlc/commit/f05b428227a0dbcb6c85e231d207dd16bab0f004))
+
 ## v0.5.1 (2024-09-21)
 
 ### Fix
