@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.6.2 (2024-11-19)
+
+### Bug fixes
+
+* Update dependency typer to v0.13.1 ([`ab669d6`](https://github.com/MartinHjelmare/aiovlc/commit/ab669d67de4686b8357cd2bc8b8dc44bae077453))
+
+### Chores
+
+* Update pre-commit hook commitizen-tools/commitizen to v3.31.0 ([`0d58957`](https://github.com/MartinHjelmare/aiovlc/commit/0d589570e41808caf10d88fbc1a92a5000bc0f07))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.4 ([`facbc2a`](https://github.com/MartinHjelmare/aiovlc/commit/facbc2ad0b6ecf355c3487d2690c1870425fbd82))
+* Update dependency ruff to v0.7.4 ([`c17d96c`](https://github.com/MartinHjelmare/aiovlc/commit/c17d96caf10054490cfc5236687d9433a16cd028))
+* Update codecov/codecov-action action to v5 (#277) ([`126ae1c`](https://github.com/MartinHjelmare/aiovlc/commit/126ae1c65c9774211d250545b964b6970f11cd70))
+* Update python-semantic-release/python-semantic-release action to v9.14.0 ([`ec5db23`](https://github.com/MartinHjelmare/aiovlc/commit/ec5db23b51a23310b7e399ad048141249387969f))
+* Update dependency python-semantic-release to v9.14.0 ([`90fb34c`](https://github.com/MartinHjelmare/aiovlc/commit/90fb34cc1995d4f6a4a0947c163f7d0d5b917501))
+* Update dependency python-semantic-release to v9.13.0 ([`250576e`](https://github.com/MartinHjelmare/aiovlc/commit/250576ea4fe957bf3fdf5a1f43cbda1d9ad34b0c))
+* Update python-semantic-release/python-semantic-release action to v9.13.0 ([`9b01aa8`](https://github.com/MartinHjelmare/aiovlc/commit/9b01aa8d8cee04e45a36653004e0859398aac6eb))
+* Update pre-commit hook commitizen-tools/commitizen to v3.30.1 ([`1d687cc`](https://github.com/MartinHjelmare/aiovlc/commit/1d687cc5fc7e951139351a314377cb6b52d690ef))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.3 ([`7b1c753`](https://github.com/MartinHjelmare/aiovlc/commit/7b1c7537bbef712d4ac5337e01c5362cafac42f7))
+* Update dependency ruff to v0.7.3 ([`b88b571`](https://github.com/MartinHjelmare/aiovlc/commit/b88b5710b53d5d3f57a8c08ac6156eb2d690664f))
+* Adjust typer deps (#276) ([`0751911`](https://github.com/MartinHjelmare/aiovlc/commit/0751911b159c79a789201874fbe8dcbb4e76137a))
+
 ## v0.6.1 (2024-11-08)
 
 ### Bug fixes
@@ -156,12 +177,9 @@
 
 ## v0.4.0 (2024-08-10)
 
-### Breaking
-
-* Require python 3.11 (#263) ([`c69256b`](https://github.com/MartinHjelmare/aiovlc/commit/c69256b6b0d0b48af7d9249204b7e0d4ad3719c8))
-
 ### Chores
 
+* Require python 3.11 (#263) ([`c69256b`](https://github.com/MartinHjelmare/aiovlc/commit/c69256b6b0d0b48af7d9249204b7e0d4ad3719c8))
 * Update wagoid/commitlint-github-action action to v6.0.2 (#262) ([`329c73b`](https://github.com/MartinHjelmare/aiovlc/commit/329c73b2a4876b163a2be76707a75a3b79c00cf7))
 * Update dependency pre-commit to v3.8.0 ([`96349ce`](https://github.com/MartinHjelmare/aiovlc/commit/96349ce3986d388578ffd2e67ede1105fb8cc058))
 
@@ -552,7 +570,7 @@
 
 ## v0.3.0 (2023-01-14)
 
-### Breaking
+### Chores
 
 * Drop support for python 3.8 (#214) ([`9516128`](https://github.com/MartinHjelmare/aiovlc/commit/951612846ccc27a9a47552586ae10fde1f209347))
 
