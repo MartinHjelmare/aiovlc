@@ -105,7 +105,6 @@ target-version = "py311"
 
 [tool.ruff.lint]
 ignore = [
-  "ANN101", # missing-type-self
   "ANN401", # any-type
   "D203", # 1 blank line required before class docstring
   "D213", # Multi-line docstring summary should start at the second line
@@ -113,9 +112,9 @@ ignore = [
   "EM101", # raw-string-in-exception
   "EM102", # f-string-in-exception
   "PLR2004", # magic-value-comparison
-  "TCH001", # typing-only-first-party-import
-  "TCH002", # typing-only-third-party-import
-  "TCH003", # typing-only-stdlib-import
+  "TC001", # typing-only-first-party-import
+  "TC002", # typing-only-third-party-import
+  "TC003", # typing-only-stdlib-import
   "TID252", # relative-imports
   "TRY003", # raise-vanilla-args
 ]
