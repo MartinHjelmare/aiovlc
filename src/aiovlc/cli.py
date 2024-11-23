@@ -4,7 +4,7 @@ import asyncio
 from collections.abc import Awaitable, Callable
 from typing import Annotated
 
-from rich import print
+from rich import print as rich_print
 import typer
 
 from .client import Client
@@ -36,13 +36,13 @@ def client(
 
 def run_client(client_factory: ClientFactory) -> None:
     """Run a client."""
-    print("Starting client")
+    rich_print("Starting client")
     try:
         asyncio.run(start_client(client_factory))
     except KeyboardInterrupt:
         pass
     finally:
-        print("Exiting CLI")
+        rich_print("Exiting CLI")
 
 
 async def start_client(client_factory: ClientFactory) -> None:
@@ -54,7 +54,7 @@ async def start_client(client_factory: ClientFactory) -> None:
             await vlc_client.login()
             await handle_client(vlc_client)
     except AIOVLCError as err:
-        print("Error:", err)
+        rich_print("Error:", err)
 
 
 async def handle_client(vlc_client: Client) -> None:
@@ -62,8 +62,8 @@ async def handle_client(vlc_client: Client) -> None:
     while True:
         command = Status()
         output = await command.send(vlc_client)
-        print("Received:", output)
+        rich_print("Received:", output)
         info_command = Info()
         info_output = await info_command.send(vlc_client)
-        print("Received:", info_output)
+        rich_print("Received:", info_output)
         await asyncio.sleep(10)
