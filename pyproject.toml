@@ -27,7 +27,7 @@ aiovlc = "aiovlc.cli:app"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-typer = "^0.13.0"
+typer = "^0.14.0"
 
 [tool.poetry.extras]
 cli = ["typer"]
