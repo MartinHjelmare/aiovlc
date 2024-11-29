@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.6.3 (2024-11-29)
+
+### Chores
+
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.1 ([`8048cce`](https://github.com/MartinHjelmare/aiovlc/commit/8048cced14e86681c0d7b2fc5deaa04e0b6d12f2))
+* Update pre-commit hook commitizen-tools/commitizen to v4 (#281) ([`f7c7fcc`](https://github.com/MartinHjelmare/aiovlc/commit/f7c7fcc626f548661974acec898d4353be28971c))
+* Upgrade dependencies (#280) ([`9ad8baa`](https://github.com/MartinHjelmare/aiovlc/commit/9ad8baa20de358095ab123105122b4606a3b16fe))
+* Update pre-commit stages (#279) ([`2d14ee0`](https://github.com/MartinHjelmare/aiovlc/commit/2d14ee0c02e9ab887d5452cf1c39825f9f31a0de))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.0 (#278) ([`ff982ac`](https://github.com/MartinHjelmare/aiovlc/commit/ff982acb9531705ad6e11670d1db1723af388b31))
+* Update dependency ruff to ^0.8.0 ([`f854c98`](https://github.com/MartinHjelmare/aiovlc/commit/f854c98d7b408583cc6bc672ec8c7c98c9a1fd36))
+
+### Bug fixes
+
+* Update dependency typer to ^0.14.0 ([`5dedcd8`](https://github.com/MartinHjelmare/aiovlc/commit/5dedcd890ad829e3aee11e405365e55205a614d7))
+
 ## v0.6.2 (2024-11-19)
 
 ### Bug fixes
