@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.6.4 (2024-12-03)
+
+### Bug fixes
+
+* Update dependency typer to ^0.15.0 ([`ffbae6b`](https://github.com/MartinHjelmare/aiovlc/commit/ffbae6b648ec02d298fad0a201317f2c540895a0))
+
+### Chores
+
+* Update dependency python-semantic-release to v9.15.1 ([`b59fe54`](https://github.com/MartinHjelmare/aiovlc/commit/b59fe54c913032d25bdeeaa0a1c1da2d3bf1a47a))
+* Update python-semantic-release/python-semantic-release action to v9.15.1 ([`b0422de`](https://github.com/MartinHjelmare/aiovlc/commit/b0422de711d6ee59b877f583204f1de653fc37c5))
+* Update python-semantic-release/python-semantic-release action to v9.15.0 ([`5a5dcef`](https://github.com/MartinHjelmare/aiovlc/commit/5a5dcef8a932a2c16a8317f2db9951675c95275c))
+* Update dependency python-semantic-release to v9.15.0 ([`4049268`](https://github.com/MartinHjelmare/aiovlc/commit/404926829f6506d43cc7e460d238ac08943cbffc))
+* Update dependency pytest to v8.3.4 ([`d4963cc`](https://github.com/MartinHjelmare/aiovlc/commit/d4963ccc8d9f9abdfaa8f6b9925deaa6ec0fd0ec))
+* Update dependency ruff to v0.8.1 ([`c46f4c5`](https://github.com/MartinHjelmare/aiovlc/commit/c46f4c5f6412dee5cf6b177edb57e6f1aedf6ab4))
+
 ## v0.6.3 (2024-11-29)
 
 ### Chores

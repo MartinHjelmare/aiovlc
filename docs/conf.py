@@ -7,7 +7,7 @@
 project = "aiovlc"
 project_copyright = "2024, Martin Hjelmare"
 author = "Martin Hjelmare"
-release = "0.6.3"
+release = "0.6.4"
 
 # General configuration
 extensions = [
