@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.6.5 (2024-12-04)
+
+### Bug fixes
+
+* Update dependency typer to v0.15.1 ([`51bc14e`](https://github.com/MartinHjelmare/aiovlc/commit/51bc14e0dd46993e5f24c8b0cd7d17929c618aed))
+
+### Chores
+
+* Update actions/attest-build-provenance action to v2 (#282) ([`7af5337`](https://github.com/MartinHjelmare/aiovlc/commit/7af533749dfa697c4fa6de99effa5cae2ee0fbc2))
+
 ## v0.6.4 (2024-12-03)
 
 ### Bug fixes
