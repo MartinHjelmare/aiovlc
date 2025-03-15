@@ -10,8 +10,6 @@ import pytest
 
 from aiovlc.client import Client
 
-# pylint: disable=unused-argument
-
 
 @pytest.fixture(name="transport")
 def transport_fixture() -> Generator[AsyncMock]:
