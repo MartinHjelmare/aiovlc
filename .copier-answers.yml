@@ -1,9 +1,8 @@
 # Changes here will be overwritten by Copier
-_commit: 6ea1260
+_commit: c2d7118
 _src_path: https://github.com/browniebroke/pypackage-template
-add_me_as_contributor: false
 cli_name: aiovlc
-copyright_year: '2024'
+copyright_year: '2025'
 documentation: true
 email: marhje52@gmail.com
 full_name: Martin Hjelmare
@@ -16,7 +15,7 @@ package_name: aiovlc
 project_name: aiovlc
 project_short_description: Control VLC over telnet connection using asyncio
 project_slug: aiovlc
-run_poetry_install: false
+run_uv_sync: false
 setup_github: false
 setup_pre_commit: true
 

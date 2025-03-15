@@ -1,80 +1,58 @@
-[tool.poetry]
-authors = ["Martin Hjelmare <marhje52@gmail.com>"]
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+authors = [
+  {name = "Martin Hjelmare", email = "marhje52@gmail.com"},
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Natural Language :: English",
   "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Libraries",
 ]
 description = "Control VLC over telnet connection using asyncio"
-documentation = "https://aiovlc.readthedocs.io"
-license = "Apache-2.0"
+license = {text = "Apache-2.0"}
 name = "aiovlc"
-packages = [
-  {include = "aiovlc", from = "src"},
-]
 readme = "README.md"
-repository = "https://github.com/MartinHjelmare/aiovlc"
+requires-python = ">=3.11"
 version = "0.6.6"
 
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/MartinHjelmare/aiovlc/issues"
-"Changelog" = "https://github.com/MartinHjelmare/aiovlc/blob/main/CHANGELOG.md"
+dependencies = []
+scripts.aiovlc = "aiovlc.cli:app"
+urls."Bug Tracker" = "https://github.com/MartinHjelmare/aiovlc/issues"
+urls.Changelog = "https://github.com/MartinHjelmare/aiovlc/blob/main/CHANGELOG.md"
+urls.documentation = "https://aiovlc.readthedocs.io"
+urls.repository = "https://github.com/MartinHjelmare/aiovlc"
 
-[tool.poetry.scripts]
-aiovlc = "aiovlc.cli:app"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-typer = "^0.15.0"
-
-[tool.poetry.extras]
-cli = ["typer"]
-
-[tool.poetry.group.dev.dependencies]
-codespell = "^2.3.0"
-copier = "^9.3.1"
-mypy = "^1.0"
-pre-commit = "^4.0.0"
-pytest = "^8.0.0"
-pytest-asyncio = "^0.25.0"
-pytest-cov = "^6.0.0"
-python-semantic-release = "^9.0.0"
-ruff = "^0.11.0"
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-furo = {version = ">=2023.5.20", python = ">=3.11"}
-myst-parser = {version = ">=0.16", python = ">=3.11"}
-sphinx = {version = ">=4.0", python = ">=3.11"}
-sphinx-autobuild = {version = ">=2024.0.0", python = ">=3.11"}
-
-[tool.semantic_release]
-build_command = "pip install poetry && poetry build"
-major_on_zero = false
-version_toml = ["pyproject.toml:tool.poetry.version"]
-version_variables = [
-  "src/aiovlc/__init__.py:__version__",
-  "docs/conf.py:release",
+[project.optional-dependencies]
+cli = [
+  "typer>=0.15,<1",
 ]
 
-[tool.semantic_release.changelog]
-exclude_commit_patterns = [
-  "^Bump.*",
+[dependency-groups]
+dev = [
+  "codespell==2.4.1",
+  "copier==9.6.0",
+  "mypy==1.15.0",
+  "pre-commit==4.1.0",
+  "pytest==8.3.5",
+  "pytest-asyncio==0.25.3",
+  "pytest-cov==6.0.0",
+  "python-semantic-release>=9,<10",
+  "ruff==0.11.0",
 ]
-
-[tool.semantic_release.changelog.environment]
-keep_trailing_newline = true
-
-[tool.semantic_release.branches.main]
-match = "main"
-
-[tool.semantic_release.branches.noop]
-match = "(?!main$)"
-prerelease = true
+docs = [
+  "furo>=2023.5.20; python_version>='3.11'",
+  "myst-parser>=0.16; python_version>='3.11'",
+  "sphinx>=4; python_version>='3.11'",
+  "sphinx-autobuild>=2024,<2025; python_version>='3.11'",
+]
 
 [tool.pytest.ini_options]
 addopts = """\
@@ -101,10 +79,7 @@ exclude_lines = [
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
-
-[tool.ruff.lint]
-ignore = [
+lint.ignore = [
   "ANN401", # any-type
   "D203", # 1 blank line required before class docstring
   "D213", # Multi-line docstring summary should start at the second line
@@ -115,30 +90,20 @@ ignore = [
   "TC001", # typing-only-first-party-import
   "TC002", # typing-only-third-party-import
   "TC003", # typing-only-stdlib-import
-  "TID252", # relative-imports
   "TRY003", # raise-vanilla-args
 ]
-select = [
-  "ALL", # all rules
-]
-
-[tool.ruff.lint.per-file-ignores]
-"conftest.py" = ["D100"]
-"docs/conf.py" = ["D100"]
-"setup.py" = ["D100"]
-"tests/**/*" = [
-  "D100",
-  "D101",
-  "D102",
-  "D103",
-  "D104",
+lint.isort.force-sort-within-sections = true
+lint.isort.known-first-party = ["aiovlc", "tests"]
+lint.per-file-ignores."docs/conf.py" = ["D100"]
+lint.per-file-ignores."setup.py" = ["D100"]
+lint.per-file-ignores."tests/**/*" = [
   "PLR0913",
   "S101",
 ]
-
-[tool.ruff.lint.isort]
-force-sort-within-sections = true
-known-first-party = ["aiovlc", "tests"]
+lint.select = [
+  "ALL", # all rules
+]
+target-version = "py311"
 
 [tool.mypy]
 check_untyped_defs = true
@@ -164,10 +129,38 @@ warn_unused_ignores = true
 allow_untyped_defs = true
 module = "tests.*"
 
-[[tool.mypy.overrides]]
-ignore_errors = true
-module = "docs.*"
+[tool.semantic_release]
+build_command = """
+pip install uv
+uv lock
+git add uv.lock
+uv build
+"""
+major_on_zero = false
+version_toml = ["pyproject.toml:project.version"]
+version_variables = [
+  "src/aiovlc/__init__.py:__version__",
+  "docs/conf.py:release",
+]
 
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+  '''chore(?:\([^)]*?\))?: .+''',
+  '''ci(?:\([^)]*?\))?: .+''',
+  '''refactor(?:\([^)]*?\))?: .+''',
+  '''style(?:\([^)]*?\))?: .+''',
+  '''test(?:\([^)]*?\))?: .+''',
+  '''build\((?!deps\): .+)''',
+  '''Merged? .*''',
+  '''Initial [Cc]ommit.*''', # codespell:ignore
+]
+
+[tool.semantic_release.changelog.environment]
+keep_trailing_newline = true
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+[tool.semantic_release.branches.noop]
+match = "(?!main$)"
+prerelease = true
