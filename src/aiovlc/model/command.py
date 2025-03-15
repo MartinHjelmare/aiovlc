@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
 import re
 from typing import TYPE_CHECKING, Generic, Literal, TypeVar
 
-from ..const import LOGGER
-from ..exceptions import (
+from aiovlc.const import LOGGER
+from aiovlc.exceptions import (
     AuthError,
     CommandError,
     CommandParameterError,
@@ -16,7 +16,7 @@ from ..exceptions import (
 )
 
 if TYPE_CHECKING:
-    from ..client import Client
+    from aiovlc.client import Client
 
 T = TypeVar("T")
 DEFAULT_COMMAND_READ_TERMINATOR = "> "

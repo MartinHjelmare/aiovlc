@@ -1,7 +1,7 @@
 tasks:
   - command: |
-      pip install poetry
-      PIP_USER=false poetry install --extras cli
+      pip install uv
+      PIP_USER=false uv sync
   - command: |
       pip install pre-commit
       pre-commit install
