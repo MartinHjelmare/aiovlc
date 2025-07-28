@@ -4,7 +4,7 @@ requires-python = ">=3.11"
 
 [[package]]
 name = "aiovlc"
-version = "0.6.6"
+version = "1.0.0rc1"
 source = { editable = "." }
 
 [package.optional-dependencies]
