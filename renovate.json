@@ -6,6 +6,10 @@
   "automergeType": "branch",
   "packageRules": [
     {
+      "groupName": "python-semantic-release",
+      "matchPackageNames": ["*python-semantic-release*"]
+    },
+    {
       "matchDepTypes": ["dependencies"],
       "major": {
         "semanticCommitType": "fix"
