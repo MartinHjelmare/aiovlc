@@ -7,7 +7,7 @@
   "packageRules": [
     {
       "groupName": "python-semantic-release",
-      "matchPackageNames": ["*python-semantic-release*"]
+      "matchDepNames": ["*python-semantic-release*"]
     },
     {
       "matchDepTypes": ["dependencies"],
