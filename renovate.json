@@ -6,14 +6,15 @@
   "automergeType": "branch",
   "packageRules": [
     {
-      "groupName": "python-semantic-release",
-      "matchPackageNames": ["python-semantic-release**"]
-    },
-    {
       "matchDepTypes": ["dependencies"],
       "major": {
         "semanticCommitType": "fix"
       }
+    },
+    {
+      "groupName": "python-semantic-release",
+      "matchPackageNames": ["python-semantic-release**"],
+      "branchTopic": "python-semantic-release"
     }
   ]
 }
