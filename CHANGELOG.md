@@ -1,756 +1,176 @@
-# Changelog
+# CHANGELOG
+
+<!-- version list -->
 
 ## v0.6.6 (2025-02-27)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to v0.15.2 ([`2cd73b4`](https://github.com/MartinHjelmare/aiovlc/commit/2cd73b4f677dfc859e7f33c27b2b4a23b29eb777))
+- **deps**: Update dependency typer to v0.15.2
+  ([`2cd73b4`](https://github.com/MartinHjelmare/aiovlc/commit/2cd73b4f677dfc859e7f33c27b2b4a23b29eb777))
 
-### Chores
-
-* Update dependency ruff to v0.9.8 ([`e54fbda`](https://github.com/MartinHjelmare/aiovlc/commit/e54fbdab2616f1d862ab41ed875734a346131b79))
-* Upgrade dependencies (#287) ([`cef8855`](https://github.com/MartinHjelmare/aiovlc/commit/cef88555a2986fffa612e09c2e4b558b01641c0e))
-* Update python-semantic-release/python-semantic-release action to v9.21.0 ([`d8f37ec`](https://github.com/MartinHjelmare/aiovlc/commit/d8f37ecbee6cf9c61707e65fd203a02023279b4d))
-* Update dependency python-semantic-release to v9.21.0 ([`32aeba1`](https://github.com/MartinHjelmare/aiovlc/commit/32aeba1ab65cc8499fd1d46e71c57121a7edfda2))
-* Update dependency sphinx to v8.2.1 ([`f819b64`](https://github.com/MartinHjelmare/aiovlc/commit/f819b64c5e242d25b8e4b56a692950b89d250ce9))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.7 ([`22a093d`](https://github.com/MartinHjelmare/aiovlc/commit/22a093d4d3ffaa5abc3a59bc8e7b14a4da419fa4))
-* Update dependency ruff to v0.9.7 ([`764dddd`](https://github.com/MartinHjelmare/aiovlc/commit/764ddddc106eebc35a7cd8bb1ac2a4d79408b399))
-* Update dependency sphinx to v8.2.0 ([`2734412`](https://github.com/MartinHjelmare/aiovlc/commit/27344121b5dfeded923ef712e112e94789a44b55))
-* Update pre-commit hook commitizen-tools/commitizen to v4.2.2 ([`6c6aa87`](https://github.com/MartinHjelmare/aiovlc/commit/6c6aa870f26377f7c2c77d9af85b34c54d6593f5))
-* Update dependency copier to v9.5.0 ([`95c3cd9`](https://github.com/MartinHjelmare/aiovlc/commit/95c3cd98d565f5930f92621a7bd2af3ddb782ec9))
-* Update python-semantic-release/python-semantic-release action to v9.20.0 ([`e75e722`](https://github.com/MartinHjelmare/aiovlc/commit/e75e7228d424e59368fa7d41fe72d2fe65a5e766))
-* Update dependency python-semantic-release to v9.20.0 ([`998fa9e`](https://github.com/MartinHjelmare/aiovlc/commit/998fa9ea9f83719b2dd064a6311182a9b22deb45))
-* Update pre-commit hook python-poetry/poetry to v2.1.1 ([`f102dfd`](https://github.com/MartinHjelmare/aiovlc/commit/f102dfdcb3aa5c05528d2412312fdfd90b3e0b28))
-* Update pre-commit hook python-poetry/poetry to v2 (#284) ([`e5ab89e`](https://github.com/MartinHjelmare/aiovlc/commit/e5ab89e31da46f7f148f482a303647d89bfeeeb4))
-* Update dependency myst-parser to v4.0.1 ([`bdef732`](https://github.com/MartinHjelmare/aiovlc/commit/bdef73287335a8e8d1ca584b965be9e65c9fadb0))
-* Update python-semantic-release/python-semantic-release action to v9.19.1 ([`c348f4e`](https://github.com/MartinHjelmare/aiovlc/commit/c348f4e71a93fd4ea276026bc30e3629ab36193d))
-* Update dependency python-semantic-release to v9.19.1 ([`79e516f`](https://github.com/MartinHjelmare/aiovlc/commit/79e516f5e4a8326b575be5bcedee87b2a1cbaff5))
-* Update dependency ruff to v0.9.6 ([`68f7182`](https://github.com/MartinHjelmare/aiovlc/commit/68f71821e49ed471b70e9fd123c0ba905dc80376))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.6 ([`8baaf75`](https://github.com/MartinHjelmare/aiovlc/commit/8baaf7574e2d370868b55dd5783a9a91ac89d28a))
-* Update python-semantic-release/python-semantic-release action to v9.19.0 ([`cb6710f`](https://github.com/MartinHjelmare/aiovlc/commit/cb6710f7676821aa670fad3e8543b9018e4cc288))
-* Update dependency python-semantic-release to v9.19.0 ([`006351d`](https://github.com/MartinHjelmare/aiovlc/commit/006351d60bca2239f5fd815f97398641be174ccc))
-* Update pre-commit hook commitizen-tools/commitizen to v4.2.1 ([`b2e9302`](https://github.com/MartinHjelmare/aiovlc/commit/b2e93023a5f44bd47de8455d99745391f5b6e538))
-* Update python-semantic-release/python-semantic-release action to v9.18.1 ([`177fd5f`](https://github.com/MartinHjelmare/aiovlc/commit/177fd5fb700bf5f721974870f9acda9912364e16))
-* Update dependency python-semantic-release to v9.18.1 ([`e17ac1d`](https://github.com/MartinHjelmare/aiovlc/commit/e17ac1d5e83fe8527d86a124590233b2d47655ac))
-* Update pre-commit hook commitizen-tools/commitizen to v4.2.0 ([`6c8a1d3`](https://github.com/MartinHjelmare/aiovlc/commit/6c8a1d37b881e534206883e5c618897e660d07af))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.5 ([`952ef57`](https://github.com/MartinHjelmare/aiovlc/commit/952ef57d5c22fdb953ba4e5c0ac9083bbb8a804d))
-* Update dependency ruff to v0.9.5 ([`dd77afd`](https://github.com/MartinHjelmare/aiovlc/commit/dd77afd36043c08faabf529a3a00d1fe9b433fc2))
-* Update dependency python-semantic-release to v9.18.0 ([`aa743b4`](https://github.com/MartinHjelmare/aiovlc/commit/aa743b40f982704aaa1c4b1dee2851d236ad1254))
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.15.0 ([`72a9ecf`](https://github.com/MartinHjelmare/aiovlc/commit/72a9ecf34a17d38df86ea7073f61926bf76bca49))
-* Update python-semantic-release/python-semantic-release action to v9.18.0 ([`4382fad`](https://github.com/MartinHjelmare/aiovlc/commit/4382fadc092e0dc28f1708cda3f60b34bbd66052))
-* Update dependency mypy to v1.15.0 ([`5131d83`](https://github.com/MartinHjelmare/aiovlc/commit/5131d8382c2e0ef90af74d66c0f368d5231a6a2f))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.4 ([`cf2d5c9`](https://github.com/MartinHjelmare/aiovlc/commit/cf2d5c9519c174730c9ee40346373a8749cac9cd))
-* Update dependency ruff to v0.9.4 ([`ac51619`](https://github.com/MartinHjelmare/aiovlc/commit/ac516198dcdec79ead7e0fa8b9d2ba1fc2f32658))
-* Update dependency pytest-asyncio to v0.25.3 ([`bf805d0`](https://github.com/MartinHjelmare/aiovlc/commit/bf805d0bd0daf55902f98f992d2f30f32a9a6cc2))
-* Update pre-commit hook codespell-project/codespell to v2.4.1 ([`9860001`](https://github.com/MartinHjelmare/aiovlc/commit/98600014f7d600f4af08e460eba9eb6659cc1d69))
-* Update dependency codespell to v2.4.1 ([`31cf53f`](https://github.com/MartinHjelmare/aiovlc/commit/31cf53fd166c7cd3a0e357472b1ce3961a157186))
-* Update pre-commit hook commitizen-tools/commitizen to v4.1.1 ([`5cb3fb2`](https://github.com/MartinHjelmare/aiovlc/commit/5cb3fb2c78ab6476835e9cc4eb621ce57b4ed42d))
-* Update python-semantic-release/python-semantic-release action to v9.17.0 ([`e74d9f4`](https://github.com/MartinHjelmare/aiovlc/commit/e74d9f40c4a021393637769626ade508f72755dd))
-* Update dependency python-semantic-release to v9.17.0 ([`c68eac3`](https://github.com/MartinHjelmare/aiovlc/commit/c68eac354194c8f48f83b61234789073458cb329))
-* Upgrade dependencies (#286) ([`7269a21`](https://github.com/MartinHjelmare/aiovlc/commit/7269a21eb21330b936aeee8730bc91b8af9bf19d))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.3 ([`35c8bd0`](https://github.com/MartinHjelmare/aiovlc/commit/35c8bd0d7a4e95e48b5d5643ceac6cfc8e919aab))
-* Update dependency ruff to v0.9.3 ([`ee40e31`](https://github.com/MartinHjelmare/aiovlc/commit/ee40e3158f152aabb388e3ecf4f9147f82704b6a))
-* Update pre-commit hook codespell-project/codespell to v2.4.0 ([`ea24335`](https://github.com/MartinHjelmare/aiovlc/commit/ea243357129f60183dafc5ac19836b74d96ead86))
-* Update dependency codespell to v2.4.0 ([`6f9447d`](https://github.com/MartinHjelmare/aiovlc/commit/6f9447db1854d341894d8895c86c5b653d1c5a1d))
-* Update dependency pre-commit to v4.1.0 ([`cd8faec`](https://github.com/MartinHjelmare/aiovlc/commit/cd8faec725e7ab06eae929f34c8b3f2dabc57755))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.2 ([`72486ed`](https://github.com/MartinHjelmare/aiovlc/commit/72486ed06970ec9aaa0a812e2841e19d952208b1))
-* Update dependency ruff to v0.9.2 ([`9444909`](https://github.com/MartinHjelmare/aiovlc/commit/944490907bf2085bba08e22afe2dd323fd296239))
-* Update wagoid/commitlint-github-action action to v6.2.1 ([`ecbaa23`](https://github.com/MartinHjelmare/aiovlc/commit/ecbaa23f4b33ee95bcdbae4e9f5f849f63ce61d0))
-* Update python-semantic-release/python-semantic-release action to v9.16.1 ([`8a2b67a`](https://github.com/MartinHjelmare/aiovlc/commit/8a2b67a16183e04e8a6a026073a1c67db90570bb))
-* Update dependency python-semantic-release to v9.16.1 ([`0661df4`](https://github.com/MartinHjelmare/aiovlc/commit/0661df4f36b0e1a9527b81ec2aff7a96cfb8528f))
-* Update python-semantic-release/python-semantic-release action to v9.16.0 ([`33ac286`](https://github.com/MartinHjelmare/aiovlc/commit/33ac28600e45107f1357c63a5c9994b9c3be335a))
-* Update dependency python-semantic-release to v9.16.0 ([`fb5eb71`](https://github.com/MartinHjelmare/aiovlc/commit/fb5eb7153f24dd83840434b8160f5b8c9aafd4da))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.1 ([`be515b9`](https://github.com/MartinHjelmare/aiovlc/commit/be515b9a00b790c531191ea4e3c67019a4c1d91a))
-* Update dependency ruff to v0.9.1 ([`810a18b`](https://github.com/MartinHjelmare/aiovlc/commit/810a18b845288f948d16e1dd33df46da6e482d69))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.0 ([`1f93415`](https://github.com/MartinHjelmare/aiovlc/commit/1f93415c73a2cd487715d812ed17b88f9632d47b))
-* Update dependency ruff to ^0.9.0 ([`8df6af3`](https://github.com/MartinHjelmare/aiovlc/commit/8df6af3bec00dede7d780dc4ee49d6b46a0fdcc6))
-* Update dependency pytest-asyncio to v0.25.2 ([`da3766a`](https://github.com/MartinHjelmare/aiovlc/commit/da3766a551302df304286364716835c788a0e279))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.6 ([`45aa79f`](https://github.com/MartinHjelmare/aiovlc/commit/45aa79fb5f2ce02708bd8024b715b01b4284d7c2))
-* Update dependency ruff to v0.8.6 ([`832d71d`](https://github.com/MartinHjelmare/aiovlc/commit/832d71dfde5d416e1883c95912eeb31e0fdb6973))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.5 ([`009b02d`](https://github.com/MartinHjelmare/aiovlc/commit/009b02d557b8ffc2853d2239c19e3c57962d66ad))
-* Update dependency ruff to v0.8.5 ([`3cd2d0f`](https://github.com/MartinHjelmare/aiovlc/commit/3cd2d0f2b08d3c5d865fb490dacd4a529f7e957b))
-* Update dependency pytest-asyncio to v0.25.1 ([`9df31ff`](https://github.com/MartinHjelmare/aiovlc/commit/9df31ff17baf04f4bf2620e580a878107fd3e34f))
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.14.1 ([`443f4db`](https://github.com/MartinHjelmare/aiovlc/commit/443f4db2c95d8a03e83a80d0e34321bd7424db4f))
-* Update dependency mypy to v1.14.1 ([`d7bb31f`](https://github.com/MartinHjelmare/aiovlc/commit/d7bb31fd6fd60ad751ce39235dd69b6ba3be026a))
-* Upgrade dependencies (#283) ([`82c336d`](https://github.com/MartinHjelmare/aiovlc/commit/82c336d5cd035f9ca54803cfcd3c1f3ef281e60f))
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.14.0 ([`0f12648`](https://github.com/MartinHjelmare/aiovlc/commit/0f126480d3efdb8ef27fdb7fba07d01f3e1a8446))
-* Update dependency mypy to v1.14.0 ([`5fa29f7`](https://github.com/MartinHjelmare/aiovlc/commit/5fa29f7b19ab449e543fe15d10ee6ed4a3c1dc06))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.4 ([`ded839b`](https://github.com/MartinHjelmare/aiovlc/commit/ded839bb3a79056cf1b35421027f6ebec58e2ec6))
-* Update dependency ruff to v0.8.4 ([`7677a51`](https://github.com/MartinHjelmare/aiovlc/commit/7677a51ec622b057de46195ddde75feb51db6068))
-* Update wagoid/commitlint-github-action action to v6.2.0 ([`54ac023`](https://github.com/MartinHjelmare/aiovlc/commit/54ac023804abacd2e7da721b54cfc34b21096e30))
-* Update python-semantic-release/python-semantic-release action to v9.15.2 ([`33a5d4a`](https://github.com/MartinHjelmare/aiovlc/commit/33a5d4a0d44768d4510171a39e962495f86a3c6c))
-* Update dependency python-semantic-release to v9.15.2 ([`4af232b`](https://github.com/MartinHjelmare/aiovlc/commit/4af232b405165229c64beaf2e9014de7cb645781))
-* Update dependency pytest-asyncio to ^0.25.0 ([`4cdbc53`](https://github.com/MartinHjelmare/aiovlc/commit/4cdbc53fcf4277231c31c7e69ed54543c5d481db))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.3 ([`3e894ed`](https://github.com/MartinHjelmare/aiovlc/commit/3e894ed3df8f13d450a41c7a28b4ef3ff3c0b23e))
-* Update dependency ruff to v0.8.3 ([`8bb4557`](https://github.com/MartinHjelmare/aiovlc/commit/8bb45578bed177250ac241ba3548a5e87f0f4109))
-* Update pre-commit hook python-poetry/poetry to v1.8.5 ([`1e53103`](https://github.com/MartinHjelmare/aiovlc/commit/1e53103e8b685e6441688c78e85cece0e3102bc7))
-* Update pre-commit hook commitizen-tools/commitizen to v4.1.0 ([`c87efc3`](https://github.com/MartinHjelmare/aiovlc/commit/c87efc3baac39e1b6700d88c78bc4c68d5db4b12))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.2 ([`c4c5386`](https://github.com/MartinHjelmare/aiovlc/commit/c4c538604e5caa243aca3da24397fb7703a2619b))
-* Update dependency ruff to v0.8.2 ([`d331ecc`](https://github.com/MartinHjelmare/aiovlc/commit/d331ecc22f0380e1b7e8d188624c5834125fbaef))
 
 ## v0.6.5 (2024-12-04)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to v0.15.1 ([`51bc14e`](https://github.com/MartinHjelmare/aiovlc/commit/51bc14e0dd46993e5f24c8b0cd7d17929c618aed))
+- **deps**: Update dependency typer to v0.15.1
+  ([`51bc14e`](https://github.com/MartinHjelmare/aiovlc/commit/51bc14e0dd46993e5f24c8b0cd7d17929c618aed))
 
-### Chores
-
-* Update actions/attest-build-provenance action to v2 (#282) ([`7af5337`](https://github.com/MartinHjelmare/aiovlc/commit/7af533749dfa697c4fa6de99effa5cae2ee0fbc2))
 
 ## v0.6.4 (2024-12-03)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to ^0.15.0 ([`ffbae6b`](https://github.com/MartinHjelmare/aiovlc/commit/ffbae6b648ec02d298fad0a201317f2c540895a0))
+- **deps**: Update dependency typer to ^0.15.0
+  ([`ffbae6b`](https://github.com/MartinHjelmare/aiovlc/commit/ffbae6b648ec02d298fad0a201317f2c540895a0))
 
-### Chores
-
-* Update dependency python-semantic-release to v9.15.1 ([`b59fe54`](https://github.com/MartinHjelmare/aiovlc/commit/b59fe54c913032d25bdeeaa0a1c1da2d3bf1a47a))
-* Update python-semantic-release/python-semantic-release action to v9.15.1 ([`b0422de`](https://github.com/MartinHjelmare/aiovlc/commit/b0422de711d6ee59b877f583204f1de653fc37c5))
-* Update python-semantic-release/python-semantic-release action to v9.15.0 ([`5a5dcef`](https://github.com/MartinHjelmare/aiovlc/commit/5a5dcef8a932a2c16a8317f2db9951675c95275c))
-* Update dependency python-semantic-release to v9.15.0 ([`4049268`](https://github.com/MartinHjelmare/aiovlc/commit/404926829f6506d43cc7e460d238ac08943cbffc))
-* Update dependency pytest to v8.3.4 ([`d4963cc`](https://github.com/MartinHjelmare/aiovlc/commit/d4963ccc8d9f9abdfaa8f6b9925deaa6ec0fd0ec))
-* Update dependency ruff to v0.8.1 ([`c46f4c5`](https://github.com/MartinHjelmare/aiovlc/commit/c46f4c5f6412dee5cf6b177edb57e6f1aedf6ab4))
 
 ## v0.6.3 (2024-11-29)
 
-### Chores
+### Bug Fixes
 
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.1 ([`8048cce`](https://github.com/MartinHjelmare/aiovlc/commit/8048cced14e86681c0d7b2fc5deaa04e0b6d12f2))
-* Update pre-commit hook commitizen-tools/commitizen to v4 (#281) ([`f7c7fcc`](https://github.com/MartinHjelmare/aiovlc/commit/f7c7fcc626f548661974acec898d4353be28971c))
-* Upgrade dependencies (#280) ([`9ad8baa`](https://github.com/MartinHjelmare/aiovlc/commit/9ad8baa20de358095ab123105122b4606a3b16fe))
-* Update pre-commit stages (#279) ([`2d14ee0`](https://github.com/MartinHjelmare/aiovlc/commit/2d14ee0c02e9ab887d5452cf1c39825f9f31a0de))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.0 (#278) ([`ff982ac`](https://github.com/MartinHjelmare/aiovlc/commit/ff982acb9531705ad6e11670d1db1723af388b31))
-* Update dependency ruff to ^0.8.0 ([`f854c98`](https://github.com/MartinHjelmare/aiovlc/commit/f854c98d7b408583cc6bc672ec8c7c98c9a1fd36))
+- **deps**: Update dependency typer to ^0.14.0
+  ([`5dedcd8`](https://github.com/MartinHjelmare/aiovlc/commit/5dedcd890ad829e3aee11e405365e55205a614d7))
 
-### Bug fixes
-
-* Update dependency typer to ^0.14.0 ([`5dedcd8`](https://github.com/MartinHjelmare/aiovlc/commit/5dedcd890ad829e3aee11e405365e55205a614d7))
 
 ## v0.6.2 (2024-11-19)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to v0.13.1 ([`ab669d6`](https://github.com/MartinHjelmare/aiovlc/commit/ab669d67de4686b8357cd2bc8b8dc44bae077453))
+- **deps**: Update dependency typer to v0.13.1
+  ([`ab669d6`](https://github.com/MartinHjelmare/aiovlc/commit/ab669d67de4686b8357cd2bc8b8dc44bae077453))
 
-### Chores
-
-* Update pre-commit hook commitizen-tools/commitizen to v3.31.0 ([`0d58957`](https://github.com/MartinHjelmare/aiovlc/commit/0d589570e41808caf10d88fbc1a92a5000bc0f07))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.4 ([`facbc2a`](https://github.com/MartinHjelmare/aiovlc/commit/facbc2ad0b6ecf355c3487d2690c1870425fbd82))
-* Update dependency ruff to v0.7.4 ([`c17d96c`](https://github.com/MartinHjelmare/aiovlc/commit/c17d96caf10054490cfc5236687d9433a16cd028))
-* Update codecov/codecov-action action to v5 (#277) ([`126ae1c`](https://github.com/MartinHjelmare/aiovlc/commit/126ae1c65c9774211d250545b964b6970f11cd70))
-* Update python-semantic-release/python-semantic-release action to v9.14.0 ([`ec5db23`](https://github.com/MartinHjelmare/aiovlc/commit/ec5db23b51a23310b7e399ad048141249387969f))
-* Update dependency python-semantic-release to v9.14.0 ([`90fb34c`](https://github.com/MartinHjelmare/aiovlc/commit/90fb34cc1995d4f6a4a0947c163f7d0d5b917501))
-* Update dependency python-semantic-release to v9.13.0 ([`250576e`](https://github.com/MartinHjelmare/aiovlc/commit/250576ea4fe957bf3fdf5a1f43cbda1d9ad34b0c))
-* Update python-semantic-release/python-semantic-release action to v9.13.0 ([`9b01aa8`](https://github.com/MartinHjelmare/aiovlc/commit/9b01aa8d8cee04e45a36653004e0859398aac6eb))
-* Update pre-commit hook commitizen-tools/commitizen to v3.30.1 ([`1d687cc`](https://github.com/MartinHjelmare/aiovlc/commit/1d687cc5fc7e951139351a314377cb6b52d690ef))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.3 ([`7b1c753`](https://github.com/MartinHjelmare/aiovlc/commit/7b1c7537bbef712d4ac5337e01c5362cafac42f7))
-* Update dependency ruff to v0.7.3 ([`b88b571`](https://github.com/MartinHjelmare/aiovlc/commit/b88b5710b53d5d3f57a8c08ac6156eb2d690664f))
-* Adjust typer deps (#276) ([`0751911`](https://github.com/MartinHjelmare/aiovlc/commit/0751911b159c79a789201874fbe8dcbb4e76137a))
 
 ## v0.6.1 (2024-11-08)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to ^0.13.0 ([`9f80c6a`](https://github.com/MartinHjelmare/aiovlc/commit/9f80c6a4a4126c1bd8a118bd58a6442eb6884f2c))
+- **deps**: Update dependency typer to ^0.13.0
+  ([`9f80c6a`](https://github.com/MartinHjelmare/aiovlc/commit/9f80c6a4a4126c1bd8a118bd58a6442eb6884f2c))
 
-### Chores
-
-* Update python-semantic-release/python-semantic-release action to v9.12.2 ([`915a461`](https://github.com/MartinHjelmare/aiovlc/commit/915a461fc33d3b1e73154fff7b6e2341191a9b8c))
-* Update dependency python-semantic-release to v9.12.2 ([`53875ed`](https://github.com/MartinHjelmare/aiovlc/commit/53875ed8a213dc5a37a0efd6e1f3445b36996051))
-* Update python-semantic-release/python-semantic-release action to v9.12.1 ([`3c08b69`](https://github.com/MartinHjelmare/aiovlc/commit/3c08b698bb0011115feadc87c96b0dd722177139))
-* Update dependency python-semantic-release to v9.12.1 ([`0298a15`](https://github.com/MartinHjelmare/aiovlc/commit/0298a15cd2bf766dbe0e2e3ac95618c0477518cb))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.2 ([`6f184a3`](https://github.com/MartinHjelmare/aiovlc/commit/6f184a3e9cc769fd8e9b180e68389e8e8b4f7b4b))
-* Update dependency ruff to v0.7.2 ([`72129a9`](https://github.com/MartinHjelmare/aiovlc/commit/72129a92839d24f71261f5ff2c7d6f3180f77629))
-* Update dependency pytest-cov to v6 (#275) ([`c4770dd`](https://github.com/MartinHjelmare/aiovlc/commit/c4770ddcfee2a00524937b1d0c0636756ee870b9))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.1 ([`8bfd3f2`](https://github.com/MartinHjelmare/aiovlc/commit/8bfd3f2b9456a945d04ae2793e6c9fc356d20261))
-* Update dependency ruff to v0.7.1 ([`884adc4`](https://github.com/MartinHjelmare/aiovlc/commit/884adc4438f31052fe7ee7646310307ebb215eeb))
-* Upgrade dependencies (#274) ([`1dd6b7d`](https://github.com/MartinHjelmare/aiovlc/commit/1dd6b7d809d115bb35ecc6a559ba5652a4d344c8))
-* Update pre-commit hook commitizen-tools/commitizen to v3.30.0 ([`44e4a07`](https://github.com/MartinHjelmare/aiovlc/commit/44e4a075557842d000511075c8c03a21b9847f7a))
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.13.0 ([`4aaf50e`](https://github.com/MartinHjelmare/aiovlc/commit/4aaf50e36413124995babb016564e86c37f48f21))
-* Update dependency mypy to v1.13.0 ([`6d2d4df`](https://github.com/MartinHjelmare/aiovlc/commit/6d2d4dff3e54f2f1b3ba9183f66d1ea1e0829379))
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.12.1 ([`e075b67`](https://github.com/MartinHjelmare/aiovlc/commit/e075b6775819f0b28db797d8f06329f62b3633de))
-* Update dependency mypy to v1.12.1 ([`45a79d5`](https://github.com/MartinHjelmare/aiovlc/commit/45a79d50fd712b9ee4f2c7fd9ddbaad9c0d66676))
-* Update dependency copier to v9.4.1 ([`80b3bbf`](https://github.com/MartinHjelmare/aiovlc/commit/80b3bbf2555f3f5ce5cf0ae0aadcda6e40b9932e))
-* Update python-semantic-release/python-semantic-release action to v9.12.0 ([`b51f232`](https://github.com/MartinHjelmare/aiovlc/commit/b51f23262d7aaf0ac0f2ea961f1dbfd4cb00f907))
-* Update dependency python-semantic-release to v9.12.0 ([`3a7089a`](https://github.com/MartinHjelmare/aiovlc/commit/3a7089a1746281815fb458bbb7cfb41ba7bdd1ee))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.0 ([`ac7266f`](https://github.com/MartinHjelmare/aiovlc/commit/ac7266fba1ea85d78f429b6c3e98873a68f6602a))
-* Update dependency ruff to ^0.7.0 ([`b92dbb9`](https://github.com/MartinHjelmare/aiovlc/commit/b92dbb9ee44981e3b582cac1319f36dd2697dd79))
-* Update dependency copier to v9.4.0 ([`ce01a23`](https://github.com/MartinHjelmare/aiovlc/commit/ce01a23a6e0a75223718732552af4fab7561d7b9))
-* Update python-semantic-release/python-semantic-release action to v9.11.1 ([`497fdfa`](https://github.com/MartinHjelmare/aiovlc/commit/497fdfa105cea653a0111f04cfc1e932a51a8ef5))
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.12.0 ([`0d2f93c`](https://github.com/MartinHjelmare/aiovlc/commit/0d2f93cc37533806286a598b347174bcdd291ff3))
-* Update dependency python-semantic-release to v9.11.1 ([`08ba34e`](https://github.com/MartinHjelmare/aiovlc/commit/08ba34eab6f11d9f1d60db8b3c525811d246f290))
-* Update dependency mypy to v1.12.0 ([`e0bee30`](https://github.com/MartinHjelmare/aiovlc/commit/e0bee30b805db6ab4f51f8fd0edf4f9eef9ac4f6))
-* Update pre-commit hook python-poetry/poetry to v1.8.4 ([`9487823`](https://github.com/MartinHjelmare/aiovlc/commit/9487823b8ced875848c67ebd2bbcb4bb98053ee4))
-* Update dependency sphinx to v8.1.3 ([`9d80113`](https://github.com/MartinHjelmare/aiovlc/commit/9d80113b77016ea91f76942cf10c1e130a5f3697))
-* Update python-semantic-release/python-semantic-release action to v9.11.0 ([`80ca2c9`](https://github.com/MartinHjelmare/aiovlc/commit/80ca2c9c1e58b79eb78b636d96a3c41cec30119c))
-* Update dependency sphinx to v8.1.2 (#273) ([`a350c45`](https://github.com/MartinHjelmare/aiovlc/commit/a350c45cb9650e472ddd51841cf2c2f50c6ec002))
-* Update dependency python-semantic-release to v9.11.0 ([`35c8c4b`](https://github.com/MartinHjelmare/aiovlc/commit/35c8c4b54095d5c525de52ef49fd07cdfc2fb64c))
-* Update dependency sphinx to v8.1.1 ([`9b5d00c`](https://github.com/MartinHjelmare/aiovlc/commit/9b5d00ca2eb0c47912b74de6b1c696187eab9ebb))
-* Update dependency sphinx to v8.1.0 ([`aa766e7`](https://github.com/MartinHjelmare/aiovlc/commit/aa766e7211357fdc8c42128d5bad4104847205fb))
-* Update python-semantic-release/python-semantic-release action to v9.10.1 ([`cd9ba51`](https://github.com/MartinHjelmare/aiovlc/commit/cd9ba512709689a5db7677a8a7afc71a6c4009ea))
-* Update dependency python-semantic-release to v9.10.1 ([`371da2a`](https://github.com/MartinHjelmare/aiovlc/commit/371da2afa2aa7915a24be612b075b8d90c8ba9d0))
-* Update dependency pre-commit to v4.0.1 ([`51e8968`](https://github.com/MartinHjelmare/aiovlc/commit/51e89685987a9cb04323f63f03f566c52da7de32))
-* Update dependency python-semantic-release to v9.10.0 ([`b3c129f`](https://github.com/MartinHjelmare/aiovlc/commit/b3c129f0b3fd57274885bbfe0a4ae55339248702))
-* Update python-semantic-release/python-semantic-release action to v9.10.0 ([`a107b38`](https://github.com/MartinHjelmare/aiovlc/commit/a107b38e14130409696414bac7d8a920ce0b1ac4))
-* Update pre-commit hook pre-commit/pre-commit-hooks to v5 (#272) ([`19ce903`](https://github.com/MartinHjelmare/aiovlc/commit/19ce903d13b8633c9c5b9b81be1104acadbc5a26))
-* Update dependency pre-commit to v4 (#271) ([`b121338`](https://github.com/MartinHjelmare/aiovlc/commit/b1213387dffde5365b306faaca74685aa552c997))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.9 ([`fb8abf9`](https://github.com/MartinHjelmare/aiovlc/commit/fb8abf974a5c865d1487dbdaa23256fe358c0b6d))
-* Update dependency ruff to v0.6.9 ([`76a9877`](https://github.com/MartinHjelmare/aiovlc/commit/76a9877de504d4d5b44b751391e5600f4190e496))
-* Update dependency sphinx-autobuild to v2024.10.3 ([`0a9842c`](https://github.com/MartinHjelmare/aiovlc/commit/0a9842cbea8bef7fb72d38373100ce58063a0fda))
-* Update dependency sphinx-autobuild to v2024.10.2 ([`7255555`](https://github.com/MartinHjelmare/aiovlc/commit/7255555bfd1a4c9f6556793cd15238f372a04aa9))
-* Update python-semantic-release/python-semantic-release action to v9.9.0 ([`1b0507a`](https://github.com/MartinHjelmare/aiovlc/commit/1b0507a3273ab702966415bef54e9e0e232ff3ad))
-* Update dependency python-semantic-release to v9.9.0 ([`706e2e4`](https://github.com/MartinHjelmare/aiovlc/commit/706e2e4e1f9448935b7cd1b33eda9e191f9ce9c6))
-* Update python-semantic-release/python-semantic-release action to v9.8.9 ([`b8de8b2`](https://github.com/MartinHjelmare/aiovlc/commit/b8de8b2e52fe4cfcd64bddb29cd53dd3b9113221))
-* Update dependency python-semantic-release to v9.8.9 ([`22b88a4`](https://github.com/MartinHjelmare/aiovlc/commit/22b88a4fabb65347aaeb4c1b6b7598ad9a9c6d2d))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.8 ([`704d009`](https://github.com/MartinHjelmare/aiovlc/commit/704d009e71861ee9836e405e59d307e182712738))
-* Update pre-commit hook commitizen-tools/commitizen to v3.29.1 ([`783144e`](https://github.com/MartinHjelmare/aiovlc/commit/783144e44f8b392b7f51b204d324b2b59c2fa7e9))
-* Update dependency ruff to v0.6.8 ([`be06f78`](https://github.com/MartinHjelmare/aiovlc/commit/be06f78ec8caebbfa19700cb4be1621e5ec03059))
 
 ## v0.6.0 (2024-09-24)
 
 ### Features
 
-* Make cli optional (#270) ([`f05b428`](https://github.com/MartinHjelmare/aiovlc/commit/f05b428227a0dbcb6c85e231d207dd16bab0f004))
+- Make cli optional ([#270](https://github.com/MartinHjelmare/aiovlc/pull/270),
+  [`f05b428`](https://github.com/MartinHjelmare/aiovlc/commit/f05b428227a0dbcb6c85e231d207dd16bab0f004))
 
-### Chores
-
-* Upgrade dependencies (#269) ([`f5d226b`](https://github.com/MartinHjelmare/aiovlc/commit/f5d226bcdc2083c1f75971ed2385ed03705c4c9f))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.7 ([`223a736`](https://github.com/MartinHjelmare/aiovlc/commit/223a7362dd42a99d7bff3658dd461590fbc67d47))
-* Update dependency ruff to v0.6.7 ([`569b344`](https://github.com/MartinHjelmare/aiovlc/commit/569b3440fdd1bf52577243a4aa0b1b53668db5e5))
 
 ## v0.5.1 (2024-09-21)
 
-### Bug fixes
+### Bug Fixes
 
-* License notation (#268) ([`3b80d96`](https://github.com/MartinHjelmare/aiovlc/commit/3b80d96598a489d335210bd4deff327c42a17d44))
+- License notation ([#268](https://github.com/MartinHjelmare/aiovlc/pull/268),
+  [`3b80d96`](https://github.com/MartinHjelmare/aiovlc/commit/3b80d96598a489d335210bd4deff327c42a17d44))
+
 
 ## v0.5.0 (2024-09-20)
 
 ### Features
 
-* Add connection and command timeout (#267) ([`3ea3fbb`](https://github.com/MartinHjelmare/aiovlc/commit/3ea3fbbec305eb52a20d58bc15fd2be7a10f9b09))
+- Add connection and command timeout ([#267](https://github.com/MartinHjelmare/aiovlc/pull/267),
+  [`3ea3fbb`](https://github.com/MartinHjelmare/aiovlc/commit/3ea3fbbec305eb52a20d58bc15fd2be7a10f9b09))
 
-### Chores
-
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.6 ([`c13ad02`](https://github.com/MartinHjelmare/aiovlc/commit/c13ad024f3e755cd011a1f20f4b0b5d879adcd84))
-* Update dependency ruff to v0.6.6 ([`7820ed0`](https://github.com/MartinHjelmare/aiovlc/commit/7820ed08d90b9310bc790850f9687c92a2c55bc5))
-* Update dependency sphinx-autobuild to v2024.9.19 ([`68bcbcd`](https://github.com/MartinHjelmare/aiovlc/commit/68bcbcdbfb3df11c5a700ddd7b9b9cdbddfddb96))
-* Update dependency sphinx-autobuild to v2024.9.17 ([`0b5a561`](https://github.com/MartinHjelmare/aiovlc/commit/0b5a561ae027094d60c1a68e5cc693f89110eea1))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.5 ([`0edfe52`](https://github.com/MartinHjelmare/aiovlc/commit/0edfe527abe7fbdace2ad29a0b4827adf6db5d44))
-* Update dependency ruff to v0.6.5 ([`ee9a9f0`](https://github.com/MartinHjelmare/aiovlc/commit/ee9a9f003368cc1e114beebfe44efab525823c76))
 
 ## v0.4.4 (2024-09-10)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency rich to v13.8.1 ([`d1bb220`](https://github.com/MartinHjelmare/aiovlc/commit/d1bb220400c7253568992ee982aa8a745a9bf417))
+- **deps**: Update dependency rich to v13.8.1
+  ([`d1bb220`](https://github.com/MartinHjelmare/aiovlc/commit/d1bb220400c7253568992ee982aa8a745a9bf417))
 
-### Chores
-
-* Update dependency pytest to v8.3.3 ([`bf8cadb`](https://github.com/MartinHjelmare/aiovlc/commit/bf8cadb0673abbb28c459f05053020ea4a188f54))
-* Update tiangolo/issue-manager action to v0.5.1 ([`0c92670`](https://github.com/MartinHjelmare/aiovlc/commit/0c926702712ca08b69c8e42653e7586e38739f68))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.4 ([`9b238b3`](https://github.com/MartinHjelmare/aiovlc/commit/9b238b35902053e2c0cf59403a8b4ad96e28029b))
-* Update dependency ruff to v0.6.4 ([`83e1e1b`](https://github.com/MartinHjelmare/aiovlc/commit/83e1e1bdd8870fc1abfa244c2b42966e47d60cc9))
-* Update wagoid/commitlint-github-action action to v6.1.2 ([`9e4573c`](https://github.com/MartinHjelmare/aiovlc/commit/9e4573c48a07adccae7d12116151cfcb3c955129))
-* Update dependency sphinx-autobuild to v2024.9.3 ([`41dff78`](https://github.com/MartinHjelmare/aiovlc/commit/41dff783c7f5085a5de86d7ad4032c34a8a9ee92))
-* Update python-semantic-release/python-semantic-release action to v9.8.8 ([`43db558`](https://github.com/MartinHjelmare/aiovlc/commit/43db55883d0cfe5f736b8dd55e4cd27b58ac5d91))
-* Update dependency python-semantic-release to v9.8.8 ([`d89c590`](https://github.com/MartinHjelmare/aiovlc/commit/d89c590bb17e0abcb8c7fa0310fe5e66aec860bc))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.3 ([`cbc763b`](https://github.com/MartinHjelmare/aiovlc/commit/cbc763b9e3f993f22c5374116211359a09d34d23))
-* Update dependency ruff to v0.6.3 ([`fbe21b7`](https://github.com/MartinHjelmare/aiovlc/commit/fbe21b73a59dfec186ea16848623ef4ebed295b4))
 
 ## v0.4.3 (2024-08-26)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency rich to v13.8.0 ([`e72e6d3`](https://github.com/MartinHjelmare/aiovlc/commit/e72e6d33412b975b3072c7857224754ec84eedc6))
+- **deps**: Update dependency rich to v13.8.0
+  ([`e72e6d3`](https://github.com/MartinHjelmare/aiovlc/commit/e72e6d33412b975b3072c7857224754ec84eedc6))
 
-### Chores
-
-* Update pre-commit hook pre-commit/mirrors-mypy to v1.11.2 ([`f749c42`](https://github.com/MartinHjelmare/aiovlc/commit/f749c426a44dd283ac9656b19151b7547be7462f))
 
 ## v0.4.2 (2024-08-25)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to v0.12.5 ([`418eb16`](https://github.com/MartinHjelmare/aiovlc/commit/418eb16b6b322646125bc66361a0681ba4646169))
+- **deps**: Update dependency typer to v0.12.5
+  ([`418eb16`](https://github.com/MartinHjelmare/aiovlc/commit/418eb16b6b322646125bc66361a0681ba4646169))
 
-### Chores
-
-* Update dependency mypy to v1.11.2 ([`1ee674a`](https://github.com/MartinHjelmare/aiovlc/commit/1ee674a32e2dd0aeb2d09db3f93a2e49023711c2))
-* Upgrade dependencies (#266) ([`175b90a`](https://github.com/MartinHjelmare/aiovlc/commit/175b90ab8c5988836eede7f0d5f43102c3a99958))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.2 ([`5b5c801`](https://github.com/MartinHjelmare/aiovlc/commit/5b5c80168f967ceed9820fb74a7e8652b3969fad))
-* Update dependency ruff to v0.6.2 ([`703bba6`](https://github.com/MartinHjelmare/aiovlc/commit/703bba60b9b81742422f0005f7300dfacdeab7fe))
-* Update dependency pytest-asyncio to ^0.24.0 ([`ebfca49`](https://github.com/MartinHjelmare/aiovlc/commit/ebfca493ca52a7afc6d546078a02d31ad4dd3550))
-* Update wagoid/commitlint-github-action action to v6.1.1 (#265) ([`2ead823`](https://github.com/MartinHjelmare/aiovlc/commit/2ead823e8c9b6924e832641eb4d68909ea0d65fb))
-* Update python-semantic-release/python-semantic-release action to v9.8.7 ([`3c9f2bd`](https://github.com/MartinHjelmare/aiovlc/commit/3c9f2bd3d2b42215b911559af9c3d43d044eff93))
-* Update dependency python-semantic-release to v9.8.7 ([`6a462a4`](https://github.com/MartinHjelmare/aiovlc/commit/6a462a4947eba12f003c63068be4daaa984fd77b))
 
 ## v0.4.1 (2024-08-17)
 
-### Bug fixes
+### Bug Fixes
 
-* Update dependency typer to v0.12.4 ([`57bb799`](https://github.com/MartinHjelmare/aiovlc/commit/57bb79953055f667ce4fa9e80cf6ae5cda534d75))
+- **deps**: Update dependency typer to v0.12.4
+  ([`57bb799`](https://github.com/MartinHjelmare/aiovlc/commit/57bb79953055f667ce4fa9e80cf6ae5cda534d75))
 
-### Chores
-
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.1 ([`823b23f`](https://github.com/MartinHjelmare/aiovlc/commit/823b23fe26fd4f087fff1b6c022a24a12fd18833))
-* Update dependency ruff to v0.6.1 ([`f46270b`](https://github.com/MartinHjelmare/aiovlc/commit/f46270b275dc385fb683cf10fd64a4dbb83f5854))
-* Update pre-commit hook astral-sh/ruff-pre-commit to v0.6.0 ([`feb49f8`](https://github.com/MartinHjelmare/aiovlc/commit/feb49f8fef7f509c4b358a70de4bd1db32ef9f40))
-* Update dependency ruff to ^0.6.0 ([`b862af4`](https://github.com/MartinHjelmare/aiovlc/commit/b862af4cd36c54af6f5764c76191bc93c5c7e2e3))
-* Update pre-commit hook commitizen-tools/commitizen to v3.29.0 ([`191edd5`](https://github.com/MartinHjelmare/aiovlc/commit/191edd56848a87861eebc867eab0d96fbb7a3678))
-* Fix release notes (#264) ([`edf6384`](https://github.com/MartinHjelmare/aiovlc/commit/edf638442416c2daec61260e91ffa7c57548555b))
-* Update sphinx packages (major) (#261) ([`8eabe19`](https://github.com/MartinHjelmare/aiovlc/commit/8eabe193f2d1e0bdadff7802ac2b56a64cd46894))
 
 ## v0.4.0 (2024-08-10)
 
 ### Chores
 
-* Require python 3.11 (#263) ([`c69256b`](https://github.com/MartinHjelmare/aiovlc/commit/c69256b6b0d0b48af7d9249204b7e0d4ad3719c8))
-* Update wagoid/commitlint-github-action action to v6.0.2 (#262) ([`329c73b`](https://github.com/MartinHjelmare/aiovlc/commit/329c73b2a4876b163a2be76707a75a3b79c00cf7))
-* Update dependency pre-commit to v3.8.0 ([`96349ce`](https://github.com/MartinHjelmare/aiovlc/commit/96349ce3986d388578ffd2e67ede1105fb8cc058))
+- Require python 3.11 ([#263](https://github.com/MartinHjelmare/aiovlc/pull/263),
+  [`c69256b`](https://github.com/MartinHjelmare/aiovlc/commit/c69256b6b0d0b48af7d9249204b7e0d4ad3719c8))
+
+### Breaking Changes
+
+- Drop support for python 3.9 and 3.10
+
 
 ## v0.3.3 (2024-08-10)
 
-### Chores
+### Bug Fixes
 
-* Fix changelog (#260) ([`e76d595`](https://github.com/MartinHjelmare/aiovlc/commit/e76d595cd983d03952cd047aa0723c945c271673))
-* Update python-semantic-release/python-semantic-release action to v9.8.6 ([`a4e2a02`](https://github.com/MartinHjelmare/aiovlc/commit/a4e2a0225f8e5a770ffb826f4b394dd0ee46ff30))
-* Run copier update (#259) ([`d415c42`](https://github.com/MartinHjelmare/aiovlc/commit/d415c42fb8315071205ed41cb9a0ac05b2a27fc4))
-* Run copier copy again (#258) ([`3e67389`](https://github.com/MartinHjelmare/aiovlc/commit/3e67389abda04e7ef098bcbe246e96d165bc16c1))
-* Update pre-commit hook pycqa/flake8 to v7.1.1 ([`82410e2`](https://github.com/MartinHjelmare/aiovlc/commit/82410e2032ce3934a7bc6a382c39eaea6ab11b52))
-* Update dependency flake8 to v7.1.1 ([`9718a98`](https://github.com/MartinHjelmare/aiovlc/commit/9718a988bbeb300742f01fd5aefdf4e692b64456))
-* Update pre-commit hook psf/black to v24.8.0 ([`5d7683d`](https://github.com/MartinHjelmare/aiovlc/commit/5d7683d0589f47c2359cfe155476925e1b894546))
-* Update dependency black to v24.8.0 ([`ce954d8`](https://github.com/MartinHjelmare/aiovlc/commit/ce954d83183d689954fbfef0b91aa5559587190f))
-* Update dependency mypy to v1.11.1 ([`54c79f1`](https://github.com/MartinHjelmare/aiovlc/commit/54c79f13017d45f61a6c1101d7bd4880849bbe0e))
-* Update pre-commit hook asottile/pyupgrade to v3.17.0 (#257) ([`4c1cfe3`](https://github.com/MartinHjelmare/aiovlc/commit/4c1cfe35f95d3cbadea807a49144d3e70add71bb))
-* Update dependency pre-commit to v3.8.0 ([`c8a02cb`](https://github.com/MartinHjelmare/aiovlc/commit/c8a02cb59bea00115e37f0cc065d2b69236284f0))
-* Update dependency pyupgrade to v3.17.0 ([`61d0465`](https://github.com/MartinHjelmare/aiovlc/commit/61d04655a405e063800452c3ab61cf1150bc18a3))
-* Update dependency pytest to v8.3.2 ([`b98463d`](https://github.com/MartinHjelmare/aiovlc/commit/b98463dd69ac32faf2b025c4d8e727770fb7208e))
-* Update dependency pylint to v3.2.6 ([`30c9f6d`](https://github.com/MartinHjelmare/aiovlc/commit/30c9f6d79cb32f0172122019c94532b502867678))
-* Update dependency pytest to v8.3.1 ([`0df879a`](https://github.com/MartinHjelmare/aiovlc/commit/0df879a3a1e92b3fa35010498ad1fa59cd922832))
-* Update dependency sphinx to v7.4.7 ([`1d8986e`](https://github.com/MartinHjelmare/aiovlc/commit/1d8986ebf7c9d01bccac7c9c5915db34c67cc206))
-* Update dependency python-semantic-release to v9.8.6 ([`ff62c82`](https://github.com/MartinHjelmare/aiovlc/commit/ff62c82ea200ab2788a2e548762928624dc2e817))
-* Update dependency mypy to v1.11.0 ([`585e514`](https://github.com/MartinHjelmare/aiovlc/commit/585e514ae74ca72f4b64141bd21105067fd80fa5))
-* Update dependency sphinx to v7.4.6 ([`0ac8916`](https://github.com/MartinHjelmare/aiovlc/commit/0ac8916ebd3ade6e4113734f2386f0c0cf45958b))
-* Update pre-commit hook commitizen-tools/commitizen to v3.28.0 ([`7fa5226`](https://github.com/MartinHjelmare/aiovlc/commit/7fa52265dcb7c5ff6b884e3a5905f50ab8e370ba))
-* Update dependency pytest-asyncio to v0.23.8 ([`eefe029`](https://github.com/MartinHjelmare/aiovlc/commit/eefe02918e8cc99a453e3c6be41fd54328133121))
-* Update dependency sphinx to v7.4.5 ([`ad5e2aa`](https://github.com/MartinHjelmare/aiovlc/commit/ad5e2aa56c96d5eea3c4e6c0d548aee6e0db6bb0))
-* Update dependency sphinx to v7.4.4 ([`5b09d54`](https://github.com/MartinHjelmare/aiovlc/commit/5b09d54e410357ca792b0e0ab1fc3ebc06bd9c39))
-* Update dependency sphinx to v7.4.3 ([`e7ca2c8`](https://github.com/MartinHjelmare/aiovlc/commit/e7ca2c8fe7dd680b581c88911cdc2f951b72a55f))
-* Update dependency sphinx to v7.4.0 ([`87a5c97`](https://github.com/MartinHjelmare/aiovlc/commit/87a5c97e1d62c19d04bcd43f2e7c9398152bfffd))
-* Update dependency python-semantic-release to v9.8.5 ([`8a9ef78`](https://github.com/MartinHjelmare/aiovlc/commit/8a9ef789a169eaed8dcebd9df3313829dbef112b))
-* Update dependency python-semantic-release to v9.8.4 ([`c6ef9c4`](https://github.com/MartinHjelmare/aiovlc/commit/c6ef9c4cfd13761c6d5e6f85bd161a3fa16696b5))
-* Update dependency pylint to v3.2.5 ([`81980ee`](https://github.com/MartinHjelmare/aiovlc/commit/81980ee544d4b1f547b40a5ad1f28ecaab576b4f))
-* Update amannn/action-semantic-pull-request action to v5.5.3 ([`bb63143`](https://github.com/MartinHjelmare/aiovlc/commit/bb631433bfb19b36d8b7224a6a9014f2c5dd2fba))
-* Update dependency pylint to v3.2.4 ([`d78d761`](https://github.com/MartinHjelmare/aiovlc/commit/d78d761daba55d8927718a7d36a8048d0d15bbfb))
-* Update dependency mypy to v1.10.1 ([`5c76d6a`](https://github.com/MartinHjelmare/aiovlc/commit/5c76d6a67dce7573bcc12df756310e11d633a8b2))
-* Update dependency python-semantic-release to v9.8.3 ([`635eb5c`](https://github.com/MartinHjelmare/aiovlc/commit/635eb5c9d3076e7c3a8e6c352eb8e46545087b93))
-* Update dependency python-semantic-release to v9.8.2 ([`5266d1b`](https://github.com/MartinHjelmare/aiovlc/commit/5266d1b5c8dff1db43ba4513a365f647e1c9e5e4))
-* Update pre-commit hook pycqa/flake8 to v7.1.0 ([`d0793cd`](https://github.com/MartinHjelmare/aiovlc/commit/d0793cd6612c8f55ea670f0dfdaf74d838e703cc))
-* Update dependency flake8 to v7.1.0 ([`f727fe7`](https://github.com/MartinHjelmare/aiovlc/commit/f727fe7b1132114db02a180ab1cbfb263b390818))
-* Update pre-commit hook pycqa/bandit to v1.7.9 ([`32eab31`](https://github.com/MartinHjelmare/aiovlc/commit/32eab31ee8f45e7971daf064fa9751a85b2ffebe))
-* Update dependency bandit to v1.7.9 ([`2a8d5eb`](https://github.com/MartinHjelmare/aiovlc/commit/2a8d5ebc3ecbe75f013a78bfb70650cc49340ca9))
-* Update pre-commit hook asottile/pyupgrade to v3.16.0 ([`97a45b6`](https://github.com/MartinHjelmare/aiovlc/commit/97a45b6986a196c654ff2d991c67457a94c5b445))
-* Update dependency pyupgrade to v3.16.0 ([`bda29ab`](https://github.com/MartinHjelmare/aiovlc/commit/bda29abfd00b67baa977a7eb2252492cad039087))
-* Update dependency pylint to v3.2.3 ([`cf42422`](https://github.com/MartinHjelmare/aiovlc/commit/cf424222ed11d23e522b19260ddef549c5edaa6b))
-* Update dependency python-semantic-release to v9.8.1 ([`93fa2b6`](https://github.com/MartinHjelmare/aiovlc/commit/93fa2b63cb09b38d461e991baf9409162fc34840))
-* Update dependency pytest to v8.2.2 ([`055c3e1`](https://github.com/MartinHjelmare/aiovlc/commit/055c3e1cccf39e6741e77176cdecfc9dc564ccd4))
-* Update dependency python-semantic-release to v9.8.0 ([`2a4fafd`](https://github.com/MartinHjelmare/aiovlc/commit/2a4fafd41ba65ad8f5c803b15a4d8130be4c20ef))
-* Update pre-commit hook codespell-project/codespell to v2.3.0 ([`85458b1`](https://github.com/MartinHjelmare/aiovlc/commit/85458b12630ced03ff6e7869edb2a99d24f6b942))
-* Update pre-commit hook commitizen-tools/commitizen to v3.27.0 ([`cbd5d23`](https://github.com/MartinHjelmare/aiovlc/commit/cbd5d2383ee2a1ec36db4c425dce8e4835bc6aff))
-* Update dependency pylint to v3.2.2 ([`63058ac`](https://github.com/MartinHjelmare/aiovlc/commit/63058ac94fc7488c66599b1bae8827ed81f218c6))
-* Update dependency pytest to v8.2.1 ([`f1e35f3`](https://github.com/MartinHjelmare/aiovlc/commit/f1e35f31d0259f4b60ef87a73d2cfb767cd4ec22))
-* Update dependency pytest-asyncio to v0.23.7 ([`088e5ec`](https://github.com/MartinHjelmare/aiovlc/commit/088e5ecb56ad4554aaf5f9272335b6c4706fc255))
-* Update dependency pylint to v3.2.1 ([`9f12980`](https://github.com/MartinHjelmare/aiovlc/commit/9f129805df64625590c84aa7c877d9b208844e66))
-* Update pre-commit hook commitizen-tools/commitizen to v3.26.0 ([`31519fa`](https://github.com/MartinHjelmare/aiovlc/commit/31519fa818fa7c8d38301ed21ff805c43ecf0627))
-* Update dependency python-semantic-release to v9.7.3 ([`fbcadb2`](https://github.com/MartinHjelmare/aiovlc/commit/fbcadb244266cb3a637286765c5ac7bf4d2c8174))
-* Update pre-commit hook commitizen-tools/commitizen to v3.25.1 ([`76a8bca`](https://github.com/MartinHjelmare/aiovlc/commit/76a8bcae6e5bb0b89381a4d6f7aa0773b4ace66c))
-* Update dependency pylint to v3.2.0 ([`5be3875`](https://github.com/MartinHjelmare/aiovlc/commit/5be387564df32f75775eca89217655f7db7020a2))
-* Update dependency pylint to v3.1.1 ([`ac3689d`](https://github.com/MartinHjelmare/aiovlc/commit/ac3689dbfbd9fca5286f9a641e0502ea310fa97a))
-* Update dependency python-semantic-release to v9.7.2 ([`2e85ca2`](https://github.com/MartinHjelmare/aiovlc/commit/2e85ca2688f2e13c0f3d2148ed2b2357f6973ebc))
-* Update dependency pre-commit to v3.7.1 ([`e3f78e7`](https://github.com/MartinHjelmare/aiovlc/commit/e3f78e7fcc557ebeadd95a71a27ee13d29592a47))
-* Update dependency python-semantic-release to v9.7.1 ([`6685796`](https://github.com/MartinHjelmare/aiovlc/commit/6685796d727b09581e31a606f28debb8906ead3e))
-* Update dependency python-semantic-release to v9.7.0 ([`c8a189f`](https://github.com/MartinHjelmare/aiovlc/commit/c8a189ff30b54cbbcc6f73915cabeff83d7f2287))
-* Update pre-commit hook python-poetry/poetry to v1.8.3 ([`30ef0f6`](https://github.com/MartinHjelmare/aiovlc/commit/30ef0f6e2e9fad076e9f0ebe280674947373ec9c))
-* Update pre-commit hook commitizen-tools/commitizen to v3.25.0 ([`c8e56aa`](https://github.com/MartinHjelmare/aiovlc/commit/c8e56aab32040770e20da91b3e0fd6c69e5695a3))
-* Update dependency python-semantic-release to v9.6.0 ([`b49444c`](https://github.com/MartinHjelmare/aiovlc/commit/b49444c753e4c0ff65105594df14c2de645ee9b7))
-* Update dependency myst-parser to v3.0.1 ([`22066da`](https://github.com/MartinHjelmare/aiovlc/commit/22066da3a551edb5a56a9a85ddd6a3f45a78f616))
-* Update dependency pytest to v8.2.0 ([`6f42f2b`](https://github.com/MartinHjelmare/aiovlc/commit/6f42f2b8480c901776953a9b4321a52f802f78da))
-* Update dependency pytest to v8.1.2 ([`6a1f73d`](https://github.com/MartinHjelmare/aiovlc/commit/6a1f73d3cebbc865bc4a2fec96d753743c48eb3f))
-* Update pre-commit hook psf/black to v24.4.2 ([`2412dc4`](https://github.com/MartinHjelmare/aiovlc/commit/2412dc42856807b4be9cc67b4f0619e84741c9e6))
-* Update dependency black to v24.4.2 ([`597879f`](https://github.com/MartinHjelmare/aiovlc/commit/597879fa4652301b644e1d9c24a15f33ce8e56a1))
-* Update dependency mypy to v1.10.0 ([`2ad2a94`](https://github.com/MartinHjelmare/aiovlc/commit/2ad2a943bba4c59626595305e6bdff3162daf440))
-* Update dependency black to v24.4.1 ([`d7aeb20`](https://github.com/MartinHjelmare/aiovlc/commit/d7aeb2018fc9513878a3c61e03bee99a3b75b880))
-* Update pre-commit hook psf/black to v24.4.1 ([`0d19cf9`](https://github.com/MartinHjelmare/aiovlc/commit/0d19cf9d8bc0fab47d161e31a89d5ab0b6aaec64))
-* Update amannn/action-semantic-pull-request action to v5.5.2 ([`e1a22b2`](https://github.com/MartinHjelmare/aiovlc/commit/e1a22b23edfc6a411451258d614e51732c096d34))
-* Update dependency myst-parser to v3 (#255) ([`361b0ea`](https://github.com/MartinHjelmare/aiovlc/commit/361b0eace72b625942f155bcdc155d0441d4488e))
-* Update amannn/action-semantic-pull-request action to v5.5.0 ([`8fbc010`](https://github.com/MartinHjelmare/aiovlc/commit/8fbc010670eb2a9cacf20fcd84517caaf5407089))
-* Update dependency python-semantic-release to v9.5.0 ([`daed095`](https://github.com/MartinHjelmare/aiovlc/commit/daed0954e865d37a3ca796384cd6900737b302ed))
-* Update dependency sphinx to v7.3.7 ([`5298ca9`](https://github.com/MartinHjelmare/aiovlc/commit/5298ca9ab2a002be090db41fb1bc480551b4698b))
-* Update pre-commit hook commitizen-tools/commitizen to v3.24.0 ([`1fe988d`](https://github.com/MartinHjelmare/aiovlc/commit/1fe988de993f6161a7204f319de311765644aca5))
-* Update dependency sphinx to v7.3.6 ([`b1a5998`](https://github.com/MartinHjelmare/aiovlc/commit/b1a59987bca85b8d39895d84e5d924f711813ab9))
-* Update dependency sphinx to v7.3.5 ([`4e17d16`](https://github.com/MartinHjelmare/aiovlc/commit/4e17d1612c2c8a12bef51b0038ee974cc69db2db))
-* Update dependency python-semantic-release to v9.4.2 ([`aeaffba`](https://github.com/MartinHjelmare/aiovlc/commit/aeaffba0142a641a3457a7a5bd2847cf328ebd29))
-* Update pre-commit hook psf/black to v24.4.0 ([`0f5b476`](https://github.com/MartinHjelmare/aiovlc/commit/0f5b4768ac97b89b999f4580e8232bbf0361b983))
-* Update dependency black to v24.4.0 ([`a6b0b4b`](https://github.com/MartinHjelmare/aiovlc/commit/a6b0b4b966cf7a847556526964d7e578f5f3a0ec))
-* Update pre-commit hook commitizen-tools/commitizen to v3.22.0 ([`3d80dc1`](https://github.com/MartinHjelmare/aiovlc/commit/3d80dc158747886cfbb29cb7c8dd7a8c890c271d))
-* Update pre-commit hook pre-commit/pre-commit-hooks to v4.6.0 ([`58575c0`](https://github.com/MartinHjelmare/aiovlc/commit/58575c094881815f9d89846f7fdf7607d6954042))
-* Update dependency python-semantic-release to v9.4.1 ([`181e10f`](https://github.com/MartinHjelmare/aiovlc/commit/181e10f5bb66a06c9530340e5ed0df2950466a0d))
-* Update dependency python-semantic-release to v9.4.0 ([`5e1b592`](https://github.com/MartinHjelmare/aiovlc/commit/5e1b592b7106b16929f3c383e43dc6c7a9fb4292))
-* Update pre-commit hook commitizen-tools/commitizen to v3.21.3 ([`d9a6c87`](https://github.com/MartinHjelmare/aiovlc/commit/d9a6c874bc53a06f2d96122dc0ead5475e2c8481))
-* Update dependency pytest to v8 (#251) ([`a01260b`](https://github.com/MartinHjelmare/aiovlc/commit/a01260b89f61b886233a3d9503ca950db6b102fd))
-* Update dependency pytest-cov to v5 (#253) ([`36eb0ad`](https://github.com/MartinHjelmare/aiovlc/commit/36eb0adf60697fbafeb40f880e1952c56b3eb7fb))
-* Update dependency pre-commit to v3.7.0 ([`40a6a45`](https://github.com/MartinHjelmare/aiovlc/commit/40a6a45a06e3adabccec35b1693dcee4cc294688))
-* Update pre-commit hook asottile/pyupgrade to v3.15.2 ([`f93321b`](https://github.com/MartinHjelmare/aiovlc/commit/f93321b8ba963f3256058e2de453c7e818f9f1f8))
-* Update dependency pyupgrade to v3.15.2 ([`100f1f8`](https://github.com/MartinHjelmare/aiovlc/commit/100f1f89e47771845ecc7b5ce9225b6459235558))
-* Update dependency python-semantic-release to v9.3.1 ([`9ceb121`](https://github.com/MartinHjelmare/aiovlc/commit/9ceb12165987fa5fd2f3c0fc98f177335939221e))
-* Update dependency python-semantic-release to v9.3.0 ([`7942e20`](https://github.com/MartinHjelmare/aiovlc/commit/7942e206b0c7898b6fd2e4247b70f02bb4a63bc7))
-* Update pre-commit hook commitizen-tools/commitizen to v3.20.0 ([`492336b`](https://github.com/MartinHjelmare/aiovlc/commit/492336b18115ff8b2b4a0daf67eb6d0299fcfd46))
-* Update dependency python-semantic-release to v9.2.2 ([`713b060`](https://github.com/MartinHjelmare/aiovlc/commit/713b06025c1445a50c38f2fd3b13513a0d3abeca))
-* Update dependency pytest-asyncio to v0.23.6 ([`0db7ee3`](https://github.com/MartinHjelmare/aiovlc/commit/0db7ee3c104d7c75cb7e189aed3539e92b65e94f))
-* Update dependency python-semantic-release to v9.2.0 ([`b2c5b29`](https://github.com/MartinHjelmare/aiovlc/commit/b2c5b29524c7201afb10b088d21908beed27c5ae))
-* Update pre-commit hook psf/black to v24.3.0 ([`8a0f8db`](https://github.com/MartinHjelmare/aiovlc/commit/8a0f8db4b271873452574f25c555a83176d511a2))
-* Update dependency black to v24.3.0 ([`7328414`](https://github.com/MartinHjelmare/aiovlc/commit/73284149cd2da5973430e271677b53f36a7fc462))
-* Update pre-commit hook commitizen-tools/commitizen to v3.18.4 ([`f21e577`](https://github.com/MartinHjelmare/aiovlc/commit/f21e5770282dded346c408872904851c0407bbe1))
-* Update pre-commit hook commitizen-tools/commitizen to v3.18.3 ([`65e32f9`](https://github.com/MartinHjelmare/aiovlc/commit/65e32f9e8222920fa314beada0d67ed39595823e))
-* Update pre-commit hook commitizen-tools/commitizen to v3.18.2 ([`e41dca8`](https://github.com/MartinHjelmare/aiovlc/commit/e41dca829cb33a23890f8aa16ad73add88d2fe37))
-* Update pre-commit hook commitizen-tools/commitizen to v3.18.1 ([`979d585`](https://github.com/MartinHjelmare/aiovlc/commit/979d5852ffddb51d37588bec26e00f3361dc7027))
-* Update dependency bandit to v1.7.8 ([`00f6464`](https://github.com/MartinHjelmare/aiovlc/commit/00f6464ec6de9ddf47e070683336ef5f6c22c472))
-* Update pre-commit hook pycqa/bandit to v1.7.8 ([`b10a05d`](https://github.com/MartinHjelmare/aiovlc/commit/b10a05d32bdb04cfd9ed984b1181bfbb42e70903))
-* Update dependency mypy to v1.9.0 ([`bc0e073`](https://github.com/MartinHjelmare/aiovlc/commit/bc0e0732a5d05e2809544cca308ec875577e1c60))
-* Update pre-commit hook commitizen-tools/commitizen to v3.18.0 ([`7c65ff6`](https://github.com/MartinHjelmare/aiovlc/commit/7c65ff63f0b452ad9d22b5f42871900997cdfec1))
-* Update pre-commit hook commitizen-tools/commitizen to v3.17.0 ([`12b64e8`](https://github.com/MartinHjelmare/aiovlc/commit/12b64e83830bf0abc267191399b9cc41b416a575))
-* Update pre-commit hook python-poetry/poetry to v1.8.2 ([`88048a7`](https://github.com/MartinHjelmare/aiovlc/commit/88048a79339d7096f5b82b959d311b24225a9847))
-* Update pre-commit hook python-poetry/poetry to v1.8.1 ([`a6decf1`](https://github.com/MartinHjelmare/aiovlc/commit/a6decf1be490da7a519d462095c4eb3f32833a23))
-* Update pre-commit hook commitizen-tools/commitizen to v3.16.0 ([`162b943`](https://github.com/MartinHjelmare/aiovlc/commit/162b9439f2d706fc6da3337e83f83ec8d38ba0db))
-* Update dependency pylint to v3.1.0 ([`ca65341`](https://github.com/MartinHjelmare/aiovlc/commit/ca65341feb723ea9309d7006afda14c4269e39d7))
-* Update pre-commit hook python-poetry/poetry to v1.8.0 ([`679d77b`](https://github.com/MartinHjelmare/aiovlc/commit/679d77b35da0acc3f67ae9520d907299273388a4))
-* Update dependency python-semantic-release to v9.1.1 ([`dbc435b`](https://github.com/MartinHjelmare/aiovlc/commit/dbc435b9c116fdc486dd655114adaa5389f1575d))
-* Update dependency pylint to v3.0.4 ([`6c554be`](https://github.com/MartinHjelmare/aiovlc/commit/6c554bedb2653d56c61bbb545bf8d990ceae5dde))
-* Update pre-commit hook asottile/pyupgrade to v3.15.1 ([`cd412ed`](https://github.com/MartinHjelmare/aiovlc/commit/cd412ed03eb8d594d4a1b1cabe083388b47ac598))
-* Update dependency pyupgrade to v3.15.1 ([`56ecb4b`](https://github.com/MartinHjelmare/aiovlc/commit/56ecb4b0d00c2c2124996c29eca23fad709339ea))
-* Update dependency pre-commit to v3.6.2 ([`b23f7b1`](https://github.com/MartinHjelmare/aiovlc/commit/b23f7b180a62b2acecc21cd8b438160c9347539f))
-* Update pre-commit hook commitizen-tools/commitizen to v3.15.0 ([`b9f8f75`](https://github.com/MartinHjelmare/aiovlc/commit/b9f8f75c39c55b5274e759945f591a8de18e06b1))
-* Update dependency python-semantic-release to v9.1.0 ([`f99247b`](https://github.com/MartinHjelmare/aiovlc/commit/f99247b7ddbbfd93037b08467cf1faa4e0cf6b2b))
-* Update pre-commit hook psf/black to v24.2.0 ([`73ba1ca`](https://github.com/MartinHjelmare/aiovlc/commit/73ba1ca675ec110335b2063a7058d656f7cfbc9d))
-* Update dependency black to v24.2.0 ([`286ebcc`](https://github.com/MartinHjelmare/aiovlc/commit/286ebccdc86bc02fa49231099abefd33dbaaf6cd))
-* Update dependency pre-commit to v3.6.1 ([`a264c5b`](https://github.com/MartinHjelmare/aiovlc/commit/a264c5b6d54c57b616614d911f0a810bf594a887))
-* Update dependency pytest-asyncio to v0.23.5 ([`bb24455`](https://github.com/MartinHjelmare/aiovlc/commit/bb244555f6710e5bdf4b898beef3341532a1d863))
-* Update dependency python-semantic-release to v9 (#252) ([`7630cc4`](https://github.com/MartinHjelmare/aiovlc/commit/7630cc471c78c1645b4a69072ae0b7fdb879ef34))
-* Update pre-commit hook commitizen-tools/commitizen to v3.14.1 ([`9c1800a`](https://github.com/MartinHjelmare/aiovlc/commit/9c1800afb9fa8240d62b62d6918f1f870f16b66e))
-* Update pre-commit hook commitizen-tools/commitizen to v3.14.0 ([`32ac490`](https://github.com/MartinHjelmare/aiovlc/commit/32ac490b20b4dbbcf108df83083129424c62daba))
-* Update tiangolo/issue-manager action to v0.5.0 ([`49769b4`](https://github.com/MartinHjelmare/aiovlc/commit/49769b49d575b8872af4edbea17ddc955a6ce2c8))
-* Update dependency pytest-asyncio to v0.23.4 ([`486c79d`](https://github.com/MartinHjelmare/aiovlc/commit/486c79d115751939744c3d5d448174052316b35c))
-* Update pre-commit hook psf/black to v24.1.1 ([`c0da7d0`](https://github.com/MartinHjelmare/aiovlc/commit/c0da7d0cfd0eb241e36a58ef68c1f4a9749b6b30))
-* Update dependency black to v24.1.1 ([`c9dd89d`](https://github.com/MartinHjelmare/aiovlc/commit/c9dd89d989ad61e1d71e7994a584f8fd85c8d2ac))
-* Update dependency black to v24 (#249) ([`a09e73a`](https://github.com/MartinHjelmare/aiovlc/commit/a09e73a19d5fc14d8d89a2a7e11170d3a0185258))
-* Update pre-commit hook psf/black to v24 (#250) ([`3ae43a8`](https://github.com/MartinHjelmare/aiovlc/commit/3ae43a80606f430a9ba23e647d33290d05e2379f))
-* Update pre-commit hook pycqa/bandit to v1.7.7 ([`ca6defb`](https://github.com/MartinHjelmare/aiovlc/commit/ca6defb5c37457e9bb0ba0f01cdc2b94900b9879))
-* Update dependency bandit to v1.7.7 ([`d2d90f3`](https://github.com/MartinHjelmare/aiovlc/commit/d2d90f3857751548408becb23bcabb893062a3a5))
-* Update tiangolo/issue-manager action to v0.4.1 ([`e8f39f9`](https://github.com/MartinHjelmare/aiovlc/commit/e8f39f9be97419001cd08d43f0271f357e418db2))
-* Update pre-commit hook pycqa/flake8 to v7 (#248) ([`7d300e3`](https://github.com/MartinHjelmare/aiovlc/commit/7d300e3ea9cacfc6f01b3a1fa587d367ea3cfaa4))
-* Update dependency flake8 to v7 (#247) ([`5ba9f27`](https://github.com/MartinHjelmare/aiovlc/commit/5ba9f27ddc4d0ee81a49d4a8a5c54abc77d67852))
-* Update dependency pytest-asyncio to v0.23.3 ([`14664d9`](https://github.com/MartinHjelmare/aiovlc/commit/14664d9b0417c8edae8ee588baf1a695d97c8edd))
-* Update dependency pytest to v7.4.4 ([`134bfae`](https://github.com/MartinHjelmare/aiovlc/commit/134bfae37980c1671179400a06cdd2955d2ae17e))
-* Update pre-commit hook psf/black to v23.12.1 ([`1b47e2c`](https://github.com/MartinHjelmare/aiovlc/commit/1b47e2c389c1f10bae2cd91a4f8c1c6c0d8f308e))
-* Update dependency black to v23.12.1 ([`23816d9`](https://github.com/MartinHjelmare/aiovlc/commit/23816d998ff3bb410e994b2c34cb34e518be7dd5))
-* Update dependency python-semantic-release to v8.7.0 ([`4a16f0f`](https://github.com/MartinHjelmare/aiovlc/commit/4a16f0f5306800ff818a04e5a668d6fea1537684))
-* Update dependency mypy to v1.8.0 ([`99cd9c4`](https://github.com/MartinHjelmare/aiovlc/commit/99cd9c4b76eeb5ed85e7ac14d069defcc8305ecd))
-* Update dependency python-semantic-release to v8.5.2 ([`9fd1556`](https://github.com/MartinHjelmare/aiovlc/commit/9fd15560bee76e452534bc45b94b873874c46cc0))
-* Update pre-commit hook pycqa/isort to v5.13.2 ([`c7ce59a`](https://github.com/MartinHjelmare/aiovlc/commit/c7ce59ab2f26f611fa6c302beecd60094b7f69de))
-* Update dependency isort to v5.13.2 ([`593122d`](https://github.com/MartinHjelmare/aiovlc/commit/593122d9ec6fd4fa31ab0511b9f5f608632849ab))
-* Update dependency python-semantic-release to v8.5.1 ([`0775faf`](https://github.com/MartinHjelmare/aiovlc/commit/0775faff11d54c7b2c724de788933581240d8afa))
-* Update pre-commit hook psf/black to v23.12.0 ([`8fbaa38`](https://github.com/MartinHjelmare/aiovlc/commit/8fbaa386d832f5c1160b5bf0ef92ece0b374ce41))
-* Update dependency black to v23.12.0 ([`3fa2475`](https://github.com/MartinHjelmare/aiovlc/commit/3fa24751fa6b7fc10a374c2eda271a9069ed751f))
-* Update pre-commit hook pycqa/isort to v5.13.1 ([`08274d5`](https://github.com/MartinHjelmare/aiovlc/commit/08274d53ca116e57941a7d53383e4b6a8dc2a8f0))
-* Update dependency isort to v5.13.1 ([`656538b`](https://github.com/MartinHjelmare/aiovlc/commit/656538b727c18626e46bb489c65134b0062658b8))
-* Update dependency pylint to v3.0.3 ([`4495cad`](https://github.com/MartinHjelmare/aiovlc/commit/4495cad17a14de584cc8c4f8db73637cb68fa92e))
-* Update dependency isort to v5.13.0 ([`6450769`](https://github.com/MartinHjelmare/aiovlc/commit/64507699220f249e91c5421a77208837b35ad879))
-* Update dependency pylint to v3.0.3 ([`8e75661`](https://github.com/MartinHjelmare/aiovlc/commit/8e756613b00d4b3e4b3e307b5a2c4f8177b1bfcb))
-* Update dependency pre-commit to v3.6.0 ([`d9fa774`](https://github.com/MartinHjelmare/aiovlc/commit/d9fa77449c0c0eaa80f40bca37ca7024d1c02fb4))
-* Update dependency isort to v5.13.0 ([`465c189`](https://github.com/MartinHjelmare/aiovlc/commit/465c1899295b23612724677d9b4edc518c3569ea))
-* Update pre-commit hook pycqa/isort to v5.13.0 ([`c5feeb1`](https://github.com/MartinHjelmare/aiovlc/commit/c5feeb163dbc941d9af925f12315cc8e0b10a627))
-* Update pre-commit hook pycqa/bandit to v1.7.6 ([`dde3262`](https://github.com/MartinHjelmare/aiovlc/commit/dde3262b41839fe4c028e8aa81d6973961650191))
-* Update dependency bandit to v1.7.6 ([`ea19114`](https://github.com/MartinHjelmare/aiovlc/commit/ea191146bc3855b303322d77114bb3fb1da03d87))
-* Update dependency python-semantic-release to v8.5.0 ([`7fe16c4`](https://github.com/MartinHjelmare/aiovlc/commit/7fe16c4f875814b9abe56c5615fde0a6a9279db1))
-* Update actions/setup-python action to v5 (#245) ([`d2e1374`](https://github.com/MartinHjelmare/aiovlc/commit/d2e13744ef0bd0a1d6e109875f43b9bacbc6f79f))
-* Update dependency pytest-asyncio to v0.23.2 ([`754fb47`](https://github.com/MartinHjelmare/aiovlc/commit/754fb47d34fa76dd43f3ec74c26b53cc0f4d0a89))
-* Update dependency pytest-asyncio to v0.23.1 ([`816f883`](https://github.com/MartinHjelmare/aiovlc/commit/816f88340e94c25a668de829e7434ee2eb315722))
-* Update pre-commit hook commitizen-tools/commitizen to v3.13.0 ([`de2ef96`](https://github.com/MartinHjelmare/aiovlc/commit/de2ef969e040055c4a0717a0cd45374164df10aa))
-* Update dependency pytest-asyncio to ^0.23.0 ([`5c96d42`](https://github.com/MartinHjelmare/aiovlc/commit/5c96d4247c59a900c00f6f28e8e3e34a14c6c25a))
-* Update dependency sphinx-rtd-theme to v2 (#244) ([`e03f2c1`](https://github.com/MartinHjelmare/aiovlc/commit/e03f2c158beb2a5a9c50fb4ffe38c2082feff418))
-* Update dependency mypy to v1.7.1 ([`c42348e`](https://github.com/MartinHjelmare/aiovlc/commit/c42348ee26b63f567990ec424d2325b9bae9ddd4))
-* Update pre-commit hook python-poetry/poetry to v1.7.1 ([`3fcdc42`](https://github.com/MartinHjelmare/aiovlc/commit/3fcdc42577c5389f6b90352305e6f3b2b41ff6ca))
-* Update pre-commit hook pre-commit/mirrors-prettier to v3.1.0 ([`28adec9`](https://github.com/MartinHjelmare/aiovlc/commit/28adec9b0acc3231c0d873826da48b9aedfc3914))
-* Update dependency mypy to v1.7.0 ([`c3638eb`](https://github.com/MartinHjelmare/aiovlc/commit/c3638ebf88fb6eb2c7770210e9abb5dee23c13da))
-* Update pre-commit hook psf/black to v23.11.0 ([`9ca1a36`](https://github.com/MartinHjelmare/aiovlc/commit/9ca1a36d3ae868c22118119f9a06425ad43e75a1))
-* Update dependency black to v23.11.0 ([`f2fdcd9`](https://github.com/MartinHjelmare/aiovlc/commit/f2fdcd9e35b7db086ba9f7a90001fb3594b3b207))
-* Update pre-commit hook python-poetry/poetry to v1.7.0 ([`3820bad`](https://github.com/MartinHjelmare/aiovlc/commit/3820badaac0ef657ad241011ac0858884a53926a))
-* Update amannn/action-semantic-pull-request action to v5.4.0 ([`0ad6bc0`](https://github.com/MartinHjelmare/aiovlc/commit/0ad6bc04c72287aad8f8857320f0ef8a77c3e64d))
-* Update dependency pytest-asyncio to ^0.22.0 ([`ca5c718`](https://github.com/MartinHjelmare/aiovlc/commit/ca5c7187a7254a08c713c78aaccf6188ea17cedf))
-* Update dependency pytest to v7.4.3 ([`078b28b`](https://github.com/MartinHjelmare/aiovlc/commit/078b28b3f8c548d5927cd0a5473f9536e3a1fa44))
-* Update pre-commit hook psf/black to v23.10.1 ([`9f49553`](https://github.com/MartinHjelmare/aiovlc/commit/9f4955348b88c88b177432cad833651ac6a5b11b))
-* Update dependency python-semantic-release to v8.3.0 ([`3270371`](https://github.com/MartinHjelmare/aiovlc/commit/32703713079420855bc1e2a088c0242fde37af17))
-* Update dependency black to v23.10.1 ([`c2615ec`](https://github.com/MartinHjelmare/aiovlc/commit/c2615ec95208b88ad40546ab013d1c9d76e609f8))
-* Update dependency pylint to v3.0.2 ([`ff8e32f`](https://github.com/MartinHjelmare/aiovlc/commit/ff8e32f28fa058037f8199fac910682fa0dc0f33))
-* Run poetry update (#243) ([`af0dd03`](https://github.com/MartinHjelmare/aiovlc/commit/af0dd03d6397a33bc3f041ad961ec1756e589a40))
-* Update pre-commit hook commitizen-tools/commitizen to v3.12.0 ([`936d833`](https://github.com/MartinHjelmare/aiovlc/commit/936d833ef5946a8d3fff489793862628f9d01f7b))
-* Update pre-commit hook psf/black to v23.10.0 ([`dc9c394`](https://github.com/MartinHjelmare/aiovlc/commit/dc9c394ea73751d8ced5b69b47ef12d78524542a))
-* Update dependency black to v23.10.0 ([`59e1db9`](https://github.com/MartinHjelmare/aiovlc/commit/59e1db976277752509f2a184068b9811b3fab917))
-* Update pre-commit hook commitizen-tools/commitizen to v3.11.0 ([`3f0aec9`](https://github.com/MartinHjelmare/aiovlc/commit/3f0aec97280c3eb899b846dd95bf506cda70976c))
+- **deps**: Update dependency typer to ^0.12.0
+  ([`ee95fd7`](https://github.com/MartinHjelmare/aiovlc/commit/ee95fd7601a8e97d8938642d940cc87efaf2eff9))
 
-### Bug fixes
-
-* Update dependency typer to ^0.12.0 ([`ee95fd7`](https://github.com/MartinHjelmare/aiovlc/commit/ee95fd7601a8e97d8938642d940cc87efaf2eff9))
 
 ## v0.3.2 (2023-10-15)
 
-### Bug fixes
+### Bug Fixes
 
-* Add back pypi token (#241) ([`ca9fb9e`](https://github.com/MartinHjelmare/aiovlc/commit/ca9fb9e1874f533e187b2788969a40ec10da3d3e))
+- Add back pypi token ([#241](https://github.com/MartinHjelmare/aiovlc/pull/241),
+  [`ca9fb9e`](https://github.com/MartinHjelmare/aiovlc/commit/ca9fb9e1874f533e187b2788969a40ec10da3d3e))
 
-### Continuous integration
-
-* Clean dependency bumps from changelog (#242) ([`bbdedd4`](https://github.com/MartinHjelmare/aiovlc/commit/bbdedd414daebb7351db3b4395ce456458908669))
 
 ## v0.3.1 (2023-10-15)
 
-### Bug fixes
+### Bug Fixes
 
-* Correctly parse volume with decimal seperator (#238) ([`35acae2`](https://github.com/MartinHjelmare/aiovlc/commit/35acae2ee99c4aa2bb5472cb33a94d1f994d3f47))
-
-### Chores
-
-* Adjust pylint max args (#240) ([`3e413b1`](https://github.com/MartinHjelmare/aiovlc/commit/3e413b1e18b55eb875e2cf3e5f509b22b7ab60fa))
-* Update pre-commit hook commitizen-tools/commitizen to v3.10.1 ([`e3e374f`](https://github.com/MartinHjelmare/aiovlc/commit/e3e374f77ccfcd8a06f1567a8b792b8d4b6cfe38))
-* Update dependency pre-commit to v3.5.0 ([`7074b6e`](https://github.com/MartinHjelmare/aiovlc/commit/7074b6ee3e6859fd328387ff899572cfcd70c778))
-* Update dependency python-semantic-release to v8.1.2 ([`14d5f9e`](https://github.com/MartinHjelmare/aiovlc/commit/14d5f9e3db09e8a0f2fa4f635e0c2bc8132ec979))
-* Update dependency mypy to v1.6.0 ([`16de30e`](https://github.com/MartinHjelmare/aiovlc/commit/16de30e135bbe3389ea61381cab74d84431fdb5d))
-* Update pre-commit hook pre-commit/pre-commit-hooks to v4.5.0 ([`a5bf317`](https://github.com/MartinHjelmare/aiovlc/commit/a5bf317258895623f406246a1813a9af0dadcaf8))
-* Update pre-commit hook asottile/pyupgrade to v3.15.0 ([`5e8b7b9`](https://github.com/MartinHjelmare/aiovlc/commit/5e8b7b9540648a2c222204c1633f71f67af7d208))
-* Update dependency pyupgrade to v3.15.0 ([`276eb21`](https://github.com/MartinHjelmare/aiovlc/commit/276eb213c83b471310d6304c643ffdd6f319bff0))
-* Update dependency pylint to v3.0.1 ([`f12d88f`](https://github.com/MartinHjelmare/aiovlc/commit/f12d88f4819223e1aed7c7046e3162f4ca873ae6))
-* Update dependency pylint to v3 (#236) ([`0371649`](https://github.com/MartinHjelmare/aiovlc/commit/037164931f3b1913832c36381b2ca0d905e2f230))
-* Update pre-commit hook asottile/pyupgrade to v3.14.0 ([`b6fee82`](https://github.com/MartinHjelmare/aiovlc/commit/b6fee823c4a1b532e62b6c5d119c7fc1234f2bb3))
-* Update dependency pyupgrade to v3.14.0 ([`922050f`](https://github.com/MartinHjelmare/aiovlc/commit/922050f729b7faeef5fe4e0edb14cdc470e9387d))
-* Update pre-commit hook codespell-project/codespell to v2.2.6 ([`9c479aa`](https://github.com/MartinHjelmare/aiovlc/commit/9c479aa05d966403cff5d9fb2692859b6c0601d9))
-* Update dependency pylint to v2.17.7 ([`666cd9e`](https://github.com/MartinHjelmare/aiovlc/commit/666cd9e68d07879766366d24b44855fad8c30fa6))
-* Update amannn/action-semantic-pull-request action to v5.3.0 ([`4cb801d`](https://github.com/MartinHjelmare/aiovlc/commit/4cb801d6504ffb4ab6d61902b1d3e3a309a6b648))
-* Update dependency pylint to v2.17.6 ([`821991b`](https://github.com/MartinHjelmare/aiovlc/commit/821991bd7218c9f54604dfee547faf0715c23628))
-* Update pre-commit hook commitizen-tools/commitizen to v3.10.0 ([`e34209f`](https://github.com/MartinHjelmare/aiovlc/commit/e34209f4573a40da141b6fcbaa74fe9fd3a6fb57))
-* Update pre-commit hook asottile/pyupgrade to v3.13.0 ([`b707322`](https://github.com/MartinHjelmare/aiovlc/commit/b70732245bce210046cb753271c3118f71b3aba8))
-* Update dependency pyupgrade to v3.13.0 ([`9937bcc`](https://github.com/MartinHjelmare/aiovlc/commit/9937bcc4acf21423b9b0e86283ce71b8e7a0065a))
-* Update pre-commit hook commitizen-tools/commitizen to v3.9.1 ([`68480ea`](https://github.com/MartinHjelmare/aiovlc/commit/68480eae2ca0b11a8e6ca50f9604a4ca7b262fd8))
-* Update pre-commit hook asottile/pyupgrade to v3.12.0 ([`c716334`](https://github.com/MartinHjelmare/aiovlc/commit/c7163346be1aaad9c951af143add409f0df783bb))
-* Update dependency pyupgrade to v3.12.0 ([`9d5c7ea`](https://github.com/MartinHjelmare/aiovlc/commit/9d5c7ea81e50f79dec95cead161b4020a2ba9032))
-* Update pre-commit hook asottile/pyupgrade to v3.11.2 ([`e9e6294`](https://github.com/MartinHjelmare/aiovlc/commit/e9e6294fa16acc52ad5bfba8bcc6751d53ac17f7))
-* Update dependency python-semantic-release to v8.1.1 ([`5361273`](https://github.com/MartinHjelmare/aiovlc/commit/536127395a1d543257c0fa88e890071300f19d41))
-* Update pre-commit hook asottile/pyupgrade to v3.11.1 ([`34fe4dd`](https://github.com/MartinHjelmare/aiovlc/commit/34fe4dd3bfeb76c4163dfce0729b34f7eea9b0da))
-* Update dependency pyupgrade to v3.11.1 ([`76cf4b3`](https://github.com/MartinHjelmare/aiovlc/commit/76cf4b30820979cd58a2f49f936291a1bbfbd8f4))
-* Update pre-commit hook asottile/pyupgrade to v3.11.0 ([`4358beb`](https://github.com/MartinHjelmare/aiovlc/commit/4358beb984de7fde0bb365beaaae7848ffcc99bb))
-* Update dependency pyupgrade to v3.11.0 ([`8ebab67`](https://github.com/MartinHjelmare/aiovlc/commit/8ebab67e294337185e79b1be939311a3589803da))
-* Update pre-commit hook commitizen-tools/commitizen to v3.9.0 ([`1e933f8`](https://github.com/MartinHjelmare/aiovlc/commit/1e933f8d6d5af6ac605a5fd0f2b76419aa0c2b4d))
-* Update dependency sphinx to v7.2.6 ([`44f5cf9`](https://github.com/MartinHjelmare/aiovlc/commit/44f5cf90f1875ff7eda85f3e9dfb0a73527b0490))
-* Update pre-commit hook psf/black to v23.9.1 ([`eaf6f46`](https://github.com/MartinHjelmare/aiovlc/commit/eaf6f463af2e0df556c49d55e3ef579d77e78569))
-* Update dependency black to v23.9.1 ([`96298d8`](https://github.com/MartinHjelmare/aiovlc/commit/96298d8dc0af009d0d449ee5385fa726c3de7b72))
-* Update pre-commit hook commitizen-tools/commitizen to v3.8.2 ([`3040a7e`](https://github.com/MartinHjelmare/aiovlc/commit/3040a7e9186a04c1d2d35642047259430aab62e5))
-* Update pre-commit hook psf/black to v23.9.0 ([`6df3910`](https://github.com/MartinHjelmare/aiovlc/commit/6df3910698318d49a9477c5d25c48478d34e04fe))
-* Update dependency black to v23.9.0 ([`32e0195`](https://github.com/MartinHjelmare/aiovlc/commit/32e0195a77eb9d28806335ef65814e251d238a95))
-* Update pre-commit hook commitizen-tools/commitizen to v3.8.1 ([`1b060a5`](https://github.com/MartinHjelmare/aiovlc/commit/1b060a5a93dc9f556c475f7de27ff21062647e5a))
-* Update dependency pytest to v7.4.2 ([`7c04c60`](https://github.com/MartinHjelmare/aiovlc/commit/7c04c60952a5d1b534b737a03006577f69ce8a24))
-* Update actions/checkout action to v4 (#235) ([`9cb74ab`](https://github.com/MartinHjelmare/aiovlc/commit/9cb74ab0e83a9842c591e55ebc8b6d4eab29fcd4))
-* Update pre-commit hook commitizen-tools/commitizen to v3.8.0 (#234) ([`3c85a3c`](https://github.com/MartinHjelmare/aiovlc/commit/3c85a3c3dba0bd7eed82f858bd303b888e2f0b8f))
-* Update pre-commit hook commitizen-tools/commitizen to v3.7.1 ([`a18f682`](https://github.com/MartinHjelmare/aiovlc/commit/a18f68247a6d9b7dcb2c8fc533f9036b5f6fc717))
-* Update dependency pre-commit to v3.4.0 ([`0bb5abb`](https://github.com/MartinHjelmare/aiovlc/commit/0bb5abba7388d2d40a4ea3dab817d4957e00ab97))
-* Update dependency pytest to v7.4.1 ([`06dad24`](https://github.com/MartinHjelmare/aiovlc/commit/06dad2415ae0117157d08fe7a30e4ff4b63965e3))
-* Update dependency sphinx to v7.2.5 ([`7bbf144`](https://github.com/MartinHjelmare/aiovlc/commit/7bbf144427c2be176adc55e88df887a132ae9ed6))
-* Update pre-commit hook pre-commit/mirrors-prettier to v3.0.3 ([`4ce505d`](https://github.com/MartinHjelmare/aiovlc/commit/4ce505d507f4e0722e8010f0d993b9bae1215602))
-* Update dependency sphinx to v7.2.4 ([`c2bde3e`](https://github.com/MartinHjelmare/aiovlc/commit/c2bde3e373592510e1bf9deb0e9fbd3bcdf6c49e))
-* Update dependency python-semantic-release to v8.0.8 ([`58f4386`](https://github.com/MartinHjelmare/aiovlc/commit/58f4386eb73c50777508e590fefa5889356405d7))
-* Update pre-commit hook commitizen-tools/commitizen to v3.7.0 ([`c15d446`](https://github.com/MartinHjelmare/aiovlc/commit/c15d4467eb3d84ec4d632c966ad6c1dce2b04712))
-* Update dependency sphinx to v7.2.3 ([`71132d1`](https://github.com/MartinHjelmare/aiovlc/commit/71132d14b8351e5cae7af77fcf7f54ce4aa6450b))
-* Update dependency sphinx to v7 (#232) ([`10b8358`](https://github.com/MartinHjelmare/aiovlc/commit/10b835892f649b9460dae752d89e6fae006d3377))
-* Update dependency sphinx-rtd-theme to v1.3.0 ([`8c0bced`](https://github.com/MartinHjelmare/aiovlc/commit/8c0bcedd2a508c6c9b340ea81e17b737bf8c8bc9))
-* Update pre-commit hook python-poetry/poetry to v1.6.1 ([`e972194`](https://github.com/MartinHjelmare/aiovlc/commit/e972194f9afb87219448373d58e03f2af4e55778))
-* Update pre-commit hook python-poetry/poetry to v1.6.0 ([`25e0840`](https://github.com/MartinHjelmare/aiovlc/commit/25e0840909f49f062c042f7c18a5b06386fdcba1))
-* Update dependency click to v8.1.7 ([`9e02ed3`](https://github.com/MartinHjelmare/aiovlc/commit/9e02ed3f800e10825acd2beccff9d1f3c88bc06b))
-* Update dependency python-semantic-release to v8.0.7 ([`445878e`](https://github.com/MartinHjelmare/aiovlc/commit/445878e5920cbb8230a92b46cdbfb463d0f0b8b9))
-* Update dependency mypy to v1.5.1 ([`51143df`](https://github.com/MartinHjelmare/aiovlc/commit/51143df37e3b40040a97cc103bcec8ea2a30bd13))
-* Update pre-commit hook pre-commit/mirrors-prettier to v3.0.2 ([`7d8e551`](https://github.com/MartinHjelmare/aiovlc/commit/7d8e55114398e163af67103b34617e4aa186c8f6))
-* Update dependency python-semantic-release to v8.0.6 ([`b4467ed`](https://github.com/MartinHjelmare/aiovlc/commit/b4467edd982cf25a80e4eb2eecf3227c4106d84a))
-* Update dependency python-semantic-release to v8.0.5 ([`f2dee87`](https://github.com/MartinHjelmare/aiovlc/commit/f2dee871f10181b9e759caa05330ea24e7289898))
-* Update dependency mypy to v1.5.0 ([`ddde480`](https://github.com/MartinHjelmare/aiovlc/commit/ddde480216f6d3adf3f9285cb43c898bfe2da56d))
-* Update dependency python-semantic-release to v8.0.4 ([`3948036`](https://github.com/MartinHjelmare/aiovlc/commit/39480368c94602f9c9f54eca31820c27cb027e6c))
-* Update sphinx packages (major) (#226) ([`7dec6eb`](https://github.com/MartinHjelmare/aiovlc/commit/7dec6eb2834c316441a863a9637024b300f33fa5))
-* Update dependency python-semantic-release to v8 (#230) ([`b0f88a6`](https://github.com/MartinHjelmare/aiovlc/commit/b0f88a634ddbb32d00379f276a4190e7247dc2ac))
-* Update pre-commit hook pre-commit/mirrors-prettier to v3.0.1 (#231) ([`54c882c`](https://github.com/MartinHjelmare/aiovlc/commit/54c882c5d9eaec97ce8f1a8cdf232a9b9fc39b6e))
-* Update pre-commit hook commitizen-tools/commitizen to v3.6.0 ([`b94c216`](https://github.com/MartinHjelmare/aiovlc/commit/b94c216d45e9c3c8eae94ad4d7fc602f8a714241))
-* Update pre-commit hook asottile/pyupgrade to v3.10.1 ([`7e4adfb`](https://github.com/MartinHjelmare/aiovlc/commit/7e4adfbd591f66a2ae7ded4342990fcfb4667d4d))
-* Update dependency pyupgrade to v3.10.1 ([`461a6de`](https://github.com/MartinHjelmare/aiovlc/commit/461a6deacc3b202a330160eba593e89c94efd3e8))
-* Update pre-commit hook pycqa/flake8 to v6.1.0 ([`2023362`](https://github.com/MartinHjelmare/aiovlc/commit/2023362170d0b64f545727888a81bb15f40d1993))
-* Update dependency flake8 to v6.1.0 ([`6056035`](https://github.com/MartinHjelmare/aiovlc/commit/605603544ab53deb77d06f0318cf46b337fd6d29))
-* Update pre-commit hook commitizen-tools/commitizen to v3.5.4 ([`a856515`](https://github.com/MartinHjelmare/aiovlc/commit/a8565152b9295ceedc265e48b68a8a19026f5c34))
-* Update dependency pylint to v2.17.5 ([`daac530`](https://github.com/MartinHjelmare/aiovlc/commit/daac5301720eea74fa1ae3e50932e7ffdef311fd))
-* Update dependency click to v8.1.6 (#229) ([`fc9a69c`](https://github.com/MartinHjelmare/aiovlc/commit/fc9a69c1ef890788d5e3762091a2b3f6788b7bdd))
-* Update pre-commit hook commitizen-tools/commitizen to v3.5.3 ([`20e1007`](https://github.com/MartinHjelmare/aiovlc/commit/20e1007042a45313af9b9021da4140377e916303))
-* Update dependency pytest-asyncio to v0.21.1 ([`a70b3b8`](https://github.com/MartinHjelmare/aiovlc/commit/a70b3b842d3784beb96b6b873cf5287e0bca6728))
-* Update pre-commit hook psf/black to v23.7.0 ([`a45ed5f`](https://github.com/MartinHjelmare/aiovlc/commit/a45ed5ff79b6777aa610fcda86c0c9ebe44fa4dc))
-* Update dependency black to v23.7.0 ([`d4e1590`](https://github.com/MartinHjelmare/aiovlc/commit/d4e1590cc52b9950d8fb472f6811a1791085cbba))
-* Update pre-commit hook asottile/pyupgrade to v3.9.0 ([`f7ed5cb`](https://github.com/MartinHjelmare/aiovlc/commit/f7ed5cbd33e551475c13ff0c36d3bda36f149e83))
-* Update dependency pyupgrade to v3.9.0 ([`bf3b19b`](https://github.com/MartinHjelmare/aiovlc/commit/bf3b19b174c064e69dbe544be929919ef891a4b1))
-* Update pre-commit hook pre-commit/mirrors-prettier to v3 (#228) ([`dbd5167`](https://github.com/MartinHjelmare/aiovlc/commit/dbd5167178e8b01b129b2009425f52fbb783478d))
-* Update pre-commit hook asottile/pyupgrade to v3.8.0 ([`f4b15f4`](https://github.com/MartinHjelmare/aiovlc/commit/f4b15f410bd739f2f727904375aa90dd98bf3bc0))
-* Update dependency pyupgrade to v3.8.0 ([`f6dc86d`](https://github.com/MartinHjelmare/aiovlc/commit/f6dc86df6d097b9998f0c85943e046a09914206f))
-* Update pre-commit hook commitizen-tools/commitizen to v3.5.2 ([`bfb6bab`](https://github.com/MartinHjelmare/aiovlc/commit/bfb6babd40e2e97125a86b18703c02ee04374099))
-* Update dependency mypy to v1.4.1 ([`6fecb75`](https://github.com/MartinHjelmare/aiovlc/commit/6fecb75a9fb57a3468c4705f8fbe584b6ecd683f))
-* Update pre-commit hook commitizen-tools/commitizen to v3.5.1 ([`e8ba8a0`](https://github.com/MartinHjelmare/aiovlc/commit/e8ba8a00cf97a511970f1eeca0838603106f9fdf))
-* Update dependency pytest to v7.4.0 ([`f3f8c9a`](https://github.com/MartinHjelmare/aiovlc/commit/f3f8c9aa294093f8acd191ac8972087d2813a958))
-* Update pre-commit hook commitizen-tools/commitizen to v3.5.0 ([`06cb47a`](https://github.com/MartinHjelmare/aiovlc/commit/06cb47a0f9e753ecd5f8d02d097250299cba2c37))
-* Update dependency mypy to v1.4.0 ([`ef3a227`](https://github.com/MartinHjelmare/aiovlc/commit/ef3a227599cb8b3fb23f271c068b4a5892191a57))
-* Update pre-commit hook commitizen-tools/commitizen to v3.4.0 ([`e619553`](https://github.com/MartinHjelmare/aiovlc/commit/e61955364a0fe9a5875b90c92df67d6b0d215bc8))
-* Update pre-commit hook asottile/pyupgrade to v3.7.0 ([`0dd4b03`](https://github.com/MartinHjelmare/aiovlc/commit/0dd4b036606e7b34feca3624a780b1167a0507e4))
-* Update dependency pyupgrade to v3.7.0 ([`4e99034`](https://github.com/MartinHjelmare/aiovlc/commit/4e990345601fca9a34cb227ae30190165495e137))
-* Update dependency python-semantic-release to v7.34.6 ([`5b62a30`](https://github.com/MartinHjelmare/aiovlc/commit/5b62a303e92e3ebb1b7fcb9197fa15f89b8c5139))
-* Update dependency python-semantic-release to v7.34.4 ([`df12d43`](https://github.com/MartinHjelmare/aiovlc/commit/df12d436505042433a2d723dd4b55edc7c7b0ad6))
-* Update pre-commit hook codespell-project/codespell to v2.2.5 ([`81f4d75`](https://github.com/MartinHjelmare/aiovlc/commit/81f4d75e5cdf18d8a4fc67af46ff7a8b143ac34a))
-* Update dependency pre-commit to v3.3.3 ([`8ca9d58`](https://github.com/MartinHjelmare/aiovlc/commit/8ca9d58a6812fc9cb4d5465af684a66ebfcdd861))
-* Update pre-commit hook commitizen-tools/commitizen to v3.3.0 ([`94f077b`](https://github.com/MartinHjelmare/aiovlc/commit/94f077b00ea769bcba08efa25a074841c2cc27c7))
-* Update pre-commit hook asottile/pyupgrade to v3.6.0 ([`0f74bec`](https://github.com/MartinHjelmare/aiovlc/commit/0f74becceff9f11fc68e141043daff277826b28e))
-* Update dependency pyupgrade to v3.6.0 ([`332428f`](https://github.com/MartinHjelmare/aiovlc/commit/332428f03a3f4528ffdaa1c7d8dcbd29bb78f152))
-* Update dependency pytest to v7.3.2 ([`7307320`](https://github.com/MartinHjelmare/aiovlc/commit/7307320f760fefb96baf581678021ad26a13356e))
-* Update dependency sphinx-rtd-theme to v1.2.2 ([`6d5e890`](https://github.com/MartinHjelmare/aiovlc/commit/6d5e890bcb9f8d375f6b1f57bbe24993ed4a8498))
-* Update dependency python-semantic-release to v7.34.3 ([`d58aebf`](https://github.com/MartinHjelmare/aiovlc/commit/d58aebf7c0d02c3d9f6534acfeda9f1bd4bdcdf7))
-* Update pre-commit hook python-poetry/poetry to v1.5.1 ([`d3c3bd8`](https://github.com/MartinHjelmare/aiovlc/commit/d3c3bd8a63221caefbbe06a41d758c89094a2fce))
-* Update dependency python-semantic-release to v7.34.2 ([`a510d7e`](https://github.com/MartinHjelmare/aiovlc/commit/a510d7ee2767bcd226a1b7edce760f796147d9dc))
-* Update dependency python-semantic-release to v7.34.1 ([`633478c`](https://github.com/MartinHjelmare/aiovlc/commit/633478cfd2563b1a32660e70f80ed32ca7de3527))
-* Update dependency python-semantic-release to v7.34.0 ([`86ee935`](https://github.com/MartinHjelmare/aiovlc/commit/86ee93514fcf1316e5e302a9f1ece81d14a7d5dd))
-* Update dependency pytest-cov to v4.1.0 ([`66226b2`](https://github.com/MartinHjelmare/aiovlc/commit/66226b2c8154c9a127e30d76feb3a353f1a833e0))
-* Update dependency sphinx-rtd-theme to v1.2.1 (#225) ([`380a068`](https://github.com/MartinHjelmare/aiovlc/commit/380a068532e987593e018de8ca884942affaf3db))
-* Update pre-commit hook python-poetry/poetry to v1.5.0 ([`51ef662`](https://github.com/MartinHjelmare/aiovlc/commit/51ef6628987744ad37871c05d40d0f1222403d2b))
-* Update dependency python-semantic-release to v7.33.5 ([`98fd424`](https://github.com/MartinHjelmare/aiovlc/commit/98fd42430bdc9cd4a472528c517d696f4afffc5a))
-* Update dependency pre-commit to v3.3.2 ([`b397f77`](https://github.com/MartinHjelmare/aiovlc/commit/b397f7769c802265c60cc23f04f54e50f7f26345))
-* Update dependency python-semantic-release to v7.33.4 ([`1fc1816`](https://github.com/MartinHjelmare/aiovlc/commit/1fc1816b3182d789a3e9673dd4ff53fc7f744a0d))
-* Update dependency mypy to v1.3.0 ([`5ad0c9f`](https://github.com/MartinHjelmare/aiovlc/commit/5ad0c9f94da697bed543b0f41358af3bd1d5dd68))
-* Update pre-commit hook commitizen-tools/commitizen to v3.2.2 ([`5203bbb`](https://github.com/MartinHjelmare/aiovlc/commit/5203bbbfbc1556ed58c52c45b6c8d845f46803fd))
-* Update pre-commit hook asottile/pyupgrade to v3.4.0 ([`41cc873`](https://github.com/MartinHjelmare/aiovlc/commit/41cc87393512664bbb0da5d94b354381c5d1b2c4))
-* Update dependency pyupgrade to v3.4.0 ([`671114f`](https://github.com/MartinHjelmare/aiovlc/commit/671114f7f98b43f766ffc77d9e41dc57433dda75))
-* Update dependency pylint to v2.17.4 ([`4d53ca8`](https://github.com/MartinHjelmare/aiovlc/commit/4d53ca8b68da0945986c7650c186685b3a0e1d7b))
-* Update pre-commit hook commitizen-tools/commitizen to v3.2.1 ([`9b1da30`](https://github.com/MartinHjelmare/aiovlc/commit/9b1da302899652ce10d771ab2cf0ef488a64839c))
-* Update dependency pre-commit to v3.3.1 ([`bc49033`](https://github.com/MartinHjelmare/aiovlc/commit/bc4903395e50caeae974a84a287de5a5d38adb64))
-* Update pre-commit hook commitizen-tools/commitizen to v3.2.0 ([`a80f310`](https://github.com/MartinHjelmare/aiovlc/commit/a80f310bb1e1bf89022b6843086e8422fcfc8fa7))
-* Update dependency pre-commit to v3.3.0 ([`a58f765`](https://github.com/MartinHjelmare/aiovlc/commit/a58f76594c3311a8a8339ca3bd119410aa85c3ec))
-* Update pre-commit hook commitizen-tools/commitizen to v3.1.1 ([`6f43c0e`](https://github.com/MartinHjelmare/aiovlc/commit/6f43c0e27767243675ca824d046b765529cbe1b9))
-* Update pre-commit hook commitizen-tools/commitizen to v3.1.0 ([`f2a34aa`](https://github.com/MartinHjelmare/aiovlc/commit/f2a34aa76c42d9661e0dbb6ccbbb95b5313e78ec))
-* Update pre-commit hook asottile/pyupgrade to v3.3.2 ([`d2eb389`](https://github.com/MartinHjelmare/aiovlc/commit/d2eb389694432c8b7f85db1b4a60a2192fdc2279))
-* Update dependency sphinx to v6.2.1 ([`49a7fe5`](https://github.com/MartinHjelmare/aiovlc/commit/49a7fe59a7e0386c62c95efb8dd57f7569c51a0a))
-* Update dependency pyupgrade to v3.3.2 ([`b8d8546`](https://github.com/MartinHjelmare/aiovlc/commit/b8d85467c1b9fdcf7e5aaa0e9ff9d59a9731cc8c))
-* Update dependency python-semantic-release to v7.33.3 ([`63987cb`](https://github.com/MartinHjelmare/aiovlc/commit/63987cb3f306a6f9823d5be590e0f0cba5dd4a0c))
-* Update dependency pylint to v2.17.3 ([`ce7a0e5`](https://github.com/MartinHjelmare/aiovlc/commit/ce7a0e559838c6ff67466a967c0f265ba630337b))
-* Update pre-commit hook commitizen-tools/commitizen to v3 (#224) ([`a66bf62`](https://github.com/MartinHjelmare/aiovlc/commit/a66bf62179276deaf6ee77a2ff15082b8d66b7cc))
-* Update dependency sphinx to v6.2.0 ([`5e1861e`](https://github.com/MartinHjelmare/aiovlc/commit/5e1861e9692d9fa0b3b6a4f8cb11d9aa3c2722b2))
-* Update dependency pytest to v7.3.1 ([`0e66cf7`](https://github.com/MartinHjelmare/aiovlc/commit/0e66cf7588eedfae76ea6f5a57cc0d6e0b4771e3))
-* Update dependency pytest to v7.3.0 ([`d499f85`](https://github.com/MartinHjelmare/aiovlc/commit/d499f85a8b4a493fc2095ace4f8ee4fb2fd3514e))
-* Update dependency mypy to v1.2.0 ([`b865187`](https://github.com/MartinHjelmare/aiovlc/commit/b8651872b4fcdcf986cdc5e6cb8ebed9dc3765a1))
-* Update dependency pre-commit to v3.2.2 ([`f39118b`](https://github.com/MartinHjelmare/aiovlc/commit/f39118b4ade271667e3d1e1b12ed30be32b4f845))
-* Update dependency pylint to v2.17.2 ([`eb5ea6d`](https://github.com/MartinHjelmare/aiovlc/commit/eb5ea6dce96687a9174dac021ec53896ce8f66b1))
-* Update pre-commit hook python-poetry/poetry to v1.4.2 ([`b264ed3`](https://github.com/MartinHjelmare/aiovlc/commit/b264ed353cd7beb38b34650687cf2116ea3e3ccf))
-* Update pre-commit hook psf/black to v23.3.0 ([`658911d`](https://github.com/MartinHjelmare/aiovlc/commit/658911d1c4d16e837e4c076b54d6fda270f4c3fc))
-* Update dependency black to v23.3.0 ([`dd4f97f`](https://github.com/MartinHjelmare/aiovlc/commit/dd4f97f9d5a0b9c2d5d6294356e28b73ab8aea5a))
-* Update dependency pre-commit to v3.2.1 ([`c3d1329`](https://github.com/MartinHjelmare/aiovlc/commit/c3d13298aeb599aa70d897ad9b159c80944f4e24))
-* Update dependency pylint to v2.17.1 ([`a46c669`](https://github.com/MartinHjelmare/aiovlc/commit/a46c6696e5f59d0bfae1668417f140f30ae04685))
-* Update pre-commit hook python-poetry/poetry to v1.4.1 ([`3f42be9`](https://github.com/MartinHjelmare/aiovlc/commit/3f42be99b7ba4c7f9e617d956c6029f818b3314d))
-* Update dependency pytest-asyncio to ^0.21.0 ([`4414050`](https://github.com/MartinHjelmare/aiovlc/commit/44140505f475025143f47b0def419c743fa58533))
-* Update dependency pre-commit to v3.2.0 ([`14b4944`](https://github.com/MartinHjelmare/aiovlc/commit/14b494451431aab10f734f48b99d2f168158f2e0))
-* Update dependency pylint to v2.17.0 (#221) ([`7eb4497`](https://github.com/MartinHjelmare/aiovlc/commit/7eb4497305a03c77abcd8462c7624b2d5b66c67c))
-* Update dependency sphinx to v6 (#220) ([`3316d06`](https://github.com/MartinHjelmare/aiovlc/commit/3316d069f7b07e0ab96cef4d2c5b8ceb6eb4a7aa))
-* Update pre-commit hook codespell-project/codespell to v2.2.4 (#219) ([`a82d362`](https://github.com/MartinHjelmare/aiovlc/commit/a82d362f667f4036bb72fc2888025bceac811278))
-* Update amannn/action-semantic-pull-request action to v5.2.0 ([`cf5ca79`](https://github.com/MartinHjelmare/aiovlc/commit/cf5ca796f6ea861ace6b0adaafd7155cdc428290))
-* Update sphinx packages ([`9b4f898`](https://github.com/MartinHjelmare/aiovlc/commit/9b4f89889e82abc4d8196e5ada63662cf8856f68))
-* Update dependency python-semantic-release to v7.33.2 ([`6fcc64b`](https://github.com/MartinHjelmare/aiovlc/commit/6fcc64b05dfaeda6e670cd4471d2d167a37eb1cc))
-* Update dependency pre-commit to v3.1.1 ([`7b00ab4`](https://github.com/MartinHjelmare/aiovlc/commit/7b00ab45c6b0d2bead62fbe4f68456db48775de9))
-* Update dependency mypy to v1.1.1 ([`30750f4`](https://github.com/MartinHjelmare/aiovlc/commit/30750f443240f3ce32595b5be7777264a52625da))
-* Update dependency isort to v5.12.0 ([`a21a056`](https://github.com/MartinHjelmare/aiovlc/commit/a21a056aafdf3a767212c01027372202c0f47694))
-* Update dependency flake8-docstrings to v1.7.0 ([`5a9355a`](https://github.com/MartinHjelmare/aiovlc/commit/5a9355a2744dfa533b6537ba4dd2c98c70635b7b))
-* Update dependency pytest to v7.2.2 ([`b2704d5`](https://github.com/MartinHjelmare/aiovlc/commit/b2704d5efa7de7d0b70a3bb9d6fdbc750a8e7d86))
-* Update dependency bandit to v1.7.5 ([`9d66c8b`](https://github.com/MartinHjelmare/aiovlc/commit/9d66c8baedd5822f1237fc2e501dbee3db85658d))
-* Update pre-commit hook pycqa/bandit to v1.7.5 ([`1e22614`](https://github.com/MartinHjelmare/aiovlc/commit/1e22614642e1cb6c624eba9b2df9178fd1477453))
-* Update pre-commit hook python-poetry/poetry to v1.4.0 ([`01f08a1`](https://github.com/MartinHjelmare/aiovlc/commit/01f08a14315f3a06703e6f700cad28e34c1b8dc6))
-* Update pre-commit hook commitizen-tools/commitizen to v2.42.1 ([`cb5d9b7`](https://github.com/MartinHjelmare/aiovlc/commit/cb5d9b7860e8aa4e5b45e196fdd9e416681c7bae))
-* Update pre-commit hook commitizen-tools/commitizen to v2.42.0 ([`6359b8e`](https://github.com/MartinHjelmare/aiovlc/commit/6359b8e6745598844f40f7079f55a6ac5ccedea0))
-* Update amannn/action-semantic-pull-request action to v5.1.0 ([`d2e8288`](https://github.com/MartinHjelmare/aiovlc/commit/d2e828854991b4c4469da183f5c1381d34c5857f))
-* Update pre-commit hook commitizen-tools/commitizen to v2.41.0 ([`f1069d2`](https://github.com/MartinHjelmare/aiovlc/commit/f1069d2ce8d9bea543df4490217fba50b43a74ec))
-* Update dependency mypy to v1 (#218) ([`359c9ad`](https://github.com/MartinHjelmare/aiovlc/commit/359c9ad5a7f55f4c3084208aec5470cdbf994cc0))
-* Update pre-commit hook psf/black to v23 (#217) ([`eea1dde`](https://github.com/MartinHjelmare/aiovlc/commit/eea1dde8a164218638c68ceb1f1ac7f96d3350c7))
-* Update dependency black to v23 (#216) ([`0824895`](https://github.com/MartinHjelmare/aiovlc/commit/082489566ba7479d87d7b4221ba317c477983abc))
-* Update pre-commit hook pycqa/isort to v5.12.0 ([`9d2a7e9`](https://github.com/MartinHjelmare/aiovlc/commit/9d2a7e9470337d47739511778879dd2cac183e58))
-* Update dependency pre-commit to v3 (#215) ([`763b102`](https://github.com/MartinHjelmare/aiovlc/commit/763b102a1292daded36c079545a562b87c86fdbe))
-* Update pre-commit hook commitizen-tools/commitizen to v2.40.0 ([`a37ceee`](https://github.com/MartinHjelmare/aiovlc/commit/a37ceee9d5b36adf614746cbbeafc4bad9a07261))
-
-### Continuous integration
-
-* Fix python semantic release (#239) ([`b110261`](https://github.com/MartinHjelmare/aiovlc/commit/b1102616298a1fa82572223154336567b3c5a1de))
+- Correctly parse volume with decimal seperator
+  ([#238](https://github.com/MartinHjelmare/aiovlc/pull/238),
+  [`35acae2`](https://github.com/MartinHjelmare/aiovlc/commit/35acae2ee99c4aa2bb5472cb33a94d1f994d3f47))
 
 ### Documentation
 
-* Fix index readme path (#222) ([`36f7125`](https://github.com/MartinHjelmare/aiovlc/commit/36f7125a7ba1676128712810233acdf42ce5eb86))
+- Fix index readme path ([#222](https://github.com/MartinHjelmare/aiovlc/pull/222),
+  [`36f7125`](https://github.com/MartinHjelmare/aiovlc/commit/36f7125a7ba1676128712810233acdf42ce5eb86))
+
 
 ## v0.3.0 (2023-01-14)
 
 ### Chores
 
-* Drop support for python 3.8 (#214) ([`9516128`](https://github.com/MartinHjelmare/aiovlc/commit/951612846ccc27a9a47552586ae10fde1f209347))
+- Drop support for python 3.8 ([#214](https://github.com/MartinHjelmare/aiovlc/pull/214),
+  [`9516128`](https://github.com/MartinHjelmare/aiovlc/commit/951612846ccc27a9a47552586ae10fde1f209347))
 
 ### Documentation
 
-* Extend docs (#212) ([`90e8499`](https://github.com/MartinHjelmare/aiovlc/commit/90e84997fff26047ab2aaafad5ea6a241f9745c3))
+- Extend docs ([#212](https://github.com/MartinHjelmare/aiovlc/pull/212),
+  [`90e8499`](https://github.com/MartinHjelmare/aiovlc/commit/90e84997fff26047ab2aaafad5ea6a241f9745c3))
+
+### Breaking Changes
+
+- Drop support for python 3.8
+
 
 ## v0.2.1 (2023-01-14)
 
-### Unknown
-
-* 0.2.1 ([`8f31d6f`](https://github.com/MartinHjelmare/aiovlc/commit/8f31d6f45d6d45194c87be21580ad2d6867a75e3))
-
-### Chores
-
-* Use new package tools (#211) ([`88a5d7e`](https://github.com/MartinHjelmare/aiovlc/commit/88a5d7e51cc63d0b07e15cc0dd69e53238971416))
 
 ## v0.2.0 (2023-01-14)
 
-### Unknown
-
-* Test client transport (#146) ([`cebf6b0`](https://github.com/MartinHjelmare/aiovlc/commit/cebf6b0d9cc09bc126bf02dc1795ef2177194ce8))
-* Test random command (#145) ([`2dc8eca`](https://github.com/MartinHjelmare/aiovlc/commit/2dc8eca3c7793e47d2e79084adffe6df1c4e1086))
-* Test set volume command (#144) ([`d79dcc0`](https://github.com/MartinHjelmare/aiovlc/commit/d79dcc08cc3b7b48698667f4e8692c07c32e320e))
-* Test simple commands (#143) ([`5ed6f1c`](https://github.com/MartinHjelmare/aiovlc/commit/5ed6f1cd80390c82a743668a289a52983645e7e0))
-* Test get time command (#142) ([`48e8bb3`](https://github.com/MartinHjelmare/aiovlc/commit/48e8bb3a64fd6059f49bbda218b86f362b0dbe08))
-* Refactor tests (#141) ([`5a52acd`](https://github.com/MartinHjelmare/aiovlc/commit/5a52acdfb0dce500ffb9b85a2559c4981c6fbf3e))
-* Test get length command (#140) ([`0ff5d31`](https://github.com/MartinHjelmare/aiovlc/commit/0ff5d315426718b59060695acb232570eb2fd4f3))
-* Test info command (#139) ([`48d6e19`](https://github.com/MartinHjelmare/aiovlc/commit/48d6e194d90b3c62d19806ee592ee96cd52fa098))
-* Consolidate password command (#138) ([`26d88b4`](https://github.com/MartinHjelmare/aiovlc/commit/26d88b470d98fdc8556130faf4d897bab554e1c7))
-* Hide CI PRs in release drafter (#91) ([`e488085`](https://github.com/MartinHjelmare/aiovlc/commit/e4880859a5bca5a492c3870aeb508ddbc62403aa))
-* Hide dependencies in release drafter (#90) ([`57fa2fb`](https://github.com/MartinHjelmare/aiovlc/commit/57fa2fb01ce232ed8efc83c95643f370970e7bc5))
-* Add py.typed (#75) ([`03e4018`](https://github.com/MartinHjelmare/aiovlc/commit/03e401898981a10b2a8e7d8d7ca1ebda177b29d8))
-* Fix pytest-asyncio deprecations (#74) ([`320e6d7`](https://github.com/MartinHjelmare/aiovlc/commit/320e6d719f4cdcd97feacfd57529f24555b49847))
-* Rename CLI client command module (#33) ([`8d99da0`](https://github.com/MartinHjelmare/aiovlc/commit/8d99da05efd4748bddd3fc365ed87ac77132d3f3))
-* Add test foundation (#22)
-
-* Add test foundation
-
-* Type it all ([`ee5f802`](https://github.com/MartinHjelmare/aiovlc/commit/ee5f8027ce4b147640e5bd3b2027cb387c3366f7))
-* Move send_command (#21) ([`d92284f`](https://github.com/MartinHjelmare/aiovlc/commit/d92284fccdf96a909eb4f77c6f7182be4f9f8206))
 
 ## v0.1.0 (2021-10-12)
 
-### Unknown
-
-* Extract password command (#20) ([`4e5d33b`](https://github.com/MartinHjelmare/aiovlc/commit/4e5d33b0e1e32c2bfe5ae15ee0db6d3efbe7d1f2))
-* Add command lock (#19) ([`7723c6c`](https://github.com/MartinHjelmare/aiovlc/commit/7723c6c04248e26db24e2bb25940907d4e5a7acb))
-* Add client command helpers (#18) ([`560230d`](https://github.com/MartinHjelmare/aiovlc/commit/560230dc4b3fc87d97792f2110154af22be3f632))
-* Add more commands (#17) ([`00aaa5c`](https://github.com/MartinHjelmare/aiovlc/commit/00aaa5cac2be2e1a189eb3c9594e12030728ecc8))
-* Add command model (#16) ([`f3a40c3`](https://github.com/MartinHjelmare/aiovlc/commit/f3a40c3f350ae1bbb47b15cb848dd2d15fb44ceb))
-* Add client foundation (#12) ([`89ba1ff`](https://github.com/MartinHjelmare/aiovlc/commit/89ba1ff9df5a04ab77a2c1a1def121826a812160))
-* Fix python 3.10 action (#11) ([`1671821`](https://github.com/MartinHjelmare/aiovlc/commit/16718213869524ac648697b4e9cb7306996003b9))
-* Create base package ([`8539a26`](https://github.com/MartinHjelmare/aiovlc/commit/8539a265dac166d77f415900c8cb292ae86bfb33))
-* Initial commit ([`d60a100`](https://github.com/MartinHjelmare/aiovlc/commit/d60a100d32d23c9eea2f19e4c0046ea2e4449ade))
+- Initial Release
