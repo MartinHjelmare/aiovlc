@@ -177,6 +177,14 @@ class Client:
         """Send the random command."""
         await Random(mode).send(self)
 
+    async def repeat(self, mode: Literal["on", "off"] | None = None) -> None:
+        """Send the repeat command."""
+        await Repeat(mode).send(self)
+
+    async def loop(self, mode: Literal["on", "off"] | None = None) -> None:
+        """Send the loop command."""
+        await Loop(mode).send(self)
+
     async def seek(self, seconds: int) -> None:
         """Send the seek command."""
         await Seek(seconds).send(self)
