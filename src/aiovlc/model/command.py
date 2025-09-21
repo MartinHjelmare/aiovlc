@@ -291,6 +291,7 @@ class Random(Command[None]):
         mode = "" if self.mode is None else f" {self.mode}"
         return f"{self.prefix}{mode}\n"
 
+
 @dataclass
 class Repeat(Command[None]):
     """Represent the repeat command."""
@@ -306,6 +307,7 @@ class Repeat(Command[None]):
         mode = "" if self.mode is None else f" {self.mode}"
         return f"{self.prefix}{mode}\n"
 
+
 @dataclass
 class Loop(Command[None]):
     """Represent the loop command."""
@@ -320,6 +322,7 @@ class Loop(Command[None]):
             raise CommandParameterError(f"Parameter mode not in {self.VALID_MODES}")
         mode = "" if self.mode is None else f" {self.mode}"
         return f"{self.prefix}{mode}\n"
+
 
 @dataclass
 class Seek(Command[None]):
