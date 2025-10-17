@@ -38,7 +38,7 @@ cli = [
 [dependency-groups]
 dev = [
   "codespell==2.4.1",
-  "copier==9.10.2",
+  "copier==9.10.3",
   "mypy==1.18.2",
   "pre-commit==4.3.0",
   "pytest==8.4.2",
