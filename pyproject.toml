@@ -17,7 +17,7 @@ classifiers = [
   "Topic :: Software Development :: Libraries",
 ]
 description = "Control VLC over telnet connection using asyncio"
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
 name = "aiovlc"
 readme = "README.md"
 requires-python = ">=3.11"
