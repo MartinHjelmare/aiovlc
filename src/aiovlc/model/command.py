@@ -293,6 +293,38 @@ class Random(Command[None]):
 
 
 @dataclass
+class Repeat(Command[None]):
+    """Represent the repeat command."""
+
+    prefix = "repeat"
+    mode: Literal["on", "off"] | None = None
+    VALID_MODES = (None, "on", "off")
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        if self.mode not in self.VALID_MODES:
+            raise CommandParameterError(f"Parameter mode not in {self.VALID_MODES}")
+        mode = "" if self.mode is None else f" {self.mode}"
+        return f"{self.prefix}{mode}\n"
+
+
+@dataclass
+class Loop(Command[None]):
+    """Represent the loop command."""
+
+    prefix = "loop"
+    mode: Literal["on", "off"] | None = None
+    VALID_MODES = (None, "on", "off")
+
+    def build_command(self) -> str:
+        """Return the full command string."""
+        if self.mode not in self.VALID_MODES:
+            raise CommandParameterError(f"Parameter mode not in {self.VALID_MODES}")
+        mode = "" if self.mode is None else f" {self.mode}"
+        return f"{self.prefix}{mode}\n"
+
+
+@dataclass
 class Seek(Command[None]):
     """Represent the seek command."""
 
