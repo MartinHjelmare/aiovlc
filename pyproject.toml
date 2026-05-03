@@ -1,38 +1,36 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools"]
+requires = [ "setuptools>=77.0.3" ]
 
 [project]
+name = "aiovlc"
+version = "0.7.0"
+description = "Control VLC over telnet connection using asyncio"
+readme = "README.md"
+license = "Apache-2.0"
 authors = [
-  {name = "Martin Hjelmare", email = "marhje52@gmail.com"},
+  { name = "Martin Hjelmare", email = "marhje52@gmail.com" },
 ]
+requires-python = ">=3.13"
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Natural Language :: English",
   "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
   "Topic :: Software Development :: Libraries",
 ]
-description = "Control VLC over telnet connection using asyncio"
-license = "Apache-2.0"
-name = "aiovlc"
-readme = "README.md"
-requires-python = ">=3.13"
-version = "0.7.0"
-
 dependencies = []
-scripts.aiovlc = "aiovlc.cli:app"
+optional-dependencies.cli = [
+  "typer>=0.15,<1",
+]
 urls."Bug Tracker" = "https://github.com/MartinHjelmare/aiovlc/issues"
 urls.Changelog = "https://github.com/MartinHjelmare/aiovlc/blob/main/CHANGELOG.md"
 urls.documentation = "https://aiovlc.readthedocs.io"
 urls.repository = "https://github.com/MartinHjelmare/aiovlc"
-
-[project.optional-dependencies]
-cli = [
-  "typer>=0.15,<1",
-]
+scripts.aiovlc = "aiovlc.cli:app"
 
 [dependency-groups]
 dev = [
@@ -45,125 +43,108 @@ dev = [
   "pytest-cov==7.1.0",
   "python-semantic-release>=10,<11",
   "ruff==0.15.12",
+  "sybil[pytest]==10.0.1",
+  "ty==0.0.34",
 ]
 docs = [
-  "furo>=2023.5.20; python_version>='3.11'",
-  "myst-parser>=0.16; python_version>='3.11'",
-  "sphinx>=4; python_version>='3.11'",
-  "sphinx-autobuild>=2025,<2026; python_version>='3.11'",
-]
-
-[tool.pytest.ini_options]
-addopts = """\
-    -Wdefault
-    --cov=aiovlc
-    --cov-report=term-missing
-    --cov-report=xml
-    """
-asyncio_mode = "auto"
-pythonpath = ["src"]
-
-[tool.coverage.run]
-branch = true
-
-[tool.coverage.report]
-exclude_lines = [
-  "pragma: no cover",
-  "@overload",
-  "def __repr__",
-  "if TYPE_CHECKING",
-  "raise NotImplementedError",
-  'if __name__ == "__main__":',
+  "furo; python_version>='3.12'",
+  "myst-parser; python_version>='3.12'",
+  "sphinx==9.*; python_version>='3.12'",
+  "sphinx-autobuild; python_version>='3.12'",
 ]
 
 [tool.ruff]
+target-version = "py313"
 line-length = 88
-lint.ignore = [
-  "ANN401", # any-type
-  "D203", # 1 blank line required before class docstring
-  "D213", # Multi-line docstring summary should start at the second line
-  "D417", # False positives in some occasions
-  "EM101", # raw-string-in-exception
-  "EM102", # f-string-in-exception
-  "PLR2004", # magic-value-comparison
-  "TC001", # typing-only-first-party-import
-  "TC002", # typing-only-third-party-import
-  "TC003", # typing-only-stdlib-import
-  "TRY003", # raise-vanilla-args
+lint.select = [
+  "ALL", # all rules
 ]
-lint.isort.force-sort-within-sections = true
-lint.isort.known-first-party = ["aiovlc", "tests"]
-lint.per-file-ignores."docs/conf.py" = ["D100"]
-lint.per-file-ignores."setup.py" = ["D100"]
+lint.ignore = [
+  "ANN401",  # any-type
+  "D203",    # 1 blank line required before class docstring
+  "D213",    # Multi-line docstring summary should start at the second line
+  "D417",    # False positives in some occasions
+  "EM101",   # raw-string-in-exception
+  "EM102",   # f-string-in-exception
+  "PLR2004", # magic-value-comparison
+  "TC001",   # typing-only-first-party-import
+  "TC002",   # typing-only-third-party-import
+  "TC003",   # typing-only-stdlib-import
+  "TRY003",  # raise-vanilla-args
+]
+lint.per-file-ignores."docs/conf.py" = [ "D100" ]
+lint.per-file-ignores."setup.py" = [ "D100" ]
 lint.per-file-ignores."tests/**/*" = [
   "PLR0913",
   "S101",
 ]
-lint.select = [
-  "ALL", # all rules
-]
-target-version = "py313"
+lint.isort.force-sort-within-sections = true
+lint.isort.known-first-party = [ "aiovlc", "tests" ]
 
-[tool.mypy]
-check_untyped_defs = true
-disallow_any_generics = true
-disallow_incomplete_defs = true
-disallow_untyped_calls = true
-disallow_untyped_defs = true
-exclude = [
-  'docs/.*',
-  'setup.py',
-]
-mypy_path = "src/"
-no_implicit_optional = true
-show_error_codes = true
-warn_incomplete_stub = true
-warn_redundant_casts = true
-warn_return_any = true
-warn_unreachable = true
-warn_unused_configs = true
-warn_unused_ignores = true
+[tool.pyproject-fmt]
+keep_full_version = true
+max_supported_python = "3.14"
 
-[[tool.mypy.overrides]]
-allow_untyped_defs = true
-module = "tests.*"
+[tool.ty]
+terminal.error-on-warning = true
+src.exclude = [ "docs/" ]
+
+[tool.pytest]
+minversion = "9.0"
+addopts = [
+  "-Wonce",
+  "-p no:doctest",
+  "--cov=aiovlc",
+  "--cov-report=term-missing",
+  "--cov-report=xml",
+]
+asyncio_default_fixture_loop_scope = "function"
+asyncio_mode = "auto"
+pythonpath = [ "src" ]
+
+[tool.coverage]
+run.branch = true
+paths.source = [
+  "src",
+  ".tox/**/site-packages",
+]
+report.exclude_lines = [
+  "@overload",
+  "def __repr__",
+  'if __name__ == "__main__":',
+  "if TYPE_CHECKING",
+  "pragma: no cover",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "raise RuntimeError",
+]
 
 [tool.semantic_release]
 allow_zero_version = true
+major_on_zero = false
+version_toml = [ "pyproject.toml:project.version" ]
+version_variables = [
+  "src/aiovlc/__init__.py:__version__",
+  "docs/conf.py:release",
+]
 build_command = """
 pip install uv
 uv lock
 git add uv.lock
 uv build
 """
-major_on_zero = false
-version_toml = ["pyproject.toml:project.version"]
-version_variables = [
-  "src/aiovlc/__init__.py:__version__",
-  "docs/conf.py:release",
+branches.main.match = "main"
+branches.noop.match = "(?!main$)"
+branches.noop.prerelease = true
+changelog.exclude_commit_patterns = [
+  "chore(?:\\([^)]*?\\))?: .+",
+  "ci(?:\\([^)]*?\\))?: .+",
+  "refactor(?:\\([^)]*?\\))?: .+",
+  "style(?:\\([^)]*?\\))?: .+",
+  "test(?:\\([^)]*?\\))?: .+",
+  "build\\((?!deps\\): .+)",
+  "Merged? .*",
+  "Initial [Cc]ommit.*",         # codespell:ignore
 ]
-
-[tool.semantic_release.commit_parser_options]
-parse_squash_commits = false
-
-[tool.semantic_release.changelog]
-exclude_commit_patterns = [
-  '''chore(?:\([^)]*?\))?: .+''',
-  '''ci(?:\([^)]*?\))?: .+''',
-  '''refactor(?:\([^)]*?\))?: .+''',
-  '''style(?:\([^)]*?\))?: .+''',
-  '''test(?:\([^)]*?\))?: .+''',
-  '''build\((?!deps\): .+)''',
-  '''Merged? .*''',
-  '''Initial [Cc]ommit.*''', # codespell:ignore
-]
-
-[tool.semantic_release.changelog.environment]
-keep_trailing_newline = true
-
-[tool.semantic_release.branches.main]
-match = "main"
-
-[tool.semantic_release.branches.noop]
-match = "(?!main$)"
-prerelease = true
+changelog.environment.keep_trailing_newline = true
+commit_parser_options.parse_squash_commits = false

@@ -5,7 +5,7 @@ from __future__ import annotations
 import contextlib
 from dataclasses import dataclass, field
 import re
-from typing import TYPE_CHECKING, Literal, TypeVar
+from typing import TYPE_CHECKING, Literal, TypeVar, cast
 
 from aiovlc.const import LOGGER
 from aiovlc.exceptions import (
@@ -65,7 +65,7 @@ class Command[T]:
     def parse_output(self, output: list[str]) -> T:  # noqa: ARG002
         """Parse command output."""
         # Disable mypy to have cleaner code in child classes.
-        return None  # type: ignore[return-value]
+        return None  # ty: ignore[invalid-return-type]
 
 
 @dataclass
@@ -190,7 +190,7 @@ class Info(Command[InfoOutput]):
                     try:
                         value = float(value)
                     except ValueError:
-                        value = value.strip()  # type: ignore[union-attr]
+                        value = cast("str", value).strip()
                 data[section][key.strip()] = value
             else:
                 raise CommandParseError(f"Unexpected line in info output: {line}")
