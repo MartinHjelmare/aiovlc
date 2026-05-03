@@ -3,6 +3,8 @@
 Here's an example of how to use the library to connect to a VLC instance:
 
 ```python
+import logging
+
 from aiovlc.client import Client
 from aiovlc.exceptions import AIOVLCError
 from aiovlc.model.command import Info, Status
