@@ -20,6 +20,8 @@ jobs:
         with:
           python-version: 3.x
       - uses: astral-sh/setup-uv@v8.1.0
+      - run: uv sync --all-extras --no-python-downloads
+        shell: bash
       - uses: j178/prek-action@v2.0.3
 
   # Make sure commit messages follow the conventional commits convention:
