@@ -85,11 +85,10 @@ keep_full_version = true
 max_supported_python = "3.14"
 
 [tool.ty]
-terminal.error-on-warning = true
 src.exclude = [ "docs/" ]
+terminal.error-on-warning = true
 
 [tool.pytest]
-minversion = "9.0"
 addopts = [
   "-Wonce",
   "-p no:doctest",
@@ -99,6 +98,7 @@ addopts = [
 ]
 asyncio_default_fixture_loop_scope = "function"
 asyncio_mode = "auto"
+minversion = "9.0"
 pythonpath = [ "src" ]
 
 [tool.coverage]
@@ -119,22 +119,24 @@ report.exclude_lines = [
 ]
 
 [tool.semantic_release]
-allow_zero_version = true
 major_on_zero = false
-version_toml = [ "pyproject.toml:project.version" ]
+allow_zero_version = true
 version_variables = [
-  "src/aiovlc/__init__.py:__version__",
   "docs/conf.py:release",
+  "src/aiovlc/__init__.py:__version__",
 ]
+version_toml = [ "pyproject.toml:project.version" ]
 build_command = """
 pip install uv
 uv lock
 git add uv.lock
 uv build
 """
+commit_parser_options.parse_squash_commits = false
 branches.main.match = "main"
 branches.noop.match = "(?!main$)"
 branches.noop.prerelease = true
+changelog.environment.keep_trailing_newline = true
 changelog.exclude_commit_patterns = [
   "chore(?:\\([^)]*?\\))?: .+",
   "ci(?:\\([^)]*?\\))?: .+",
@@ -145,5 +147,3 @@ changelog.exclude_commit_patterns = [
   "Merged? .*",
   "Initial [Cc]ommit.*",         # codespell:ignore
 ]
-changelog.environment.keep_trailing_newline = true
-commit_parser_options.parse_squash_commits = false
