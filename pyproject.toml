@@ -72,7 +72,6 @@ lint.ignore = [
   "TC003",   # typing-only-stdlib-import
   "TRY003",  # raise-vanilla-args
 ]
-lint.pylint.max-positional-args = 7
 lint.per-file-ignores."docs/conf.py" = [ "D100" ]
 lint.per-file-ignores."setup.py" = [ "D100" ]
 lint.per-file-ignores."tests/**/*" = [
@@ -81,6 +80,7 @@ lint.per-file-ignores."tests/**/*" = [
 ]
 lint.isort.force-sort-within-sections = true
 lint.isort.known-first-party = [ "aiovlc", "tests" ]
+lint.pylint.max-positional-args = 7
 
 [tool.pyproject-fmt]
 keep_full_version = true
