@@ -7,7 +7,7 @@
     ":enablePreCommit",
     ":semanticCommitTypeAll(chore)"
   ],
-  "minimumReleaseAge": "3 days",
+  "minimumReleaseAge": "14 days",
   "prCreation": "not-pending",
   "internalChecksFilter": "strict",
   "packageRules": [
