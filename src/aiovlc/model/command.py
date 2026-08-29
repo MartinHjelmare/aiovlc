@@ -5,7 +5,7 @@ from __future__ import annotations
 import contextlib
 from dataclasses import dataclass, field
 import re
-from typing import TYPE_CHECKING, Literal, TypeVar, cast
+from typing import TYPE_CHECKING, Literal, TypeVar
 
 from aiovlc.const import LOGGER
 from aiovlc.exceptions import (
@@ -190,7 +190,7 @@ class Info(Command[InfoOutput]):
                     try:
                         value = float(value)
                     except ValueError:
-                        value = cast("str", value).strip()
+                        value = value.strip()
                 data[section][key.strip()] = value
             else:
                 raise CommandParseError(f"Unexpected line in info output: {line}")
