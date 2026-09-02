@@ -35,7 +35,7 @@ scripts.aiovlc = "aiovlc.cli:app"
 [dependency-groups]
 dev = [
   "codespell==2.4.3",
-  "copier==9.17.1",
+  "copier==9.17.2",
   "prek==0.4.14",
   "pytest==9.1.1",
   "pytest-asyncio==1.4.0",
