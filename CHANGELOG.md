@@ -2,6 +2,23 @@
 
 <!-- version list -->
 
+## v0.7.0 (2026-03-06)
+
+### Build System
+
+- Run copier update ([#289](https://github.com/MartinHjelmare/aiovlc/pull/289),
+  [`d9085a2`](https://github.com/MartinHjelmare/aiovlc/commit/d9085a2db20b9b8882d27fea94b6dd669210a3b1))
+
+### Chores
+
+- Require Python 3.13 ([#340](https://github.com/MartinHjelmare/aiovlc/pull/340),
+  [`165a094`](https://github.com/MartinHjelmare/aiovlc/commit/165a094d650ae9c2328c50bf88a19635c8a640c7))
+
+### Breaking Changes
+
+- Drop support for Python 3.11 and 3.12
+
+
 ## v0.6.6 (2025-02-27)
 
 ### Bug Fixes

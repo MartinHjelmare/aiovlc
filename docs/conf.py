@@ -13,9 +13,9 @@ from sphinx.ext import apidoc
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "aiovlc"
-project_copyright = "2025, Martin Hjelmare"
+project_copyright = "2026, Martin Hjelmare"
 author = "Martin Hjelmare"
-release = "0.6.6"
+release = "0.7.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

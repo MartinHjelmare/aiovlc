@@ -1,11 +1,23 @@
 {
   "extends": [
-    "github>browniebroke/renovate-configs:python",
+    "config:best-practices",
+    ":pinOnlyDevDependencies",
+    ":automergeBranch",
+    ":automergeMinor",
+    ":enablePreCommit",
     ":semanticCommitTypeAll(chore)"
   ],
-  "automergeType": "branch",
-  "lockFileMaintenance": { "enabled": true },
+  "minimumReleaseAge": "14 days",
+  "prCreation": "not-pending",
   "packageRules": [
+    {
+      "groupName": "ruff",
+      "matchPackageNames": ["ruff", "astral-sh/ruff-pre-commit"]
+    },
+    {
+      "groupName": "codespell",
+      "matchPackageNames": ["codespell", "codespell-project/codespell"]
+    },
     {
       "matchDepTypes": ["dependencies"],
       "major": {
@@ -14,8 +26,16 @@
     },
     {
       "groupName": "python-semantic-release",
-      "matchPackageNames": ["python-semantic-release**"],
-      "branchTopic": "python-semantic-release"
+      "matchPackageNames": [
+        "python-semantic-release",
+        "python-semantic-release/python-semantic-release",
+        "python-semantic-release/publish-action"
+      ]
+    },
+    {
+      "matchPackageNames": ["python"],
+      "rangeStrategy": "widen",
+      "separateMultipleMinor": true
     }
   ]
 }
