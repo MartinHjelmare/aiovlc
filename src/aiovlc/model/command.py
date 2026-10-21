@@ -302,9 +302,9 @@ class Repeat(Command[None]):
 
     def build_command(self) -> str:
         """Return the full command string."""
-        if self.mode not in self.VALID_MODES:
+        if (_mode := self.mode) not in self.VALID_MODES:
             raise CommandParameterError(f"Parameter mode not in {self.VALID_MODES}")
-        mode = "" if self.mode is None else f" {self.mode}"
+        mode = "" if _mode is None else f" {_mode}"
         return f"{self.prefix}{mode}\n"
 
 
@@ -318,9 +318,9 @@ class Loop(Command[None]):
 
     def build_command(self) -> str:
         """Return the full command string."""
-        if self.mode not in self.VALID_MODES:
+        if (_mode := self.mode) not in self.VALID_MODES:
             raise CommandParameterError(f"Parameter mode not in {self.VALID_MODES}")
-        mode = "" if self.mode is None else f" {self.mode}"
+        mode = "" if _mode is None else f" {_mode}"
         return f"{self.prefix}{mode}\n"
 
 
