@@ -380,6 +380,122 @@ async def test_random_command_error(
     assert mock_writer.write.call_count == 0
 
 
+@pytest.mark.parametrize(
+    ("mode", "call_argument"),
+    [
+        ("on", " on"),
+        ("off", " off"),
+        (None, ""),
+    ],
+)
+async def test_repeat_command(
+    transport: AsyncMock,
+    client_connected: Client,
+    mode: Literal["on", "off"] | None,
+    call_argument: str,
+) -> None:
+    """Test the repeat command."""
+    mock_reader, mock_writer = transport.return_value
+    mock_reader.readuntil.return_value = b"> "
+
+    await client_connected.repeat(mode)
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(f"repeat{call_argument}\n".encode())
+    assert mock_reader.readuntil.call_count == 1
+
+
+@pytest.mark.parametrize(
+    ("mode", "error", "error_message"),
+    [
+        (
+            "bad_mode",
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+        (
+            42,
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+    ],
+)
+async def test_repeat_command_error(
+    transport: AsyncMock,
+    client_connected: Client,
+    mode: Any,
+    error: type[Exception],
+    error_message: str,
+) -> None:
+    """Test the repeat command errors."""
+    mock_reader, mock_writer = transport.return_value
+
+    with pytest.raises(error) as err:
+        await client_connected.repeat(mode)
+
+    assert str(err.value) == error_message
+    assert mock_reader.readuntil.call_count == 0
+    assert mock_writer.write.call_count == 0
+
+
+@pytest.mark.parametrize(
+    ("mode", "call_argument"),
+    [
+        ("on", " on"),
+        ("off", " off"),
+        (None, ""),
+    ],
+)
+async def test_loop_command(
+    transport: AsyncMock,
+    client_connected: Client,
+    mode: Literal["on", "off"] | None,
+    call_argument: str,
+) -> None:
+    """Test the loop command."""
+    mock_reader, mock_writer = transport.return_value
+    mock_reader.readuntil.return_value = b"> "
+
+    await client_connected.loop(mode)
+
+    assert mock_writer.write.call_count == 1
+    assert mock_writer.write.call_args == call(f"loop{call_argument}\n".encode())
+    assert mock_reader.readuntil.call_count == 1
+
+
+@pytest.mark.parametrize(
+    ("mode", "error", "error_message"),
+    [
+        (
+            "bad_mode",
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+        (
+            42,
+            CommandParameterError,
+            f"Parameter mode not in {(None, 'on', 'off')}",
+        ),
+    ],
+)
+async def test_loop_command_error(
+    transport: AsyncMock,
+    client_connected: Client,
+    mode: Any,
+    error: type[Exception],
+    error_message: str,
+) -> None:
+    """Test the loop command errors."""
+    mock_reader, mock_writer = transport.return_value
+
+    with pytest.raises(error) as err:
+        await client_connected.loop(mode)
+
+    assert str(err.value) == error_message
+    assert mock_reader.readuntil.call_count == 0
+    assert mock_writer.write.call_count == 0
+
+
 async def test_set_volume_command(
     transport: AsyncMock,
     client_connected: Client,
