@@ -4,7 +4,7 @@ requires = [ "setuptools>=77.0.3" ]
 
 [project]
 name = "aiovlc"
-version = "0.7.0"
+version = "0.8.0"
 description = "Control VLC over telnet connection using asyncio"
 readme = "README.md"
 license = "Apache-2.0"

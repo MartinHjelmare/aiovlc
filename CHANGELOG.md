@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.8.0 (2026-10-21)
+
+### Features
+
+- Add loop and repeat commands ([#327](https://github.com/MartinHjelmare/aiovlc/pull/327),
+  [`01cfb34`](https://github.com/MartinHjelmare/aiovlc/commit/01cfb34741df6cd6bc2608cf2cc5854bfcab5f9e))
+
+
 ## v0.7.0 (2026-03-06)
 
 ### Build System
