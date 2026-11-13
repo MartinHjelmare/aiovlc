@@ -43,7 +43,7 @@ dev = [
   "python-semantic-release>=10,<11",
   "ruff==0.17.3",
   "sybil[pytest]==10.1.0",
-  "ty==0.0.94",
+  "ty==0.0.95",
 ]
 docs = [
   "furo; python_version>='3.12'",
